@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AI3701 机器学习与知识发现</title>
+    <url>//7172.html</url>
+    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AU3304 数字图像处理基础</title>
+    <url>//16037.html</url>
+    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<center>
@@ -51,24 +69,6 @@ C++编译工具至此配置完毕！</p>
 <p>CMakeLists.txt的结构组成：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># CMake最低版本号要求</span><br><span class="line">cmake_minimum_required(VERSION 2.8)</span><br><span class="line"># 项目信息</span><br><span class="line">project(demo)</span><br><span class="line"># 指定生成目标</span><br><span class="line">add_executable(demomain.cpp)</span><br></pre></td></tr></table></figure>
 <h4 id="安装C-C-集成开发环境——CLion">安装C/C++集成开发环境——CLion</h4>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AI3701 机器学习与知识发现</title>
-    <url>//7172.html</url>
-    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AU3304 数字图像处理基础</title>
-    <url>//16037.html</url>
-    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
