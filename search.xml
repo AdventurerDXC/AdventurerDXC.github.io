@@ -4,7 +4,7 @@
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<center>
-  <font size="5">
+  <font size=5>
     <b>基于3D点云的特征识别算法研究</b>
   </font>
 </center>
@@ -32,10 +32,9 @@
 <h3 id="C-编程环境配置">C++编程环境配置</h3>
 <h4 id="安装C-整套编译工具">安装C++整套编译工具</h4>
 <p>  Ubuntu在缺省情况下，并不提供C/C++的编译环境，因此需要手动安装。Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系并安装：</p>
-
-<p><img src="/screenshot1.png" alt></p>
+<p><img src="/images/screenshot1.png" alt=""></p>
 <p>查看编译器的版本信息：<br>
-<img src="/screenshot2.png" alt></p>
+<img src="/images/screenshot2.png" alt=""></p>
 <h4 id="安装编译配置工具——CMake">安装编译配置工具——CMake</h4>
 <h4 id="安装C-C-集成开发环境——CLion">安装C/C++集成开发环境——CLion</h4>
 ]]></content>
