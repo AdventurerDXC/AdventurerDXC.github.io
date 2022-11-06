@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>AI3701 机器学习与知识发现</title>
-    <url>//7172.html</url>
-    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AU3304 数字图像处理基础</title>
-    <url>//16037.html</url>
-    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<center>
@@ -58,17 +40,38 @@
 <p>编译并运行程序~~~<br>
 <img src="/images/screenshot3.png" alt=""><br>
 C++编译工具至此配置完毕！</p>
-<h4 id="安装编译配置工具——CMake">安装编译配置工具——CMake</h4>
+<h4 id="安装编译配置工具—CMake">安装编译配置工具—CMake</h4>
 <p>  一个大型C++项目通常含有十几个类，各类间还存在复杂的依赖关系。其中一部分要编译成可执行文件，另一部分编译成库文件。若仅靠g++命令，需输入大量的编译指令，整个编译过程会变得异常繁琐。因此，对于C++项目，使用一些工程管理工具会更高效。</p>
 <p>  CMake是一个跨平台的、开源的编译配置工具。CMake允许开发者编写与平台无关的CMakeLists.txt文件定制整个编译流程，然后用户通过cmake命令生成本地化Makefile文件，最后用make命令编译整个工程。本课题将使用CMake工具对C++项目进行管理。</p>
 <p>附：CMake工具官网：<a href="https://cmake.org/">https://cmake.org/</a><br>
-  CMake快速入门教程：<a href="https://www.linuxidc.com/Linux/2018-09/154166.htm">https://www.linuxidc.com/Linux/2018-09/154166.htm</a></p>
+  CMakeLists快速入门教程：<a href="https://github.com/ganleiboy/CMakeTutorial">https://github.com/ganleiboy/CMakeTutorial</a></p>
 <p>安装CMake工具并查询版本：<br>
 <img src="/images/screenshot4.png" alt=""></p>
 <p>  CMake是一种跨平台的编译工具，比make更为高级，使用起来也更方便。CMake主要是编写CMakeLists.txt文件，编译步骤可分为两步——用cmake命令将CMakeLists.txt文件转化为make所需要的makefile文件，最后用make命令编译源码生成可执行程序或共享库。</p>
 <p>CMakeLists.txt的结构组成：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># CMake最低版本号要求</span><br><span class="line">cmake_minimum_required(VERSION 2.8)</span><br><span class="line"># 项目信息</span><br><span class="line">project(demo)</span><br><span class="line"># 指定生成目标</span><br><span class="line">add_executable(demomain.cpp)</span><br></pre></td></tr></table></figure>
-<h4 id="安装C-C-集成开发环境——CLion">安装C/C++集成开发环境——CLion</h4>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 该模板适用于源文件都在文件夹/src中，头文件都在文件夹/include中，</span><br><span class="line"># 且调用第三方库的情况。</span><br><span class="line"></span><br><span class="line"># 设置运行本配置文件所需的CMake最低版本</span><br><span class="line">cmake_minimum_required(VERSION 2.8)</span><br><span class="line"></span><br><span class="line"># 设置工程名称为&quot;Demo&quot;（可随意设置）</span><br><span class="line">project(Demo)</span><br><span class="line"></span><br><span class="line"># 设定编译参数</span><br><span class="line">set(CMAKE_CXX_STANDARD 11)</span><br><span class="line">set(CMAKE_BUILD_TYPE &quot;Release&quot;)  # 也可以是Debug</span><br><span class="line"></span><br><span class="line"># 设定源码列表，查找指定目录(./src)中的所有源文件，将名称全保存在DIR_SRC变量中</span><br><span class="line">aux_source_directory(./src DIR_SRC)</span><br><span class="line"></span><br><span class="line"># 设定头文件路径(./include)</span><br><span class="line">include_directories(./include)</span><br><span class="line"></span><br><span class="line"># 查找并添加OpenCV的头文件目录</span><br><span class="line">find_package(OpenCV REQUIRED)</span><br><span class="line">include_directories($&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line"></span><br><span class="line"># 将源文件编译成可执行文件，文件名为main（可随便取名，保存在当前目录下）</span><br><span class="line">add_executable(main $&#123;DIR_SRC&#125;)</span><br><span class="line">target_link_libraries(main $&#123;OpenCV_LIBS&#125;)  # 可执行文件链接OpenCV库</span><br></pre></td></tr></table></figure>
+<p>  cmake指向CMakeLists.txt所在目录的上一级目录，而cmake后会生成很多编译的中间文件以及makefile文件，所以一般建议新建一个目录，专门用来编译。编译一个cmake工程的基本步骤如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir build  # 创建一个用于存放中间文件的文件夹</span><br><span class="line">cd build    # 进入build目录</span><br><span class="line">cmake ..    # 根据CMakeLists.txt对工程进行分析，生成中间文件和makefile文件</span><br><span class="line">make       # 根据生成的makefile文件编译程序，生成可执行文件和库文件]</span><br></pre></td></tr></table></figure>
+<h4 id="C-C-集成开发环境—CLion">C/C++集成开发环境—CLion</h4>
+<p>  我平日编程用得最多的IDE是Visual Studio Code，但在学长推荐下决定还是尝试一下CLion. 它是Jetbrains公司旗下的一款专为开发C/C++设计的跨平台IDE，以IntelliJ为基础进行设计，非常适合开发。</p>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AI3701 机器学习与知识发现</title>
+    <url>//7172.html</url>
+    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AU3304 数字图像处理基础</title>
+    <url>//16037.html</url>
+    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
