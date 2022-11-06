@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AI3701 机器学习与知识发现</title>
+    <url>//7172.html</url>
+    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AU3304 数字图像处理基础</title>
+    <url>//16037.html</url>
+    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<center>
@@ -35,7 +53,7 @@
 <p><img src="/images/screenshot1.png" alt=""></p>
 <p>查看编译器、调试器的版本信息：<br>
 <img src="/images/screenshot2.png" alt=""></p>
-<p>使用g<ins>编译工具对C</ins>程序进行编译，并运行生成的可执行文件。代码示例：</p>
+<p>使用g++编译工具对C++程序进行编译，并运行生成的可执行文件。代码示例：</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  cout&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;endl;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>编译并运行程序~~~<br>
 <img src="/images/screenshot3.png" alt=""><br>
@@ -57,24 +75,6 @@ C++编译工具至此配置完毕！</p>
 <p>附：CLion官网：<a href="https://www.jetbrains.com/clion/">https://www.jetbrains.com/clion/</a></p>
 <p>  该软件经官方授权，可通过学创软件授权中心下载和使用。命令行安装步骤如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar -zxvf jetbrains-toolbox-1.21.9712.tar.gz</span><br><span class="line">cd jetbrains-toolbox-1.21.9712</span><br><span class="line">./clion.sh</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AI3701 机器学习与知识发现</title>
-    <url>//7172.html</url>
-    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AU3304 数字图像处理基础</title>
-    <url>//16037.html</url>
-    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
