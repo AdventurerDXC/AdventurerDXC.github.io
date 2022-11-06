@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>AI3701 机器学习与知识发现</title>
-    <url>//7172.html</url>
-    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AU3304 数字图像处理基础</title>
-    <url>//16037.html</url>
-    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<center>
@@ -50,9 +32,26 @@
 <h3 id="C-编程环境配置">C++编程环境配置</h3>
 <h4 id="安装C-整套编译工具">安装C++整套编译工具</h4>
 <p>  Ubuntu在缺省情况下，并不提供C/C++的编译环境，因此需要手动安装。Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系并安装：</p>
-<p><img src="/images/ME4932/screenshot1.png" alt="这是图片" title="01"></p>
 <h4 id="安装编译配置工具——CMake">安装编译配置工具——CMake</h4>
 <h4 id="安装C-C-集成开发环境——CLion">安装C/C++集成开发环境——CLion</h4>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AI3701 机器学习与知识发现</title>
+    <url>//7172.html</url>
+    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AU3304 数字图像处理基础</title>
+    <url>//16037.html</url>
+    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
