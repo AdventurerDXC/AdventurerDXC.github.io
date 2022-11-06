@@ -54,6 +54,9 @@ C++编译工具至此配置完毕！</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir build  # 创建一个用于存放中间文件的文件夹</span><br><span class="line">cd build    # 进入build目录</span><br><span class="line">cmake ..    # 根据CMakeLists.txt对工程进行分析，生成中间文件和makefile文件</span><br><span class="line">make       # 根据生成的makefile文件编译程序，生成可执行文件和库文件]</span><br></pre></td></tr></table></figure>
 <h4 id="C-C-集成开发环境—CLion">C/C++集成开发环境—CLion</h4>
 <p>  我平日编程用得最多的IDE是Visual Studio Code，但在学长推荐下决定还是尝试一下CLion. 它是Jetbrains公司旗下的一款专为开发C/C++设计的跨平台IDE，以IntelliJ为基础进行设计，非常适合开发。</p>
+<p>附：CLion官网：<a href="https://www.jetbrains.com/clion/">https://www.jetbrains.com/clion/</a></p>
+<p>  该软件经官方授权，可通过学创软件授权中心下载和使用。命令行安装步骤如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar -zxvf jetbrains-toolbox-1.21.9712.tar.gz</span><br><span class="line">cd jetbrains-toolbox-1.21.9712</span><br><span class="line">./clion.sh</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
