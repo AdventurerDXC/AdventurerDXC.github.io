@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>AI3701 机器学习与知识发现</title>
-    <url>//7172.html</url>
-    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AU3304 数字图像处理基础</title>
-    <url>//16037.html</url>
-    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<center>
@@ -51,10 +33,42 @@
 <h4 id="安装C-整套编译工具">安装C++整套编译工具</h4>
 <p>  Ubuntu在缺省情况下，并不提供C/C++的编译环境，因此需要手动安装。Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系并安装：</p>
 <p><img src="/images/screenshot1.png" alt=""></p>
-<p>查看编译器的版本信息：<br>
+<p>查看编译器、调试器的版本信息：<br>
 <img src="/images/screenshot2.png" alt=""></p>
+<p>使用g<ins>编译工具对C</ins>程序进行编译，并运行生成的可执行文件。代码示例：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  cout&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;endl;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译并运行程序~~~<br>
+<img src="/images/screenshot3.png" alt=""><br>
+C++编译工具至此配置完毕！</p>
 <h4 id="安装编译配置工具——CMake">安装编译配置工具——CMake</h4>
+<p>  一个大型C++项目通常含有十几个类，各类间还存在复杂的依赖关系。其中一部分要编译成可执行文件，另一部分编译成库文件。若仅靠g++命令，需输入大量的编译指令，整个编译过程会变得异常繁琐。因此，对于C++项目，使用一些工程管理工具会更高效。</p>
+<p>  CMake是一个跨平台的、开源的编译配置工具。CMake允许开发者编写与平台无关的CMakeLists.txt文件定制整个编译流程，然后用户通过cmake命令生成本地化Makefile文件，最后用make命令编译整个工程。本课题将使用CMake工具对C++项目进行管理。</p>
+<p>附：CMake工具官网：<a href="https://cmake.org/">https://cmake.org/</a><br>
+  CMake快速入门教程：<a href="https://www.linuxidc.com/Linux/2018-09/154166.htm">https://www.linuxidc.com/Linux/2018-09/154166.htm</a></p>
+<p>安装CMake工具并查询版本：<br>
+<img src="/images/screenshot4.png" alt=""></p>
+<p>  CMake是一种跨平台的编译工具，比make更为高级，使用起来也更方便。CMake主要是编写CMakeLists.txt文件，编译步骤可分为两步——用cmake命令将CMakeLists.txt文件转化为make所需要的makefile文件，最后用make命令编译源码生成可执行程序或共享库。</p>
+<p>CMakeLists.txt的结构组成：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># CMake最低版本号要求</span><br><span class="line">cmake_minimum_required(VERSION 2.8)</span><br><span class="line"># 项目信息</span><br><span class="line">project(demo)</span><br><span class="line"># 指定生成目标</span><br><span class="line">add_executable(demomain.cpp)</span><br></pre></td></tr></table></figure>
 <h4 id="安装C-C-集成开发环境——CLion">安装C/C++集成开发环境——CLion</h4>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AI3701 机器学习与知识发现</title>
+    <url>//7172.html</url>
+    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AU3304 数字图像处理基础</title>
+    <url>//16037.html</url>
+    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
