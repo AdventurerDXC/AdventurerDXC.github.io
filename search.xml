@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AI3701 机器学习与知识发现</title>
+    <url>//7172.html</url>
+    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AU3304 数字图像处理基础</title>
+    <url>//16037.html</url>
+    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<center>
@@ -27,26 +45,14 @@
 </ul>
 <h2 id="环境准备">环境准备</h2>
 <h3 id="Linux系统安装">Linux系统安装</h3>
+<p>  Linux相比其他操作系统，具有代码开源、内核精简、安全稳定高效、多用户多任务多线程等诸多优点，因而非常适用于编程和开发工作。<br>
+  我的笔记本上已经提前装好了Ubuntu 20.04 LTS发行版，和Windows组成双系统进行日常使用。具体安装过程此处不再赘述。</p>
 <h3 id="C-编程环境配置">C++编程环境配置</h3>
 <h4 id="安装C-整套编译工具">安装C++整套编译工具</h4>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AI3701 机器学习与知识发现</title>
-    <url>//7172.html</url>
-    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AU3304 数字图像处理基础</title>
-    <url>//16037.html</url>
-    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
+<p>  Ubuntu在缺省情况下，并不提供C/C++的编译环境，因此需要手动安装。Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系并安装：</p>
+<p><img src="/images/ME4932/screenshot1.png" alt="这是图片" title="01"></p>
+<h4 id="安装编译配置工具——CMake">安装编译配置工具——CMake</h4>
+<h4 id="安装C-C-集成开发环境——CLion">安装C/C++集成开发环境——CLion</h4>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
