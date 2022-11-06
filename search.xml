@@ -31,8 +31,11 @@
   我的笔记本上已经提前装好了Ubuntu 20.04 LTS发行版，和Windows组成双系统进行日常使用。具体安装过程此处不再赘述。</p>
 <h3 id="C-编程环境配置">C++编程环境配置</h3>
 <h4 id="安装C-整套编译工具">安装C++整套编译工具</h4>
-<p>  Ubuntu在缺省情况下，并不提供C/C++的编译环境，因此需要手动安装。Ubuntu提供了一个build-essential软件包。</p>
-<p><img src="images/ME4932/screenshot1.png" alt="查看该软件包的依赖关系并安装："></p>
+<p>  Ubuntu在缺省情况下，并不提供C/C++的编译环境，因此需要手动安装。Ubuntu提供了一个build-essential软件包。查看该软件包的依赖关系并安装：</p>
+
+<p><img src="/screenshot1.png" alt></p>
+<p>查看编译器的版本信息：<br>
+<img src="/screenshot2.png" alt></p>
 <h4 id="安装编译配置工具——CMake">安装编译配置工具——CMake</h4>
 <h4 id="安装C-C-集成开发环境——CLion">安装C/C++集成开发环境——CLion</h4>
 ]]></content>
