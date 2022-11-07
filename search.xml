@@ -90,6 +90,12 @@ C++编译工具至此配置完毕！</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line">./pcl_test</span><br></pre></td></tr></table></figure>
 <p>若可以看到一个漂亮的3D模型，则pcl及其依赖库安装成功⬇<br>
 <img src="/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot7.png" alt=""></p>
+<h2 id="PCL功能模块详解">PCL功能模块详解</h2>
+<h3 id="滤波器-Filters">滤波器(Filters)</h3>
+<h3 id="特征提取-Features">特征提取(Features)</h3>
+<h3 id="关键点-Keypoints">关键点(Keypoints)</h3>
+<h3 id="点云配准-Registration">点云配准(Registration)</h3>
+<h3 id="k维树-KdTree">k维树(KdTree)</h3>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
