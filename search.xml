@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AI3701 机器学习与知识发现</title>
+    <url>//7172.html</url>
+    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AU3304 数字图像处理基础</title>
+    <url>//16037.html</url>
+    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<center>
   <font size=5>
     <b>基于3D点云的特征识别算法研究</b>
   </font>
+</center>
+<center>
+  （下两周计划见页面底部）
 </center>
 <h2 id="前言">前言</h2>
 <h3 id="课题背景与研究目标">课题背景与研究目标</h3>
@@ -96,24 +117,7 @@ C++编译工具至此配置完毕！</p>
 <h3 id="关键点-Keypoints">关键点(Keypoints)</h3>
 <h3 id="点云配准-Registration">点云配准(Registration)</h3>
 <h3 id="k维树-KdTree">k维树(KdTree)</h3>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AI3701 机器学习与知识发现</title>
-    <url>//7172.html</url>
-    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AU3304 数字图像处理基础</title>
-    <url>//16037.html</url>
-    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
+<p>11.07 更新：下两周将完成<b>点云数据的读取和可视化</b>的编程任务。</p>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
