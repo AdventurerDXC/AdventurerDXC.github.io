@@ -106,6 +106,28 @@ C++编译工具至此配置完毕！</p>
 <h3 id="关键点-Keypoints">关键点(Keypoints)</h3>
 <h3 id="点云配准-Registration">点云配准(Registration)</h3>
 <h3 id="k维树-KdTree">k维树(KdTree)</h3>
+<h2 id="焊缝点云特征数据的提取">焊缝点云特征数据的提取</h2>
+<p>  柯学长布置的任务清单如下：</p>
+<blockquote>
+<p>项目的总体任务：<strong>提取出焊缝的特征数据</strong><br>
+注：需提前思考焊缝打磨的特征数据是什么，根据自己的思考提取相应的特征数据。</p>
+</blockquote>
+<blockquote>
+<p>现阶段的任务（10-12月）：</p>
+<ul class="lvl-1">
+<li class="lvl-2">点云数据的读取；</li>
+<li class="lvl-2">点云数据的可视化；</li>
+<li class="lvl-2">将三个点云数据通过旋转平移矩阵变换到一个坐标系下。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>文件清单说明：<br>
+data1, data2, data3是扫描的点云数据。<br>
+transform.txt文件里的数据分别是data1，data2，data3的相机坐标系与世界坐标系之间的旋转平移变换矩阵。</p>
+</blockquote>
+<h3 id="点云数据的读取">点云数据的读取</h3>
+<h3 id="点云数据的可视化">点云数据的可视化</h3>
+<h3 id="点云数据的坐标转换">点云数据的坐标转换</h3>
 <p>11.07 更新：下两周将完成<b>点云数据的读取和可视化</b>的编程任务。</p>
 ]]></content>
       <categories>
