@@ -36,8 +36,11 @@
 <meta property="og:image" content="https://adventurerdxc.github.io/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot7.png">
 <meta property="og:image" content="https://adventurerdxc.github.io/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot8.jpg">
 <meta property="og:image" content="https://adventurerdxc.github.io/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot9.jpg">
+<meta property="og:image" content="https://adventurerdxc.github.io/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot10.jpg">
+<meta property="og:image" content="https://adventurerdxc.github.io/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot11.jpg">
+<meta property="og:image" content="https://adventurerdxc.github.io/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot12.jpg">
 <meta property="article:published_time" content="2022-11-01T02:00:00.000Z">
-<meta property="article:modified_time" content="2022-11-21T15:19:19.088Z">
+<meta property="article:modified_time" content="2022-11-21T15:33:46.956Z">
 <meta property="article:author" content="AdventurerDXC的技术博客">
 <meta property="article:tag" content="技术类博客">
 <meta name="twitter:card" content="summary">
@@ -202,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-21 23:19:19" itemprop="dateModified" datetime="2022-11-21T23:19:19+08:00">2022-11-21</time>
+                <time title="修改时间：2022-11-21 23:33:46" itemprop="dateModified" datetime="2022-11-21T23:33:46+08:00">2022-11-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -373,6 +376,13 @@ transform.txt文件里的数据分别是data1，data2，data3的相机坐标系�
 <h3 id="点云数据的可视化">点云数据的可视化</h3>
 <p>  可以直接使用PCL的可视化类函数，这里使用的是pcl::<strong>visualization::CloudViewer</strong>方法，以简洁的代码查看点云。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;pcl/point_types.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;pcl/visualization/cloud_viewer.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//读取点云</span></span><br><span class="line">    pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">Ptr <span class="title">cloud</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">    file_path = <span class="string">&quot;/home/xcdai/Documents/PCL_Project/pcl_visualization/source/data1.txt&quot;</span>;</span><br><span class="line">    <span class="built_in">CreateCloudFromTxt</span>(file_path, cloud);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//可视化点云</span></span><br><span class="line">    pcl::<span class="function">visualization::CloudViewer <span class="title">viewer</span><span class="params">(<span class="string">&quot;pointcloud_1&quot;</span>)</span></span>;</span><br><span class="line">    viewer.<span class="built_in">showCloud</span>(cloud);</span><br><span class="line">    <span class="keyword">while</span>(!viewer.<span class="built_in">wasStopped</span>()) &#123;  &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>  可视化效果展示如下：<br>
+  <strong>data1</strong>:<br>
+<img src="/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot10.jpg" alt=""><br>
+  <strong>data2</strong>:<br>
+<img src="/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot11.jpg" alt=""><br>
+  <strong>data3</strong>:<br>
+<img src="/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot12.jpg" alt=""></p>
 <h3 id="点云数据的坐标转换">点云数据的坐标转换</h3>
 <p>11.07 更新：下两周将完成<b>点云数据的读取和可视化</b>的编程任务。</p>
 
