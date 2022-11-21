@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AI3701 机器学习与知识发现</title>
+    <url>//7172.html</url>
+    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>AU3304 数字图像处理基础</title>
+    <url>//16037.html</url>
+    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<center>
@@ -128,10 +146,11 @@ transform.txt文件里的数据分别是data1，data2，data3的相机坐标系�
 <h3 id="点云数据的读取">点云数据的读取</h3>
 <p>  txt点云数据格式说明：每个点的坐标数据单独占据一行，每一行的三维坐标之间用空格间隔（如下图所示）。<br>
 <img src="/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot9.jpg" alt=""></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CreateCloudFromTxt</span><span class="params">(<span class="type">const</span> std::string&amp; file_path, pcl::PointCloud&lt;pcl::PointXYZ&gt;::Ptr cloud)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span>从txt文件中读取三维点云数据，并存储在PCL实例中<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="function">std::ifstream <span class="title">data</span><span class="params">(file_path)</span></span>;</span><br><span class="line">    std::string line;</span><br><span class="line">    pcl::PointXYZ point;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">getline</span>(data, line, <span class="string">&#x27;\n&#x27;</span>)) &#123;</span><br><span class="line">        <span class="function">std::stringstream <span class="title">ss</span><span class="params">(line)</span></span>;</span><br><span class="line">        ss &gt;&gt; point.x;</span><br><span class="line">        ss &gt;&gt; point.y;</span><br><span class="line">        ss &gt;&gt; point.z;</span><br><span class="line">        cloud-&gt;<span class="built_in">push_back</span>(point);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// CMakeLists.txt</span><br><span class="line"></span><br><span class="line">cmake_minimum_required(VERSION 2.6)</span><br><span class="line">project(pcl_visualize)</span><br><span class="line"></span><br><span class="line">find_package(PCL 1.12 REQUIRED)</span><br><span class="line"></span><br><span class="line">include_directories($&#123;PCL_INCLUDE_DIRS&#125;)</span><br><span class="line">link_directories($&#123;PCL_LIBRARY_DIRS&#125;)</span><br><span class="line">add_definitions($&#123;PCL_DEFINITIONS&#125;)</span><br><span class="line"></span><br><span class="line">add_executable(pcl_visualize pcl_visualize.cpp)</span><br><span class="line"></span><br><span class="line">target_link_libraries (pcl_visualize $&#123;PCL_LIBRARIES&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// pcl_visualize.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CreateCloudFromTxt</span><span class="params">(<span class="type">const</span> std::string&amp; file_path, pcl::PointCloud&lt;pcl::PointXYZ&gt;::Ptr cloud)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span>从txt文件中读取三维点云数据，并存储在PCL实例中<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="function">std::ifstream <span class="title">data</span><span class="params">(file_path)</span></span>;</span><br><span class="line">    std::string line;</span><br><span class="line">    pcl::PointXYZ point;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">getline</span>(data, line, <span class="string">&#x27;\n&#x27;</span>)) &#123;</span><br><span class="line">        <span class="function">std::stringstream <span class="title">ss</span><span class="params">(line)</span></span>;</span><br><span class="line">        ss &gt;&gt; point.x;</span><br><span class="line">        ss &gt;&gt; point.y;</span><br><span class="line">        ss &gt;&gt; point.z;</span><br><span class="line">        cloud-&gt;<span class="built_in">push_back</span>(point);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h3 id="点云数据的可视化">点云数据的可视化</h3>
 <p>  可以直接使用PCL的可视化类函数，这里使用的是pcl::<strong>visualization::CloudViewer</strong>方法，以简洁的代码查看点云。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;pcl/point_types.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;pcl/visualization/cloud_viewer.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//读取点云</span></span><br><span class="line">    pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">Ptr <span class="title">cloud</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">    file_path = <span class="string">&quot;/home/xcdai/Documents/PCL_Project/pcl_visualization/source/data1.txt&quot;</span>;</span><br><span class="line">    <span class="built_in">CreateCloudFromTxt</span>(file_path, cloud);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//可视化点云</span></span><br><span class="line">    pcl::<span class="function">visualization::CloudViewer <span class="title">viewer</span><span class="params">(<span class="string">&quot;pointcloud_1&quot;</span>)</span></span>;</span><br><span class="line">    viewer.<span class="built_in">showCloud</span>(cloud);</span><br><span class="line">    <span class="keyword">while</span>(!viewer.<span class="built_in">wasStopped</span>()) &#123;  &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// pcl_visualize.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;pcl/point_types.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;pcl/visualization/cloud_viewer.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//读取点云</span></span><br><span class="line">    pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">Ptr <span class="title">cloud</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">    file_path = <span class="string">&quot;/home/xcdai/Documents/PCL_Project/pcl_visualization/source/data1.txt&quot;</span>;</span><br><span class="line">    <span class="built_in">CreateCloudFromTxt</span>(file_path, cloud);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//可视化点云</span></span><br><span class="line">    pcl::<span class="function">visualization::CloudViewer <span class="title">viewer</span><span class="params">(<span class="string">&quot;pointcloud_1&quot;</span>)</span></span>;</span><br><span class="line">    viewer.<span class="built_in">showCloud</span>(cloud);</span><br><span class="line">    <span class="keyword">while</span>(!viewer.<span class="built_in">wasStopped</span>()) &#123;  &#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>  可视化效果展示如下：<br>
   <strong>data1</strong>:<br>
 <img src="/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot10.jpg" alt=""><br>
@@ -141,24 +160,6 @@ transform.txt文件里的数据分别是data1，data2，data3的相机坐标系�
 <img src="/images/ME4932-%E7%A7%91%E5%AD%A6%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%88%9B%E6%96%B0%E5%AE%9E%E8%B7%B5/screenshot12.jpg" alt=""></p>
 <h3 id="点云数据的坐标转换">点云数据的坐标转换</h3>
 <p>11.21 更新：下两周将完成<b>点云数据的坐标转换</b>的编程任务。</p>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AI3701 机器学习与知识发现</title>
-    <url>//7172.html</url>
-    <content><![CDATA[<h2 id="机器学习与知识发现">机器学习与知识发现</h2>
-]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>AU3304 数字图像处理基础</title>
-    <url>//16037.html</url>
-    <content><![CDATA[<h2 id="数字图像处理基础">数字图像处理基础</h2>
 ]]></content>
       <categories>
         <category>课程代码示例</category>
