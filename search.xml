@@ -83,11 +83,11 @@
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>安装Nvidia Jetpack</p>
-<p>Nvidia Jetpack是专为Jetson平台设计的构建人工智能应用的全面的解决方案，它包括带有引导程序的Linux驱动程序包、Linux内核、Ubuntu桌面环境，以及一整套用于加速GPU计算、多媒体、图形和计算机视觉的库。参考<a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-agx-orin-devkit">英伟达官方教程</a>，可用命令行方式安装jetpack</p>
+<p>Nvidia Jetpack是专为Jetson平台设计的构建人工智能应用的全面的解决方案，它包括带有引导程序的Linux驱动程序包、Linux内核、Ubuntu桌面环境，以及一整套用于加速GPU计算、多媒体、图形和计算机视觉的库。参考<a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-agx-orin-devkit">英伟达官方教程</a>，用命令行方式安装jetpack</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line">sudo apt dist-upgrade</span><br><span class="line">sudo reboot</span><br><span class="line">sudo apt install nvidia-jetpack</span><br></pre></td></tr></table></figure>
 <p>执行最后一步命令出现报错：</p>
 <img src="\images\ME4918-机械工程本科毕业设计\pic05.png" style="zoom:100%;"/>
-<p>解决办法：增加英伟达镜像源</p>
+<p>解决办法：<strong>为系统源增加英伟达镜像源</strong></p>
 <ol>
 <li class="lvl-5">
 <p>首先查看Tegra处理器的Linux操作系统版本：<code>cat /etc/nv_tegra_release</code></p>
@@ -109,9 +109,17 @@
 </li>
 <li class="lvl-2">
 <p>安装jtop监控工具</p>
+<p>jtop是Jetson系列著名的系统监控工具，安装过程如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br><span class="line">sudo -H pip3 install -U pip</span><br><span class="line">sudo -H pip install jetson-stats</span><br><span class="line">jtop</span><br></pre></td></tr></table></figure>
+<p>执行完最后一条命令，可显示包含CPU、GPU、内存和磁盘等实时情况的图形界面</p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic07.png" style="zoom:70%;"/>
 </li>
 <li class="lvl-2">
 <p>为CUDA设置环境变量</p>
+<p>在终端中修改bashrc文件，方法如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/.bashrc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在文末添加如下代码</span></span><br><span class="line">export PATH=/usr/local/cuda/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">export CUDA_HOME=/usr/local/cuda</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新环境变量配置</span></span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>检验CUDA环境配置成功：<code>nvcc -V</code></p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic08.png" style="zoom:85%;"/>
 </li>
 <li class="lvl-2">
 <p>配置CuDNN环境</p>
