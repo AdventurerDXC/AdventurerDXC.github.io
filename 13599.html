@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://adventurerdxc.github.io/images/ME4918-%E6%9C%BA%E6%A2%B0%E5%B7%A5%E7%A8%8B%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/pic01.png">
 <meta property="article:published_time" content="2024-01-10T02:00:00.000Z">
-<meta property="article:modified_time" content="2024-01-22T04:42:45.337Z">
+<meta property="article:modified_time" content="2024-01-22T04:45:19.186Z">
 <meta property="article:author" content="AdventurerDXC的技术博客">
 <meta property="article:tag" content="技术类博客">
 <meta name="twitter:card" content="summary">
@@ -196,7 +196,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-22 12:42:45" itemprop="dateModified" datetime="2024-01-22T12:42:45+08:00">2024-01-22</time>
+                <time title="修改时间：2024-01-22 12:45:19" itemprop="dateModified" datetime="2024-01-22T12:45:19+08:00">2024-01-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,7 +214,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>580</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -253,6 +253,27 @@
     图1 - 项目应用场景
   </font>
 </center>
+<h2 id="个人分工">个人分工</h2>
+<p>  在本项目中，我将综合应用3D视觉技术和深度学习算法，解决不同形态和大小的医用物品在复杂环境中的抓取问题。首先，通过高效的图像分割技术，我们能够准确地将目标物品从其环境中区分出来，为抓取任务提供了精确的空间定位。进而，利用高级的姿态估计算法，系统能够计算出机械臂执行任务时的最优姿态，确保安全、精确的抓取。最后，通过智能规划，系统得以确定最佳的抓取顺序，旨在优化作业效率和成功率。整个系统的设计均考虑到边缘计算环境的资源限制，确保所有计算过程能在英伟达Orin边缘计算模块上以5hz以上的速度运行，展示了在现代自动化医疗场景中3D视觉技术的巨大潜力和实用价值。</p>
+<ol>
+<li class="lvl-3">
+<p><strong>抓取物品的图像分割</strong></p>
+</li>
+</ol>
+<p>  在复杂的医疗物品抓取任务中，准确的图像分割是实现高效抓取的关键。面对各种形态和尺寸的医用物品（如疫苗管、试管等），我们首先要利用3D视觉技术精确地将这些物品从背景中分割出来。这一步骤需要处理可能出现的物体间遮挡、光照变化以及物体本身的反光材质等问题。图像分割算法需要有足够的鲁棒性，以适应医疗环境中多变的条件。通过对3D点云数据的深度学习处理，能够实现对各种医用物品和它们的空间位置的精确识别，从而为后续的抓取姿态估计和序列规划提供可靠的前处理数据。</p>
+<ol start="2">
+<li class="lvl-3">
+<p><strong>机械臂最佳抓取姿态估计</strong></p>
+</li>
+</ol>
+<p>  根据图像分割结果，系统需要进一步估计机械臂的最佳抓取姿态。使用3D视觉技术构建目标物体的高精度立体模型，结合机器学习算法对抓取点的稳定性和可行性进行评估。抓取姿态涉及到物体的方向、机械臂的接近角度和路径规划等多个要素。我们当中采用优化算法来确保最终推导出的抓取姿态既能增强抓取的成功率，又能最大限度减少机械臂的运动时间和能耗。姿态估计模块必须实时工作，以适应动态变化的抓取环境和任务需求。</p>
+<ol start="3">
+<li class="lvl-3">
+<p><strong>医疗物品抓取顺序的计算</strong></p>
+</li>
+</ol>
+<p>  确定合理的抓取顺序对于提高整体抓取效率和成功率具有至关重要的意义。考虑到各种医疗物品之间的空间布局和相互关联，系统需要计算出一个最优的抓取顺序。这一过程包含复杂的逻辑和规划算法，例如，可能需要优先抓取会对后续操作造成遮挡的物品，或者根据任务紧急性来调整抓取顺序。适配边缘计算的算法需要考虑到计算资源和响应时间的限制，确保在有限的硬件资源下也能够快速给出最优解决方案。</p>
+
     </div>
 
     
@@ -329,7 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">项目背景</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">项目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E5%88%86%E5%B7%A5"><span class="nav-number">2.</span> <span class="nav-text">个人分工</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -400,12 +421,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">31k</span>
+    <span title="站点总字数">32k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">28 分钟</span>
+    <span title="站点阅读时长">29 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
