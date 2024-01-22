@@ -36,8 +36,11 @@
 <meta property="og:image" content="https://adventurerdxc.github.io/images/ME4918-%E6%9C%BA%E6%A2%B0%E5%B7%A5%E7%A8%8B%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/pic07.png">
 <meta property="og:image" content="https://adventurerdxc.github.io/images/ME4918-%E6%9C%BA%E6%A2%B0%E5%B7%A5%E7%A8%8B%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/pic08.png">
 <meta property="og:image" content="https://adventurerdxc.github.io/images/ME4918-%E6%9C%BA%E6%A2%B0%E5%B7%A5%E7%A8%8B%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/pic09.png">
+<meta property="og:image" content="https://adventurerdxc.github.io/images/ME4918-%E6%9C%BA%E6%A2%B0%E5%B7%A5%E7%A8%8B%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/pic10.png">
+<meta property="og:image" content="https://adventurerdxc.github.io/images/ME4918-%E6%9C%BA%E6%A2%B0%E5%B7%A5%E7%A8%8B%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/pic11.png">
+<meta property="og:image" content="https://adventurerdxc.github.io/images/ME4918-%E6%9C%BA%E6%A2%B0%E5%B7%A5%E7%A8%8B%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/pic12.png">
 <meta property="article:published_time" content="2024-01-10T02:00:00.000Z">
-<meta property="article:modified_time" content="2024-01-22T13:11:57.276Z">
+<meta property="article:modified_time" content="2024-01-22T13:49:33.090Z">
 <meta property="article:author" content="AdventurerDXC的技术博客">
 <meta property="article:tag" content="技术类博客">
 <meta name="twitter:card" content="summary">
@@ -204,7 +207,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-01-22 21:11:57" itemprop="dateModified" datetime="2024-01-22T21:11:57+08:00">2024-01-22</time>
+                <time title="修改时间：2024-01-22 21:49:33" itemprop="dateModified" datetime="2024-01-22T21:49:33+08:00">2024-01-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,14 +225,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
+              <span>4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>4 分钟</span>
             </span>
             <div class="post-description">生物样本库通常用来保存血液、基因、代谢产物等珍贵的生物样本。生物样本保存在冻存盒内的冻存管中，并整盒存放于-80°甚至-196°的深低温环境中。为提高存取效率，当用户需要提取样本时，由自动化设备将存有目标样本的冻存盒取出，并使用机械臂夹取目标样本到空冻存盒中完成样本出库，并在-30°环境下使用挑管夹爪夹取目标样本到空冻存盒中完成样本出库。深低温保存条件下，冻存盒体表面会逐渐结霜。在零度以下的工作环境中反复移动、定位和出入库的过程，会导致结霜表面逐渐增厚，盒体发生轻微滑动，盒底孔位结霜干扰识别。长期使用中会导致挑管时盒体定位精度下降，夹爪取放位置误差增大，造成挑管成功率下降，严重时可能损坏样本，造成重大的损失。另外，当出现样本管倾倒等异常情况时，难以通过孔位识别进行定位抓取，也会导致挑管失败。<br /> 因此，项目需要一套<b>视觉辅助的机械臂挑管系统</b>，能够实现精准的抓取与稳定的路径规划，同时在检测到样本管异常情况时控制机械臂调整样本管位姿并放置到目标位置。在正常工作环境下，机械臂3轴移动即可实现样本管的平稳运送。但在样本管异常放置情况下，倾斜样本管的位姿调整与移送要求机械臂实现6自由度动作，并能够基于环境理解进行智能抓取。</div>
 
@@ -247,131 +250,134 @@
         display: inline-block;
     }
 </style>
+
 <center>
   <font size=5>
     <b>基于医用物品抓取的3D图像分割、姿态估计和环境理解</b>
   </font>
 </center>
-<h2 id="项目背景">项目背景</h2>
-<p>  生物样本库通常用来保存血液、基因、代谢产物等珍贵的生物样本。生物样本保存在冻存盒内的冻存管中，并整盒存放于-80°甚至-196°的深低温环境中。为提高存取效率，当用户需要提取样本时，由自动化设备将存有目标样本的冻存盒取出，并使用机械臂夹取目标样本到空冻存盒中完成样本出库，并在-30°环境下使用挑管夹爪夹取目标样本到空冻存盒中完成样本出库。深低温保存条件下，冻存盒体表面会逐渐结霜。在零度以下的工作环境中反复移动、定位和出入库的过程，会导致结霜表面逐渐增厚，盒体发生轻微滑动，盒底孔位结霜干扰识别。长期使用中会导致挑管时盒体定位精度下降，夹爪取放位置误差增大，造成挑管成功率下降，严重时可能损坏样本，造成重大的损失。另外，当出现样本管倾倒等异常情况时，难以通过孔位识别进行定位抓取，也会导致挑管失败。</p>
-<p>  因此，项目需要一套<b>视觉辅助的机械臂挑管系统</b>，能够实现精准的抓取与稳定的路径规划，同时在检测到样本管异常情况时控制机械臂调整样本管位姿并放置到目标位置。在正常工作环境下，机械臂3轴移动即可实现样本管的平稳运送。但在样本管异常放置情况下，倾斜样本管的位姿调整与移送要求机械臂实现6自由度动作，并能够基于环境理解进行智能抓取。</p>
+
+
+<h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;生物样本库通常用来保存血液、基因、代谢产物等珍贵的生物样本。生物样本保存在冻存盒内的冻存管中，并整盒存放于-80°甚至-196°的深低温环境中。为提高存取效率，当用户需要提取样本时，由自动化设备将存有目标样本的冻存盒取出，并使用机械臂夹取目标样本到空冻存盒中完成样本出库，并在-30°环境下使用挑管夹爪夹取目标样本到空冻存盒中完成样本出库。深低温保存条件下，冻存盒体表面会逐渐结霜。在零度以下的工作环境中反复移动、定位和出入库的过程，会导致结霜表面逐渐增厚，盒体发生轻微滑动，盒底孔位结霜干扰识别。长期使用中会导致挑管时盒体定位精度下降，夹爪取放位置误差增大，造成挑管成功率下降，严重时可能损坏样本，造成重大的损失。另外，当出现样本管倾倒等异常情况时，难以通过孔位识别进行定位抓取，也会导致挑管失败。  </p>
+<p>&emsp;&emsp;因此，项目需要一套<b>视觉辅助的机械臂挑管系统</b>，能够实现精准的抓取与稳定的路径规划，同时在检测到样本管异常情况时控制机械臂调整样本管位姿并放置到目标位置。在正常工作环境下，机械臂3轴移动即可实现样本管的平稳运送。但在样本管异常放置情况下，倾斜样本管的位姿调整与移送要求机械臂实现6自由度动作，并能够基于环境理解进行智能抓取。</p>
 <div style="display:inline-block;">
     <img src="\images\ME4918-机械工程本科毕业设计\pic01.png" alt="pic01" style="display: block; margin: 0 auto; float: center;" width="30%">
 </div>
+
 <center>
   <font size=3>
     图 - 项目应用场景
   </font>
 </center>
-<h2 id="个人分工">个人分工</h2>
-<p>  在本项目中，我将综合应用3D视觉技术和深度学习算法，解决不同形态和大小的医用物品在复杂环境中的抓取问题。首先，通过高效的图像分割技术，我们能够准确地将目标物品从其环境中区分出来，为抓取任务提供了精确的空间定位。进而，利用高级的姿态估计算法，系统能够计算出机械臂执行任务时的最优姿态，确保安全、精确的抓取。最后，通过智能规划，系统得以确定最佳的抓取顺序，旨在优化作业效率和成功率。整个系统的设计均考虑到边缘计算环境的资源限制，确保所有计算过程能在英伟达Orin边缘计算模块上以5hz以上的速度运行，展示了在现代自动化医疗场景中3D视觉技术的巨大潜力和实用价值。</p>
+
+
+
+<h2 id="个人分工"><a href="#个人分工" class="headerlink" title="个人分工"></a>个人分工</h2><p>&emsp;&emsp;在本项目中，我将综合应用3D视觉技术和深度学习算法，解决不同形态和大小的医用物品在复杂环境中的抓取问题。首先，通过高效的图像分割技术，我们能够准确地将目标物品从其环境中区分出来，为抓取任务提供了精确的空间定位。进而，利用高级的姿态估计算法，系统能够计算出机械臂执行任务时的最优姿态，确保安全、精确的抓取。最后，通过智能规划，系统得以确定最佳的抓取顺序，旨在优化作业效率和成功率。整个系统的设计均考虑到边缘计算环境的资源限制，确保所有计算过程能在英伟达Orin边缘计算模块上以5hz以上的速度运行，展示了在现代自动化医疗场景中3D视觉技术的巨大潜力和实用价值。</p>
 <ol>
-<li class="lvl-3">
-<p><strong>抓取物品的图像分割</strong></p>
-</li>
+<li><strong>抓取物品的图像分割</strong></li>
 </ol>
-<p>  在复杂的医疗物品抓取任务中，准确的图像分割是实现高效抓取的关键。面对各种形态和尺寸的医用物品（如疫苗管、试管等），我们首先要利用3D视觉技术精确地将这些物品从背景中分割出来。这一步骤需要处理可能出现的物体间遮挡、光照变化以及物体本身的反光材质等问题。图像分割算法需要有足够的鲁棒性，以适应医疗环境中多变的条件。通过对3D点云数据的深度学习处理，能够实现对各种医用物品和它们的空间位置的精确识别，从而为后续的抓取姿态估计和序列规划提供可靠的前处理数据。</p>
-<ol start="2">
-<li class="lvl-3">
-<p><strong>机械臂最佳抓取姿态估计</strong></p>
-</li>
+<p>&emsp;&emsp;在复杂的医疗物品抓取任务中，准确的图像分割是实现高效抓取的关键。面对各种形态和尺寸的医用物品（如疫苗管、试管等），我们首先要利用3D视觉技术精确地将这些物品从背景中分割出来。这一步骤需要处理可能出现的物体间遮挡、光照变化以及物体本身的反光材质等问题。图像分割算法需要有足够的鲁棒性，以适应医疗环境中多变的条件。通过对3D点云数据的深度学习处理，能够实现对各种医用物品和它们的空间位置的精确识别，从而为后续的抓取姿态估计和序列规划提供可靠的前处理数据。</p>
+<ol>
+<li><strong>机械臂最佳抓取姿态估计</strong></li>
 </ol>
-<p>  根据图像分割结果，系统需要进一步估计机械臂的最佳抓取姿态。使用3D视觉技术构建目标物体的高精度立体模型，结合机器学习算法对抓取点的稳定性和可行性进行评估。抓取姿态涉及到物体的方向、机械臂的接近角度和路径规划等多个要素。我们当中采用优化算法来确保最终推导出的抓取姿态既能增强抓取的成功率，又能最大限度减少机械臂的运动时间和能耗。姿态估计模块必须实时工作，以适应动态变化的抓取环境和任务需求。</p>
-<ol start="3">
-<li class="lvl-3">
-<p><strong>医疗物品抓取顺序的计算</strong></p>
-</li>
+<p>&emsp;&emsp;根据图像分割结果，系统需要进一步估计机械臂的最佳抓取姿态。使用3D视觉技术构建目标物体的高精度立体模型，结合机器学习算法对抓取点的稳定性和可行性进行评估。抓取姿态涉及到物体的方向、机械臂的接近角度和路径规划等多个要素。我们当中采用优化算法来确保最终推导出的抓取姿态既能增强抓取的成功率，又能最大限度减少机械臂的运动时间和能耗。姿态估计模块必须实时工作，以适应动态变化的抓取环境和任务需求。</p>
+<ol>
+<li><strong>医疗物品抓取顺序的计算</strong></li>
 </ol>
-<p>  确定合理的抓取顺序对于提高整体抓取效率和成功率具有至关重要的意义。考虑到各种医疗物品之间的空间布局和相互关联，系统需要计算出一个最优的抓取顺序。这一过程包含复杂的逻辑和规划算法，例如，可能需要优先抓取会对后续操作造成遮挡的物品，或者根据任务紧急性来调整抓取顺序。适配边缘计算的算法需要考虑到计算资源和响应时间的限制，确保在有限的硬件资源下也能够快速给出最优解决方案。</p>
-<h2 id="文献调研-开题答辩">文献调研+开题答辩</h2>
-<p>（见如下文件）</p>
-<p><a target="_blank" rel="noopener" href="https://xcdai.xyz/files/2024144+3D%E8%A7%86%E8%A7%89%E8%AF%86%E5%88%AB%E5%8F%8A%E5%85%B6%E5%9C%A8%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8A%93%E5%8F%96%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8+%E5%BC%80%E9%A2%98%E6%8A%A5%E5%91%8A.pdf">3D视觉识别及其在机器人抓取中的应用-开题报告.pdf</a></p>
-<p><a target="_blank" rel="noopener" href="https://xcdai.xyz/files/2024144+3D%E8%A7%86%E8%A7%89%E8%AF%86%E5%88%AB%E5%8F%8A%E5%85%B6%E5%9C%A8%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8A%93%E5%8F%96%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8+%E5%BC%80%E9%A2%98%E7%AD%94%E8%BE%A9PPT.pdf">3D视觉识别及其在机器人抓取中的应用-开题答辩PPT.pdf</a></p>
-<h2 id="环境搭建">环境搭建</h2>
-<h3 id="硬件层面">硬件层面</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>NVIDIA Jetson Orin NX 16GB</p>
+<p>&emsp;&emsp;确定合理的抓取顺序对于提高整体抓取效率和成功率具有至关重要的意义。考虑到各种医疗物品之间的空间布局和相互关联，系统需要计算出一个最优的抓取顺序。这一过程包含复杂的逻辑和规划算法，例如，可能需要优先抓取会对后续操作造成遮挡的物品，或者根据任务紧急性来调整抓取顺序。适配边缘计算的算法需要考虑到计算资源和响应时间的限制，确保在有限的硬件资源下也能够快速给出最优解决方案。</p>
+<h2 id="文献调研-开题答辩"><a href="#文献调研-开题答辩" class="headerlink" title="文献调研+开题答辩"></a>文献调研+开题答辩</h2><p>（见如下文件）</p>
+<p><a target="_blank" rel="noopener" href="https://xcdai.xyz/files/2024144+3D视觉识别及其在机器人抓取中的应用+开题报告.pdf">3D视觉识别及其在机器人抓取中的应用-开题报告.pdf</a></p>
+<p><a target="_blank" rel="noopener" href="https://xcdai.xyz/files/2024144+3D视觉识别及其在机器人抓取中的应用+开题答辩PPT.pdf">3D视觉识别及其在机器人抓取中的应用-开题答辩PPT.pdf</a></p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="硬件层面"><a href="#硬件层面" class="headerlink" title="硬件层面"></a>硬件层面</h3><ul>
+<li><p>NVIDIA Jetson Orin NX 16GB</p>
 <p>配备了高性能的英伟达GPU和多核CPU，算力高达每秒275万亿次浮点运算(TOPS)，适合处理复杂的深度学习任务；提供了多种I/O接口和丰富的软件生态；同时具有紧凑的尺寸和优秀的能效比。</p>
-<img src="\images\ME4918-机械工程本科毕业设计\pic02.png" alt="pic02" style="zoom:50%;">
+<p><img src="\images\ME4918-机械工程本科毕业设计\pic02.png" alt="pic02" style="zoom:50%;"></p>
 </li>
-<li class="lvl-2">
-<p>ZED 2i双目深度相机</p>
+<li><p>ZED 2i双目深度相机</p>
 <p>具备高精度的深度感知能力，拥有广泛的视场(FOV)，提供高分辨率的RGB图像；支持Jetson L4T操作系统，提供了全面的软件开发工具包(SDK)，并为特定AI应用做了优化。</p>
-<img src="\images\ME4918-机械工程本科毕业设计\pic03.png" alt="pic03" style="zoom:80%;">
+<p><img src="\images\ME4918-机械工程本科毕业设计\pic03.png" alt="pic03" style="zoom:80%;"></p>
 </li>
-<li class="lvl-2">
-<p>12V 5A电源适配器</p>
+<li><p>12V 5A电源适配器</p>
 </li>
-<li class="lvl-2">
-<p>罗技MK275无线键鼠</p>
-</li>
-<li class="lvl-2">
-<p>Redmi显示器A24-100hz</p>
-</li>
+<li>罗技MK275无线键鼠</li>
+<li>Redmi显示器A24-100hz</li>
 </ul>
 <div style="display:inline-block;">
     <img src="\images\ME4918-机械工程本科毕业设计\pic04.jpg" alt="pic04" style="display: block; margin: 0 auto; float: center;" width="30%">
 </div>
+
 <center>
   <font size=3>
     图 - 硬件搭建效果展示
   </font>
 </center>
-<h3 id="软件层面">软件层面</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>安装Nvidia Jetpack</p>
+
+<h3 id="软件层面"><a href="#软件层面" class="headerlink" title="软件层面"></a>软件层面</h3><ul>
+<li><p>安装Nvidia Jetpack</p>
 <p>Nvidia Jetpack是专为Jetson平台设计的构建人工智能应用的全面的解决方案，它包括带有引导程序的Linux驱动程序包、Linux内核、Ubuntu桌面环境，以及一整套用于加速GPU计算、多媒体、图形和计算机视觉的库。参考<a target="_blank" rel="noopener" href="https://developer.nvidia.com/embedded/learn/get-started-jetson-agx-orin-devkit">英伟达官方教程</a>，用命令行方式安装jetpack</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line">sudo apt dist-upgrade</span><br><span class="line">sudo reboot</span><br><span class="line">sudo apt install nvidia-jetpack</span><br></pre></td></tr></table></figure>
 <p>执行最后一步命令出现报错：</p>
-<img src="\images\ME4918-机械工程本科毕业设计\pic05.png" style="zoom:100%;"/>
+<p><img src="\images\ME4918-机械工程本科毕业设计\pic05.png" style="zoom:100%;"/></p>
 <p>解决办法：<strong>为系统源增加英伟达镜像源</strong></p>
 <ol>
-<li class="lvl-5">
-<p>首先查看Tegra处理器的Linux操作系统版本：<code>cat /etc/nv_tegra_release</code></p>
-<img src="\images\ME4918-机械工程本科毕业设计\pic06.png" style="zoom:100%;"/>
+<li><p>首先查看Tegra处理器的Linux操作系统版本：<code>cat /etc/nv_tegra_release</code></p>
+<p><img src="\images\ME4918-机械工程本科毕业设计\pic06.png" style="zoom:100%;"/></p>
 <p>可以看到是L4T 35.3的版本</p>
 </li>
-<li class="lvl-5">
-<p>然后<code>sudo gedit /etc/apt/sources.list.d/nvidia-l4t-apt-source.list</code></p>
+<li><p>然后<code>sudo gedit /etc/apt/sources.list.d/nvidia-l4t-apt-source.list</code></p>
 </li>
-<li class="lvl-5">
-<p>在文件中添加以下两行</p>
+<li><p>在文件中添加以下两行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb https://repo.download.nvidia.com/jetson/common r35.3 main</span><br><span class="line">deb https://repo.download.nvidia.com/jetson/t234 r35.3 main</span><br></pre></td></tr></table></figure>
 <p>保存后关闭</p>
 </li>
-<li class="lvl-5">
-<p>重启系统后重新执行前文的命令行即可</p>
+<li><p>重启系统后重新执行前文的命令行即可</p>
 </li>
 </ol>
 </li>
-<li class="lvl-2">
-<p>安装jtop监控工具</p>
+<li><p>安装jtop监控工具</p>
 <p>jtop是Jetson系列著名的系统监控工具，安装过程如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br><span class="line">sudo -H pip3 install -U pip</span><br><span class="line">sudo -H pip install jetson-stats</span><br><span class="line">jtop</span><br></pre></td></tr></table></figure>
 <p>执行完最后一条命令，可显示包含CPU、GPU、内存和磁盘等实时情况的图形界面</p>
-<img src="\images\ME4918-机械工程本科毕业设计\pic07.png" style="zoom:70%;"/>
+<p><img src="\images\ME4918-机械工程本科毕业设计\pic07.png" style="zoom:70%;"/></p>
 </li>
-<li class="lvl-2">
-<p>为CUDA设置环境变量</p>
+<li><p>为CUDA设置环境变量</p>
 <p>在终端中修改bashrc文件，方法如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gedit ~/.bashrc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在文末添加如下代码</span></span><br><span class="line">export PATH=/usr/local/cuda/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">export CUDA_HOME=/usr/local/cuda</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新环境变量配置</span></span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>检验CUDA环境配置成功：<code>nvcc -V</code></p>
-<img src="\images\ME4918-机械工程本科毕业设计\pic08.png" style="zoom:85%;"/>
+<p><img src="\images\ME4918-机械工程本科毕业设计\pic08.png" style="zoom:85%;"/></p>
 </li>
-<li class="lvl-2">
-<p>配置CuDNN环境</p>
+<li><p>配置CuDNN环境</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">复制文件到cuda目录下</span></span><br><span class="line">cd /usr/include &amp;&amp; sudo cp cudnn* /usr/local/cuda/include</span><br><span class="line">cd /usr/lib/aarch64-linux-gnu &amp;&amp; sudo cp libcudnn* /usr/local/cuda/lib64</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改文件权限</span></span><br><span class="line">sudo chmod 774 /usr/local/cuda/include/cudnn.h</span><br><span class="line">sudo chmod 774 /usr/local/cuda/lib64/libcudnn*</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新软链接（8.6.0为cudnn版本号）</span></span><br><span class="line">cd /usr/local/cuda/lib64</span><br><span class="line">sudo ln -sf libcudnn.so.8.6.0 libcudnn.so.8</span><br><span class="line">sudo ln -sf libcudnn_ops_train.so.8.6.0 libcudnn_ops_train.so.8</span><br><span class="line">sudo ln -sf libcudnn_ops_infer.so.8.6.0 libcudnn_ops_infer.so.8</span><br><span class="line">sudo ln -sf libcudnn_adv_train.so.8.6.0 libcudnn_adv_train.so.8</span><br><span class="line">sudo ln -sf libcudnn_adv_infer.so.8.6.0 libcudnn_adv_infer.so.8</span><br><span class="line">sudo ln -sf libcudnn_cnn_train.so.8.6.0 libcudnn_cnn_train.so.8</span><br><span class="line">sudo ln -sf libcudnn_cnn_infer.so.8.6.0 libcudnn_cnn_infer.so.8</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
 <p>检验CuDNN环境配置成功：<code>dpkg -l libcudnn8</code></p>
-<img src="\images\ME4918-机械工程本科毕业设计\pic09.png" style="zoom:80%;"/>
+<p><img src="\images\ME4918-机械工程本科毕业设计\pic09.png" style="zoom:80%;"/></p>
 </li>
-<li class="lvl-2">
-<p>安装ZED SDK</p>
+<li><p>安装ZED SDK</p>
 <p>在<a target="_blank" rel="noopener" href="https://www.stereolabs.com/developers/release#82af3640d775">stereolabs官网</a>选择适合系统版本的文件下载，然后执行命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zstd</span><br><span class="line">./ZED_SDK_Tegra_L4T35.3_v4.0.8.zstd.run</span><br></pre></td></tr></table></figure>
+<p>在安装ZED Python API的过程中遇到报错：</p>
+<p><img src="\images\ME4918-机械工程本科毕业设计\pic10.png" style="zoom:80%;"/></p>
+<p>可能是连接服务器超时导致的，手动下载whl二进制文件并安装，注释掉相应代码重新执行命令并成功。</p>
+<p>接下来测试Jetson+ZED硬件连接是否畅通：</p>
+<p>首先应确保将相机插入USB3.0端口（内部有蓝色标记），以保证足够的带宽和传输速度；其次需从<a target="_blank" rel="noopener" href="https://www.stereolabs.com/developers/calib">官网</a>下载校准文件至安装目录的settings文件夹，该文件包含有关左右相机的精确位置及其光学特性的信息，是深度估计过程的关键（获取相机序列号的命令：<code>ZED_Explorer --all</code>）</p>
+<p>最后运行<code>/usr/local/zed/tools</code>目录下的应用程序<strong>ZED_Explorer</strong>和<strong>ZED_Depth_Viewer</strong>，运行效果如下：</p>
 </li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>ZED_Explorer</strong></th>
+<th style="text-align:center"><strong>ZED_Depth_Viewer</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="\images\ME4918-机械工程本科毕业设计\pic11.png" style="zoom:50%;"/></td>
+<td style="text-align:center"><img src="\images\ME4918-机械工程本科毕业设计\pic12.png" style="zoom:50%;"/></td>
+</tr>
+</tbody>
+</table>
+</div>
 
     </div>
 
