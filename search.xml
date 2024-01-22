@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ME4918 机械工程本科毕业设计</title>
+    <url>//13599.html</url>
+    <content><![CDATA[<style type="text/css">
+    .fancybox {
+        display: inline-block;
+    }
+</style>
+<center>
+  <font size=5>
+    <b>基于医用物品抓取的3D图像分割、姿态估计和环境理解</b>
+  </font>
+</center>
+## 项目背景
+<p>  生物样本库通常用来保存血液、基因、代谢产物等珍贵的生物样本。生物样本保存在冻存盒内的冻存管中，并整盒存放于-80°甚至-196°的深低温环境中。为提高存取效率，当用户需要提取样本时，由自动化设备将存有目标样本的冻存盒取出，并使用机械臂夹取目标样本到空冻存盒中完成样本出库，并在-30°环境下使用挑管夹爪夹取目标样本到空冻存盒中完成样本出库。深低温保存条件下，冻存盒体表面会逐渐结霜。在零度以下的工作环境中反复移动、定位和出入库的过程，会导致结霜表面逐渐增厚，盒体发生轻微滑动，盒底孔位结霜干扰识别。长期使用中会导致挑管时盒体定位精度下降，夹爪取放位置误差增大，造成挑管成功率下降，严重时可能损坏样本，造成重大的损失。另外，当出现样本管倾倒等异常情况时，难以通过孔位识别进行定位抓取，也会导致挑管失败。</p>
+<p>  因此，项目需要一套<b>视觉辅助的机械臂挑管系统</b>，能够实现精准的抓取与稳定的路径规划，同时在检测到样本管异常情况时控制机械臂调整样本管位姿并放置到目标位置。在正常工作环境下，机械臂3轴移动即可实现样本管的平稳运送。但在样本管异常放置情况下，倾斜样本管的位姿调整与移送要求机械臂实现6自由度动作，并能够基于环境理解进行智能抓取。</p>
+<img src="E:\BLOG\hexo-next\source\images\ME4918-机械工程本科毕业设计\pic01.png" alt="pic01" style="zoom:10%;" />
+<center>
+  <font size=3>
+    图1 - 项目应用场景
+  </font>
+</center>
+]]></content>
+      <categories>
+        <category>课程代码示例</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ME4932 科学研究与创新实践</title>
     <url>//17690.html</url>
     <content><![CDATA[<style type="text/css">
@@ -326,24 +353,6 @@ transform.txt文件里的数据分别是data1，data2，data3的相机坐标系�
 </table>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// pcl_passthrough.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/point_types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/io/pcd_io.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/filters/passthrough.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/visualization/cloud_viewer.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span> </span>&#123;</span><br><span class="line">    pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">Ptr <span class="title">cloud</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">    pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">Ptr <span class="title">cloud_filtered</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">    pcl::io::<span class="built_in">loadPCDFile</span>(<span class="string">&quot;../all_cloud.pcd&quot;</span>, *cloud);</span><br><span class="line"></span><br><span class="line">    pcl::PassThrough&lt;pcl::PointXYZ&gt; pass_x, pass_y, pass_z; <span class="comment">//创建滤波器对象</span></span><br><span class="line">    pass_x.<span class="built_in">setInputCloud</span>(cloud);			                <span class="comment">//设置待滤波的点云</span></span><br><span class="line">    pass_x.<span class="built_in">setFilterFieldName</span>(<span class="string">&quot;x&quot;</span>);		        <span class="comment">//设置在X轴方向上进行滤波</span></span><br><span class="line">    pass_x.<span class="built_in">setFilterLimits</span>(<span class="number">1535.0</span>, <span class="number">1740.0</span>);		<span class="comment">//设置滤波范围为0~1,在范围之外的点会被剪除</span></span><br><span class="line">    <span class="comment">//pass.setFilterLimitsNegative(true);                   //是否反向过滤，默认为false</span></span><br><span class="line">    pass_x.<span class="built_in">filter</span>(*cloud_filtered);		                <span class="comment">//开始过滤</span></span><br><span class="line"></span><br><span class="line">    pass_y.<span class="built_in">setInputCloud</span>(cloud_filtered);			    <span class="comment">//设置待滤波的点云</span></span><br><span class="line">    pass_y.<span class="built_in">setFilterFieldName</span>(<span class="string">&quot;y&quot;</span>);		        <span class="comment">//设置在Y轴方向上进行滤波</span></span><br><span class="line">    pass_y.<span class="built_in">setFilterLimits</span>(<span class="number">-320.0</span>, <span class="number">-250.0</span>);		<span class="comment">//设置滤波范围为0~1,在范围之外的点会被剪除</span></span><br><span class="line">    <span class="comment">//pass.setFilterLimitsNegative(true);                   //是否反向过滤，默认为false</span></span><br><span class="line">    pass_y.<span class="built_in">filter</span>(*cloud_filtered);		                <span class="comment">//开始过滤</span></span><br><span class="line"></span><br><span class="line">    pass_z.<span class="built_in">setInputCloud</span>(cloud_filtered);			    <span class="comment">//设置待滤波的点云</span></span><br><span class="line">    pass_z.<span class="built_in">setFilterFieldName</span>(<span class="string">&quot;z&quot;</span>);		        <span class="comment">//设置在Z轴方向上进行滤波</span></span><br><span class="line">    pass_z.<span class="built_in">setFilterLimits</span>(<span class="number">1232.0</span>, <span class="number">1360.0</span>);		<span class="comment">//设置滤波范围为0~1,在范围之外的点会被剪除</span></span><br><span class="line">    <span class="comment">//pass.setFilterLimitsNegative(true);                   //是否反向过滤，默认为false</span></span><br><span class="line">    pass_z.<span class="built_in">filter</span>(*cloud_filtered);		                <span class="comment">//开始过滤</span></span><br><span class="line"></span><br><span class="line">    pcl::<span class="function">visualization::CloudViewer <span class="title">viewer</span><span class="params">(<span class="string">&quot;filtered_cloud&quot;</span>)</span></span>;</span><br><span class="line">    viewer.<span class="built_in">showCloud</span>(cloud_filtered);</span><br><span class="line">    <span class="keyword">while</span>(!viewer.<span class="built_in">wasStopped</span>())  &#123; &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <img src="/images/ME4932-科学研究与创新实践/screenshot31.png" width="50%">]]></content>
-      <categories>
-        <category>课程代码示例</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>ME4918 机械工程本科毕业设计</title>
-    <url>//13599.html</url>
-    <content><![CDATA[<style type="text/css">
-    .fancybox {
-        display: inline-block;
-    }
-</style>
-<center>
-  <font size=5>
-    <b>基于医用物品抓取的3D图像分割、姿态估计和环境理解</b>
-  </font>
-</center>
-]]></content>
       <categories>
         <category>课程代码示例</category>
       </categories>
