@@ -56,18 +56,14 @@
 <p>配备了高性能的英伟达GPU和多核CPU，算力高达每秒275万亿次浮点运算(TOPS)，适合处理复杂的深度学习任务；提供了多种I/O接口和丰富的软件生态；同时具有紧凑的尺寸和优秀的能效比。</p>
 </li>
 </ul>
-<div style="display:inline-block;">
-    <img src="\images\ME4918-机械工程本科毕业设计\pic02.png" alt="pic02" style="display: block; margin: 0 auto; float: center;" width="50%">
-</div>
+<img src="\images\ME4918-机械工程本科毕业设计\pic02.png" alt="pic02" width="50%">
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>ZED 2i双目深度相机</p>
 <p>具备高精度的深度感知能力，拥有广泛的视场(FOV)，提供高分辨率的RGB图像；支持Jetson L4T操作系统，提供了全面的软件开发工具包(SDK)，并为特定AI应用做了优化。</p>
 </li>
 </ul>
-<div style="display:inline-block;">
-    <img src="\images\ME4918-机械工程本科毕业设计\pic03.png" alt="pic03" style="display: block; margin: 0 auto; float: center;" width="80%">
-</div>
+<img src="\images\ME4918-机械工程本科毕业设计\pic03.png" alt="pic03" width="80%">
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>12V 5A电源适配器</p>
