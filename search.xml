@@ -86,12 +86,12 @@
 <p>Nvidia Jetpack是专为Jetson平台设计的构建人工智能应用的全面的解决方案，它包括带有引导程序的Linux驱动程序包、Linux内核、Ubuntu桌面环境，以及一整套用于加速GPU计算、多媒体、图形和计算机视觉的库。参考<a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-agx-orin-devkit">英伟达官方教程</a>，可用命令行方式安装jetpack</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line">sudo apt dist-upgrade</span><br><span class="line">sudo reboot</span><br><span class="line">sudo apt install nvidia-jetpack</span><br></pre></td></tr></table></figure>
 <p>执行最后一步命令出现报错：</p>
-<img src="\images\ME4918-机械工程本科毕业设计\pic05.png" style="zoom:100%;" align="left"/>
+<img src="\images\ME4918-机械工程本科毕业设计\pic05.png" style="zoom:100%;"/>
 <p>解决办法：增加英伟达镜像源</p>
 <ol>
 <li class="lvl-5">
 <p>首先查看Tegra处理器的Linux操作系统版本：<code>cat /etc/nv_tegra_release</code></p>
-<img src="\images\ME4918-机械工程本科毕业设计\pic06.png" style="zoom:100%;" align="left"/>
+<img src="\images\ME4918-机械工程本科毕业设计\pic06.png" style="zoom:100%;"/>
 <p>可以看到是L4T 35.3的版本</p>
 </li>
 <li class="lvl-5">
