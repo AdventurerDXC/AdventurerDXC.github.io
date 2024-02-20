@@ -8,123 +8,142 @@
         display: inline-block;
     }
 </style>
-
 <center>
   <font size=5>
     <b>基于医用物品抓取的3D图像分割、姿态估计和环境理解</b>
   </font>
 </center>
-
-
-<h2 id="项目背景"><a href="#项目背景" class="headerlink" title="项目背景"></a>项目背景</h2><p>&emsp;&emsp;生物样本库通常用来保存血液、基因、代谢产物等珍贵的生物样本。生物样本保存在冻存盒内的冻存管中，并整盒存放于-80°甚至-196°的深低温环境中。为提高存取效率，当用户需要提取样本时，由自动化设备将存有目标样本的冻存盒取出，并使用机械臂夹取目标样本到空冻存盒中完成样本出库，并在-30°环境下使用挑管夹爪夹取目标样本到空冻存盒中完成样本出库。深低温保存条件下，冻存盒体表面会逐渐结霜。在零度以下的工作环境中反复移动、定位和出入库的过程，会导致结霜表面逐渐增厚，盒体发生轻微滑动，盒底孔位结霜干扰识别。长期使用中会导致挑管时盒体定位精度下降，夹爪取放位置误差增大，造成挑管成功率下降，严重时可能损坏样本，造成重大的损失。另外，当出现样本管倾倒等异常情况时，难以通过孔位识别进行定位抓取，也会导致挑管失败。  </p>
-<p>&emsp;&emsp;因此，项目需要一套<b>视觉辅助的机械臂挑管系统</b>，能够实现精准的抓取与稳定的路径规划，同时在检测到样本管异常情况时控制机械臂调整样本管位姿并放置到目标位置。在正常工作环境下，机械臂3轴移动即可实现样本管的平稳运送。但在样本管异常放置情况下，倾斜样本管的位姿调整与移送要求机械臂实现6自由度动作，并能够基于环境理解进行智能抓取。</p>
+<h2 id="项目背景">项目背景</h2>
+<p>  生物样本库通常用来保存血液、基因、代谢产物等珍贵的生物样本。生物样本保存在冻存盒内的冻存管中，并整盒存放于-80°甚至-196°的深低温环境中。为提高存取效率，当用户需要提取样本时，由自动化设备将存有目标样本的冻存盒取出，并使用机械臂夹取目标样本到空冻存盒中完成样本出库，并在-30°环境下使用挑管夹爪夹取目标样本到空冻存盒中完成样本出库。深低温保存条件下，冻存盒体表面会逐渐结霜。在零度以下的工作环境中反复移动、定位和出入库的过程，会导致结霜表面逐渐增厚，盒体发生轻微滑动，盒底孔位结霜干扰识别。长期使用中会导致挑管时盒体定位精度下降，夹爪取放位置误差增大，造成挑管成功率下降，严重时可能损坏样本，造成重大的损失。另外，当出现样本管倾倒等异常情况时，难以通过孔位识别进行定位抓取，也会导致挑管失败。</p>
+<p>  因此，项目需要一套<b>视觉辅助的机械臂挑管系统</b>，能够实现精准的抓取与稳定的路径规划，同时在检测到样本管异常情况时控制机械臂调整样本管位姿并放置到目标位置。在正常工作环境下，机械臂3轴移动即可实现样本管的平稳运送。但在样本管异常放置情况下，倾斜样本管的位姿调整与移送要求机械臂实现6自由度动作，并能够基于环境理解进行智能抓取。</p>
 <div style="display:inline-block;">
     <img src="\images\ME4918-机械工程本科毕业设计\pic01.png" alt="pic01" style="display: block; margin: 0 auto; float: center;" width="30%">
 </div>
-
 <center>
   <font size=3>
     图 - 项目应用场景
   </font>
 </center>
-
-
-
-<h2 id="个人分工"><a href="#个人分工" class="headerlink" title="个人分工"></a>个人分工</h2><p>&emsp;&emsp;在本项目中，我将综合应用3D视觉技术和深度学习算法，解决不同形态和大小的医用物品在复杂环境中的抓取问题。首先，通过高效的图像分割技术，我们能够准确地将目标物品从其环境中区分出来，为抓取任务提供了精确的空间定位。进而，利用高级的姿态估计算法，系统能够计算出机械臂执行任务时的最优姿态，确保安全、精确的抓取。最后，通过智能规划，系统得以确定最佳的抓取顺序，旨在优化作业效率和成功率。整个系统的设计均考虑到边缘计算环境的资源限制，确保所有计算过程能在英伟达Orin边缘计算模块上以5hz以上的速度运行，展示了在现代自动化医疗场景中3D视觉技术的巨大潜力和实用价值。</p>
+<h2 id="个人分工">个人分工</h2>
+<p>  在本项目中，我将综合应用3D视觉技术和深度学习算法，解决不同形态和大小的医用物品在复杂环境中的抓取问题。首先，通过高效的图像分割技术，我们能够准确地将目标物品从其环境中区分出来，为抓取任务提供了精确的空间定位。进而，利用高级的姿态估计算法，系统能够计算出机械臂执行任务时的最优姿态，确保安全、精确的抓取。最后，通过智能规划，系统得以确定最佳的抓取顺序，旨在优化作业效率和成功率。整个系统的设计均考虑到边缘计算环境的资源限制，确保所有计算过程能在英伟达Orin边缘计算模块上以5hz以上的速度运行，展示了在现代自动化医疗场景中3D视觉技术的巨大潜力和实用价值。</p>
 <ol>
-<li><strong>抓取物品的图像分割</strong></li>
+<li class="lvl-3">
+<p><strong>抓取物品的图像分割</strong></p>
+</li>
 </ol>
-<p>&emsp;&emsp;在复杂的医疗物品抓取任务中，准确的图像分割是实现高效抓取的关键。面对各种形态和尺寸的医用物品（如疫苗管、试管等），我们首先要利用3D视觉技术精确地将这些物品从背景中分割出来。这一步骤需要处理可能出现的物体间遮挡、光照变化以及物体本身的反光材质等问题。图像分割算法需要有足够的鲁棒性，以适应医疗环境中多变的条件。通过对3D点云数据的深度学习处理，能够实现对各种医用物品和它们的空间位置的精确识别，从而为后续的抓取姿态估计和序列规划提供可靠的前处理数据。</p>
-<ol>
-<li><strong>机械臂最佳抓取姿态估计</strong></li>
+<p>  在复杂的医疗物品抓取任务中，准确的图像分割是实现高效抓取的关键。面对各种形态和尺寸的医用物品（如疫苗管、试管等），我们首先要利用3D视觉技术精确地将这些物品从背景中分割出来。这一步骤需要处理可能出现的物体间遮挡、光照变化以及物体本身的反光材质等问题。图像分割算法需要有足够的鲁棒性，以适应医疗环境中多变的条件。通过对3D点云数据的深度学习处理，能够实现对各种医用物品和它们的空间位置的精确识别，从而为后续的抓取姿态估计和序列规划提供可靠的前处理数据。</p>
+<ol start="2">
+<li class="lvl-3">
+<p><strong>机械臂最佳抓取姿态估计</strong></p>
+</li>
 </ol>
-<p>&emsp;&emsp;根据图像分割结果，系统需要进一步估计机械臂的最佳抓取姿态。使用3D视觉技术构建目标物体的高精度立体模型，结合机器学习算法对抓取点的稳定性和可行性进行评估。抓取姿态涉及到物体的方向、机械臂的接近角度和路径规划等多个要素。我们当中采用优化算法来确保最终推导出的抓取姿态既能增强抓取的成功率，又能最大限度减少机械臂的运动时间和能耗。姿态估计模块必须实时工作，以适应动态变化的抓取环境和任务需求。</p>
-<ol>
-<li><strong>医疗物品抓取顺序的计算</strong></li>
+<p>  根据图像分割结果，系统需要进一步估计机械臂的最佳抓取姿态。使用3D视觉技术构建目标物体的高精度立体模型，结合机器学习算法对抓取点的稳定性和可行性进行评估。抓取姿态涉及到物体的方向、机械臂的接近角度和路径规划等多个要素。我们当中采用优化算法来确保最终推导出的抓取姿态既能增强抓取的成功率，又能最大限度减少机械臂的运动时间和能耗。姿态估计模块必须实时工作，以适应动态变化的抓取环境和任务需求。</p>
+<ol start="3">
+<li class="lvl-3">
+<p><strong>医疗物品抓取顺序的计算</strong></p>
+</li>
 </ol>
-<p>&emsp;&emsp;确定合理的抓取顺序对于提高整体抓取效率和成功率具有至关重要的意义。考虑到各种医疗物品之间的空间布局和相互关联，系统需要计算出一个最优的抓取顺序。这一过程包含复杂的逻辑和规划算法，例如，可能需要优先抓取会对后续操作造成遮挡的物品，或者根据任务紧急性来调整抓取顺序。适配边缘计算的算法需要考虑到计算资源和响应时间的限制，确保在有限的硬件资源下也能够快速给出最优解决方案。</p>
-<h2 id="文献调研-开题答辩"><a href="#文献调研-开题答辩" class="headerlink" title="文献调研+开题答辩"></a>文献调研+开题答辩</h2><p>（见如下文件）</p>
-<p><a href="https://xcdai.xyz/files/2024144+3D视觉识别及其在机器人抓取中的应用+开题报告.pdf">3D视觉识别及其在机器人抓取中的应用-开题报告.pdf</a></p>
-<p><a href="https://xcdai.xyz/files/2024144+3D视觉识别及其在机器人抓取中的应用+开题答辩PPT.pdf">3D视觉识别及其在机器人抓取中的应用-开题答辩PPT.pdf</a></p>
-<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="硬件层面"><a href="#硬件层面" class="headerlink" title="硬件层面"></a>硬件层面</h3><ul>
-<li><p>NVIDIA Jetson Orin NX 16GB</p>
+<p>  确定合理的抓取顺序对于提高整体抓取效率和成功率具有至关重要的意义。考虑到各种医疗物品之间的空间布局和相互关联，系统需要计算出一个最优的抓取顺序。这一过程包含复杂的逻辑和规划算法，例如，可能需要优先抓取会对后续操作造成遮挡的物品，或者根据任务紧急性来调整抓取顺序。适配边缘计算的算法需要考虑到计算资源和响应时间的限制，确保在有限的硬件资源下也能够快速给出最优解决方案。</p>
+<h2 id="文献调研-开题答辩">文献调研+开题答辩</h2>
+<p>（见如下文件）</p>
+<p><a href="https://xcdai.xyz/files/2024144+3D%E8%A7%86%E8%A7%89%E8%AF%86%E5%88%AB%E5%8F%8A%E5%85%B6%E5%9C%A8%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8A%93%E5%8F%96%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8+%E5%BC%80%E9%A2%98%E6%8A%A5%E5%91%8A.pdf">3D视觉识别及其在机器人抓取中的应用-开题报告.pdf</a></p>
+<p><a href="https://xcdai.xyz/files/2024144+3D%E8%A7%86%E8%A7%89%E8%AF%86%E5%88%AB%E5%8F%8A%E5%85%B6%E5%9C%A8%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8A%93%E5%8F%96%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8+%E5%BC%80%E9%A2%98%E7%AD%94%E8%BE%A9PPT.pdf">3D视觉识别及其在机器人抓取中的应用-开题答辩PPT.pdf</a></p>
+<h2 id="环境搭建">环境搭建</h2>
+<h3 id="硬件层面">硬件层面</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>NVIDIA Jetson Orin NX 16GB</p>
 <p>配备了高性能的英伟达GPU和多核CPU，算力高达每秒275万亿次浮点运算(TOPS)，适合处理复杂的深度学习任务；提供了多种I/O接口和丰富的软件生态；同时具有紧凑的尺寸和优秀的能效比。</p>
-<p><img src="\images\ME4918-机械工程本科毕业设计\pic02.png" alt="pic02" style="zoom:50%;"></p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic02.png" alt="pic02" style="zoom:50%;">
 </li>
-<li><p>ZED 2i双目深度相机</p>
+<li class="lvl-2">
+<p>ZED 2i双目深度相机</p>
 <p>具备高精度的深度感知能力，拥有广泛的视场(FOV)，提供高分辨率的RGB图像；支持Jetson L4T操作系统，提供了全面的软件开发工具包(SDK)，并为特定AI应用做了优化。</p>
-<p><img src="\images\ME4918-机械工程本科毕业设计\pic03.png" alt="pic03" style="zoom:80%;"></p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic03.png" alt="pic03" style="zoom:80%;">
 </li>
-<li><p>12V 5A电源适配器</p>
+<li class="lvl-2">
+<p>12V 5A电源适配器</p>
 </li>
-<li>罗技MK275无线键鼠</li>
-<li>Redmi显示器A24-100hz</li>
+<li class="lvl-2">
+<p>罗技MK275无线键鼠</p>
+</li>
+<li class="lvl-2">
+<p>Redmi显示器A24-100hz</p>
+</li>
 </ul>
 <div style="display:inline-block;">
     <img src="\images\ME4918-机械工程本科毕业设计\pic04.jpg" alt="pic04" style="display: block; margin: 0 auto; float: center;" width="30%">
 </div>
-
 <center>
   <font size=3>
     图 - 硬件搭建效果展示
   </font>
 </center>
-
-<h3 id="软件层面"><a href="#软件层面" class="headerlink" title="软件层面"></a>软件层面</h3><ul>
-<li><p>安装Nvidia Jetpack</p>
+<h3 id="软件层面">软件层面</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>安装Nvidia Jetpack</p>
 <p>Nvidia Jetpack是专为Jetson平台设计的构建人工智能应用的全面的解决方案，它包括带有引导程序的Linux驱动程序包、Linux内核、Ubuntu桌面环境，以及一整套用于加速GPU计算、多媒体、图形和计算机视觉的库。参考<a href="https://developer.nvidia.com/embedded/learn/get-started-jetson-agx-orin-devkit">英伟达官方教程</a>，用命令行方式安装jetpack</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br><span class="line">sudo apt dist-upgrade</span><br><span class="line">sudo reboot</span><br><span class="line">sudo apt install nvidia-jetpack</span><br></pre></td></tr></table></figure>
 <p>执行最后一步命令出现报错：</p>
-<p><img src="\images\ME4918-机械工程本科毕业设计\pic05.png" style="zoom:100%;"/></p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic05.png" style="zoom:100%;"/>
 <p>解决办法：<strong>为系统源增加英伟达镜像源</strong></p>
 <ol>
-<li><p>首先查看Tegra处理器的Linux操作系统版本：<code>cat /etc/nv_tegra_release</code></p>
-<p><img src="\images\ME4918-机械工程本科毕业设计\pic06.png" style="zoom:100%;"/></p>
+<li class="lvl-5">
+<p>首先查看Tegra处理器的Linux操作系统版本：<code>cat /etc/nv_tegra_release</code></p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic06.png" style="zoom:100%;"/>
 <p>可以看到是L4T 35.3的版本</p>
 </li>
-<li><p>然后<code>sudo gedit /etc/apt/sources.list.d/nvidia-l4t-apt-source.list</code></p>
+<li class="lvl-5">
+<p>然后<code>sudo gedit /etc/apt/sources.list.d/nvidia-l4t-apt-source.list</code></p>
 </li>
-<li><p>在文件中添加以下两行</p>
+<li class="lvl-5">
+<p>在文件中添加以下两行</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">deb https://repo.download.nvidia.com/jetson/common r35.3 main</span><br><span class="line">deb https://repo.download.nvidia.com/jetson/t234 r35.3 main</span><br></pre></td></tr></table></figure>
 <p>保存后关闭</p>
 </li>
-<li><p>重启系统后重新执行前文的命令行即可</p>
+<li class="lvl-5">
+<p>重启系统后重新执行前文的命令行即可</p>
 </li>
 </ol>
 </li>
-<li><p>安装jtop监控工具</p>
+<li class="lvl-2">
+<p>安装jtop监控工具</p>
 <p>jtop是Jetson系列著名的系统监控工具，安装过程如下：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install python3-pip</span><br><span class="line">sudo -H pip3 install -U pip</span><br><span class="line">sudo -H pip install jetson-stats</span><br><span class="line">jtop</span><br></pre></td></tr></table></figure>
 <p>执行完最后一条命令，可显示包含CPU、GPU、内存和磁盘等实时情况的图形界面</p>
-<p><img src="\images\ME4918-机械工程本科毕业设计\pic07.png" style="zoom:70%;"/></p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic07.png" style="zoom:70%;"/>
 </li>
-<li><p>为CUDA设置环境变量</p>
+<li class="lvl-2">
+<p>为CUDA设置环境变量</p>
 <p>在终端中修改bashrc文件，方法如下：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gedit ~/.bashrc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在文末添加如下代码</span></span><br><span class="line">export PATH=/usr/local/cuda/bin:$PATH</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br><span class="line">export CUDA_HOME=/usr/local/cuda</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新环境变量配置</span></span><br><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>检验CUDA环境配置成功：<code>nvcc -V</code></p>
-<p><img src="\images\ME4918-机械工程本科毕业设计\pic08.png" style="zoom:85%;"/></p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic08.png" style="zoom:85%;"/>
 </li>
-<li><p>配置CuDNN环境</p>
+<li class="lvl-2">
+<p>配置CuDNN环境</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">复制文件到cuda目录下</span></span><br><span class="line">cd /usr/include &amp;&amp; sudo cp cudnn* /usr/local/cuda/include</span><br><span class="line">cd /usr/lib/aarch64-linux-gnu &amp;&amp; sudo cp libcudnn* /usr/local/cuda/lib64</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改文件权限</span></span><br><span class="line">sudo chmod 774 /usr/local/cuda/include/cudnn.h</span><br><span class="line">sudo chmod 774 /usr/local/cuda/lib64/libcudnn*</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重新软链接（8.6.0为cudnn版本号）</span></span><br><span class="line">cd /usr/local/cuda/lib64</span><br><span class="line">sudo ln -sf libcudnn.so.8.6.0 libcudnn.so.8</span><br><span class="line">sudo ln -sf libcudnn_ops_train.so.8.6.0 libcudnn_ops_train.so.8</span><br><span class="line">sudo ln -sf libcudnn_ops_infer.so.8.6.0 libcudnn_ops_infer.so.8</span><br><span class="line">sudo ln -sf libcudnn_adv_train.so.8.6.0 libcudnn_adv_train.so.8</span><br><span class="line">sudo ln -sf libcudnn_adv_infer.so.8.6.0 libcudnn_adv_infer.so.8</span><br><span class="line">sudo ln -sf libcudnn_cnn_train.so.8.6.0 libcudnn_cnn_train.so.8</span><br><span class="line">sudo ln -sf libcudnn_cnn_infer.so.8.6.0 libcudnn_cnn_infer.so.8</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
 <p>检验CuDNN环境配置成功：<code>dpkg -l libcudnn8</code></p>
-<p><img src="\images\ME4918-机械工程本科毕业设计\pic09.png" style="zoom:80%;"/></p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic09.png" style="zoom:80%;"/>
 </li>
-<li><p>安装Anaconda虚拟环境</p>
-<p>使用<a href="https://repo.anaconda.com/archive">清华镜像源</a>下载Anaconda，根据系统版本选择最新的<strong>Anaconda3-2023.09-0-Linux-aarch64.sh</strong>，按照提示安装并运行即可。</p>
+<li class="lvl-2">
+<p>安装Anaconda虚拟环境</p>
+<p>使用<a href="https://repo.anaconda.com/archive">清华镜像源</a>下载Anaconda，根据系统版本选择最新的<strong><a href="http://Anaconda3-2023.09-0-Linux-aarch64.sh">Anaconda3-2023.09-0-Linux-aarch64.sh</a></strong>，按照提示安装并运行即可。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda --version   # conda 23.11.0</span><br><span class="line">conda create -n ZED_Python python=3.8</span><br><span class="line">source activate ZED_Python</span><br><span class="line">conda install xxx</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>安装ZED SDK</p>
+<li class="lvl-2">
+<p>安装ZED SDK</p>
 <p>在<a href="https://www.stereolabs.com/developers/release#82af3640d775">stereolabs官网</a>选择适合系统版本的文件下载，然后执行命令</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install zstd</span><br><span class="line">./ZED_SDK_Tegra_L4T35.3_v4.0.8.zstd.run</span><br></pre></td></tr></table></figure>
 <p>在安装ZED Python API的过程中遇到报错：</p>
-<p><img src="\images\ME4918-机械工程本科毕业设计\pic10.png" style="zoom:80%;"/></p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic10.png" style="zoom:80%;"/>
 <p>可能是连接服务器超时导致的，手动下载whl二进制文件并安装，注释掉相应代码重新执行命令并成功。</p>
 <p>接下来测试Jetson和ZED硬件连接是否畅通：</p>
 <p>首先应确保将相机插入<strong>USB3.0端口</strong>（内部有蓝色标记），以保证足够的带宽和传输速度；其次需从<a href="https://www.stereolabs.com/developers/calib">官网</a>下载<strong>校准文件</strong>至安装目录的settings文件夹，该文件包含有关左右相机的精确位置及其光学特性的信息，是深度估计过程的关键（获取相机序列号的命令：<code>ZED_Explorer --all</code>）</p>
 <p>最后运行<code>/usr/local/zed/tools</code>目录下的应用程序<strong>ZED_Explorer</strong>和<strong>ZED_Depth_Viewer</strong>，运行效果如下：</p>
 </li>
 </ul>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -139,40 +158,60 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h2 id="第一部分：图像分割"><a href="#第一部分：图像分割" class="headerlink" title="第一部分：图像分割"></a>第一部分：图像分割</h2><p>&emsp;&emsp;本部分的阶段性目标：通过3D视觉技术将试管及冻存盒从背景中分割出来，实现对目标试管的精准定位，为机械臂抓取姿态的估计做准备性工作。本部分要求图像分割算法具有足够的<strong>鲁棒性</strong>，以适应物体间遮挡、光照变化以及反光材质等复杂的应用环境。</p>
-<h3 id="Hough圆变换"><a href="#Hough圆变换" class="headerlink" title="Hough圆变换"></a>Hough圆变换</h3><p>&emsp;&emsp;本项目将主摄像头安装在试管底部负责定位孔位，机械臂上的备用摄像头用于试管抓取异常时的排障。考虑到试管底部呈圆形，且粘有白色贴纸与黑色冻存盒能产生强烈反差，故联想到使用<strong>Canny边缘检测器</strong>和<strong>Hough圆变换</strong>的方法定位试管。</p>
-<p>&emsp;&emsp;Canny边缘检测可分为以下四个步骤：</p>
+<h2 id="第一部分：图像分割">第一部分：图像分割</h2>
+<p>  本部分的阶段性目标：通过3D视觉技术将试管及冻存盒从背景中分割出来，实现对目标试管的精准定位，为机械臂抓取姿态的估计做准备性工作。本部分要求图像分割算法具有足够的<strong>鲁棒性</strong>，以适应物体间遮挡、光照变化以及反光材质等复杂的应用环境。</p>
+<h3 id="Hough圆变换">Hough圆变换</h3>
+<p>  本项目将主摄像头安装在试管底部负责定位孔位，机械臂上的备用摄像头用于试管抓取异常时的排障。考虑到试管底部呈圆形，且粘有白色贴纸与黑色冻存盒能产生强烈反差，故联想到使用<strong>Canny边缘检测器</strong>和<strong>Hough圆变换</strong>的方法定位试管。</p>
+<p>  Canny边缘检测可分为以下四个步骤：</p>
 <ol>
-<li><strong>去除噪声</strong>：使用高斯滤波器对图像进行平滑处理以减少噪声。将二维高斯函数离散化后，即得高斯滤波器的计算公式${G(x, y) = \frac{1}{2\pi\sigma^2} e^{-\frac{x^2 + y^2}{2\sigma^2}}}$，其中${G(x,y)}$是一个像素点，${\sigma}$是高斯滤波器的标准差.</li>
-<li><strong>梯度计算</strong>：计算图像中每个像素点的梯度强度和方向，常通过Sobel算子来完成。</li>
-<li><strong>非极大值抑制</strong>：遍历梯度矩阵上的所有点，并保留边缘方向上具有极大值的像素为边缘候选点，否则将该点的梯度值设置为0，以消除对边缘检测的影响。</li>
-<li><strong>双阈值检测和边缘连接</strong>：通过设定高低两个阈值来识别强边缘和弱边缘。强边缘是确定的边缘点，而弱边缘则可能是边缘也可能不是。若弱边缘与强边缘相连，则认为它是真正的边缘；否则，将其抑制。</li>
+<li class="lvl-3">
+<p><strong>去除噪声</strong>：使用高斯滤波器对图像进行平滑处理以减少噪声。将二维高斯函数离散化后，即得高斯滤波器的计算公式${G(x, y) = \frac{1}{2\pi\sigma^2} e<sup>{-\frac{x</sup>2 + y<sup>2}{2\sigma</sup>2}}}$，其中${G(x,y)}$是一个像素点，${\sigma}$是高斯滤波器的标准差.</p>
+</li>
+<li class="lvl-3">
+<p><strong>梯度计算</strong>：计算图像中每个像素点的梯度强度和方向，常通过Sobel算子来完成。</p>
+</li>
+<li class="lvl-3">
+<p><strong>非极大值抑制</strong>：遍历梯度矩阵上的所有点，并保留边缘方向上具有极大值的像素为边缘候选点，否则将该点的梯度值设置为0，以消除对边缘检测的影响。</p>
+</li>
+<li class="lvl-3">
+<p><strong>双阈值检测和边缘连接</strong>：通过设定高低两个阈值来识别强边缘和弱边缘。强边缘是确定的边缘点，而弱边缘则可能是边缘也可能不是。若弱边缘与强边缘相连，则认为它是真正的边缘；否则，将其抑制。</p>
+</li>
 </ol>
-<p>&emsp;&emsp;在边缘检测的基础上，霍夫变换原理可用于在图像中识别圆形物体，具体步骤如下：</p>
+<p>  在边缘检测的基础上，霍夫变换原理可用于在图像中识别圆形物体，具体步骤如下：</p>
 <ol>
-<li><strong>霍夫空间映射</strong>：在霍夫空间中，每个边缘点可以表示为一系列可能的圆，这些圆有不同的中心和半径。在霍夫空间中，这转化为在三维空间（圆心的x坐标、y坐标和半径）上的一个点集。</li>
-<li><strong>累加器</strong>：在霍夫空间中，为每个可能的圆心和半径设置一个累加器。每次一个边缘点在霍夫空间中对应一个圆时，该圆的累加器值就增加。</li>
-<li><strong>寻找显著圆</strong>：在累加器中，值最大的点对应的圆心和半径被选为实际存在的圆。通过设定一个阈值可确定哪些累加器值足够高时可以表示一个圆。</li>
+<li class="lvl-3">
+<p><strong>霍夫空间映射</strong>：在霍夫空间中，每个边缘点可以表示为一系列可能的圆，这些圆有不同的中心和半径。在霍夫空间中，这转化为在三维空间（圆心的x坐标、y坐标和半径）上的一个点集。</p>
+</li>
+<li class="lvl-3">
+<p><strong>累加器</strong>：在霍夫空间中，为每个可能的圆心和半径设置一个累加器。每次一个边缘点在霍夫空间中对应一个圆时，该圆的累加器值就增加。</p>
+</li>
+<li class="lvl-3">
+<p><strong>寻找显著圆</strong>：在累加器中，值最大的点对应的圆心和半径被选为实际存在的圆。通过设定一个阈值可确定哪些累加器值足够高时可以表示一个圆。</p>
+</li>
 </ol>
-<p>&emsp;&emsp;霍夫圆检测特别适用于图像中圆形物体的位置不明确或有部分遮挡的情况。通过霍夫变换，即使只有圆的一部分边缘可见，也能有效地检测出完整的圆。</p>
-<p>&emsp;&emsp;结合opencv的HoughCircles函数和ZED提供的python API，编写代码如下：</p>
+<p>  霍夫圆检测特别适用于图像中圆形物体的位置不明确或有部分遮挡的情况。通过霍夫变换，即使只有圆的一部分边缘可见，也能有效地检测出完整的圆。</p>
+<p>  结合opencv的HoughCircles函数和ZED提供的python API，编写代码如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># HoughCircles.py</span></span><br><span class="line"><span class="keyword">import</span> pyzed.sl <span class="keyword">as</span> sl</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># Create a ZED camera object</span></span><br><span class="line">    zed = sl.Camera()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Set configuration parameters</span></span><br><span class="line">    init_params = sl.InitParameters()</span><br><span class="line">    init_params.camera_resolution = sl.RESOLUTION.HD1080  <span class="comment"># Use HD1080 video mode</span></span><br><span class="line">    init_params.camera_fps = <span class="number">30</span>  <span class="comment"># Set fps at 30</span></span><br><span class="line">    init_params.depth_mode = sl.DEPTH_MODE.PERFORMANCE  <span class="comment"># Use PERFORMANCE depth mode</span></span><br><span class="line">    init_params.coordinate_units = sl.UNIT.METER  <span class="comment"># Use meter units (for depth measurements)</span></span><br><span class="line">    init_params.depth_minimum_distance = <span class="number">0.3</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Open the camera</span></span><br><span class="line">    status = zed.<span class="built_in">open</span>(init_params)</span><br><span class="line">    <span class="keyword">if</span> status != sl.ERROR_CODE.SUCCESS:  <span class="comment"># Ensure the camera has opened successfully</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Camera Open : &quot;</span> + <span class="built_in">repr</span>(status) + <span class="string">&quot;. Exit program.&quot;</span>)</span><br><span class="line">        exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    image = sl.Mat()</span><br><span class="line">    pointcloud = sl.Mat()</span><br><span class="line">    <span class="comment"># Create and set runtime parameter and make sure the depth map is complete</span></span><br><span class="line">    runtime = sl.RuntimeParameters(enable_fill_mode=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># A new image&#x27;s available if grab() returns success</span></span><br><span class="line">        <span class="keyword">if</span> zed.grab(runtime) == sl.ERROR_CODE.SUCCESS:</span><br><span class="line">            <span class="comment"># Retrieve left image</span></span><br><span class="line">            zed.retrieve_image(image, sl.VIEW.LEFT)</span><br><span class="line">            <span class="comment"># Retrieve colored point cloud that is aligned on the left image</span></span><br><span class="line">            zed.retrieve_measure(pointcloud, sl.MEASURE.XYZRGBA)</span><br><span class="line">            </span><br><span class="line">            img = image.get_data()</span><br><span class="line">            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)</span><br><span class="line">            gray = cv2.medianBlur(gray, <span class="number">3</span>)</span><br><span class="line">            circles = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, <span class="number">1</span>, <span class="number">20</span>,</span><br><span class="line">                                       param1=<span class="number">50</span>, param2=<span class="number">30</span>, minRadius=<span class="number">10</span>, maxRadius=<span class="number">20</span>)</span><br><span class="line">            <span class="keyword">if</span> circles <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                circles = np.uint16(np.around(circles))</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> circles[<span class="number">0</span>, :]:</span><br><span class="line">                    x, y = <span class="built_in">int</span>(i[<span class="number">1</span>]), <span class="built_in">int</span>(i[<span class="number">0</span>])</span><br><span class="line">                    <span class="comment"># draw the outer circle</span></span><br><span class="line">                    cv2.circle(img, (i[<span class="number">0</span>], i[<span class="number">1</span>]), i[<span class="number">2</span>], (<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>), <span class="number">2</span>)</span><br><span class="line">                    <span class="comment"># draw the center of the circle</span></span><br><span class="line">                    cv2.circle(img, (i[<span class="number">0</span>], i[<span class="number">1</span>]), <span class="number">2</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">                    err, point_value = pointcloud.get_value(x, y)</span><br><span class="line">                    <span class="keyword">if</span> math.isfinite(point_value[<span class="number">2</span>]):</span><br><span class="line">                        distance = math.sqrt(point_value[<span class="number">0</span>]**<span class="number">2</span>+point_value[<span class="number">1</span>]**<span class="number">2</span>+point_value[<span class="number">2</span>]**<span class="number">2</span>)</span><br><span class="line">                        <span class="built_in">print</span>(<span class="string">f&quot;Distance to Camera at (<span class="subst">&#123;i[<span class="number">0</span>]&#125;</span>,<span class="subst">&#123;i[<span class="number">1</span>]&#125;</span>): <span class="subst">&#123;distance&#125;</span> m.&quot;</span>)</span><br><span class="line">			            </span><br><span class="line">            img = cv2.resize(img, (<span class="number">1280</span>,<span class="number">720</span>))  <span class="comment"># resize the img down to 1080x720</span></span><br><span class="line">            cv2.imshow(<span class="string">&quot;detected circles&quot;</span>, img)</span><br><span class="line">            key = cv2.waitKey(<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> key &amp; <span class="number">0xFF</span> == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>):  <span class="comment"># Press &#x27;q&#x27; to exit</span></span><br><span class="line">                zed.close()  <span class="comment"># Close the camera</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;实际运行效果如下：</p>
-<video src="\images\ME4918-机械工程本科毕业设计\HoughCircles.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"></video>
-
-
-
-<h3 id="AprilTag"><a href="#AprilTag" class="headerlink" title="AprilTag"></a>AprilTag</h3><p>&emsp;&emsp;AprilTag是一个免费开源的视觉定位系统，用于物体的识别、定位和姿态估计，在增强现实、机器人、相机校准等领域广泛使用。Apriltag的设计旨在通过识别特定的二维码标记，快速检测并计算出相机相对于标记的位置和方向。</p>
-<h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><p>&emsp;&emsp;在Conda虚拟环境中通过CMake安装第三方库过程如下：（附<a href="https://github.com/AprilRobotics/apriltag">Github Repo</a>）</p>
+<p>  实际运行效果如下：</p>
+<p><video src="\images\ME4918-机械工程本科毕业设计\HoughCircles.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"></video></p>
+<h3 id="AprilTag">AprilTag</h3>
+<p>  AprilTag是一个免费开源的视觉定位系统，用于物体的识别、定位和姿态估计，在增强现实、机器人、相机校准等领域广泛使用。Apriltag的设计旨在通过识别特定的二维码标记，快速检测并计算出相机相对于标记的位置和方向。</p>
+<h4 id="安装过程">安装过程</h4>
+<p>  在Conda虚拟环境中通过CMake安装第三方库过程如下：（附<a href="https://github.com/AprilRobotics/apriltag">Github Repo</a>）</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/AprilRobotics/apriltag</span><br><span class="line">cd apriltag</span><br><span class="line">cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$CONDA_PREFIX</span><br><span class="line">cmake --build build --target install</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;编译libopencv时出现报错：</p>
-<p><img src="\images\ME4918-机械工程本科毕业设计\pic13.png" style="zoom:80%;"/></p>
-<p>&emsp;&emsp;分析：在系统python解释器和conda环境中同时安装了libopencv，同时创建了两个关于libopencv的cmake文件（且两个版本不兼容），在编译的时候有<code>find_package(OpenCV ...)</code>，这一步本应寻找<code>/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake</code>这个文件，但由于安装了anaconda这一步变为寻找<code>$&#123;CONDA_PREFIX&#125;/lib/cmake/opencv4/OpenCVConfig.cmake</code>这个文件，导致后续编译时链接的库文件出错。解决方法是<strong>限定要寻找的Qt5config.cmake文件路径</strong>，即在CMakeLists.txt里添加<code>SET(CMAKE_PREFIX_PATH &quot;/usr/lib/x86_64-linux-gnu/cmake&quot;)</code>，重新编译即可解决问题。</p>
-<h4 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h4><p>&emsp;&emsp;由AprilRobotics提供的apriltag缺乏姿态估计和可视化的部分，而<a href="https://github.com/Tinker-Twins/AprilTag">Tinker-Twins</a>提供了相应的库函数和demo，以下代码是直接调用他们编写的Detector类实现的。</p>
+<p>  编译libopencv时出现报错：</p>
+<img src="\images\ME4918-机械工程本科毕业设计\pic13.png" style="zoom:80%;"/>
+<p>  分析：在系统python解释器和conda环境中同时安装了libopencv，同时创建了两个关于libopencv的cmake文件（且两个版本不兼容），在编译的时候有<code>find_package(OpenCV ...)</code>，这一步本应寻找<code>/usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake</code>这个文件，但由于安装了anaconda这一步变为寻找<code>$&#123;CONDA_PREFIX&#125;/lib/cmake/opencv4/OpenCVConfig.cmake</code>这个文件，导致后续编译时链接的库文件出错。解决方法是<strong>限定要寻找的Qt5config.cmake文件路径</strong>，即在CMakeLists.txt里添加<code>SET(CMAKE_PREFIX_PATH &quot;/usr/lib/x86_64-linux-gnu/cmake&quot;)</code>，重新编译即可解决问题。</p>
+<h4 id="编程">编程</h4>
+<p>  由AprilRobotics提供的apriltag缺乏姿态估计和可视化的部分，而<a href="https://github.com/Tinker-Twins/AprilTag">Tinker-Twins</a>提供了相应的库函数和demo，输出中包含标签的唯一标识符、置信度、单应矩阵、位姿矩阵等重要信息。以下代码是直接调用其编写的Detector类实现的。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># apriltagVideo.py</span></span><br><span class="line"><span class="keyword">import</span> pyzed.sl <span class="keyword">as</span> sl</span><br><span class="line"><span class="keyword">import</span> apriltag</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># Create a Camera object</span></span><br><span class="line">    zed = sl.Camera()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Create a InitParameters object and set configuration parameters</span></span><br><span class="line">    init_params = sl.InitParameters()</span><br><span class="line">    init_params.camera_resolution = sl.RESOLUTION.HD1080</span><br><span class="line">    init_params.camera_fps = <span class="number">30</span></span><br><span class="line">    init_params.depth_mode = sl.DEPTH_MODE.ULTRA  <span class="comment"># Use ULTRA depth mode</span></span><br><span class="line">    init_params.coordinate_units = sl.UNIT.METER  <span class="comment"># Use meter units (for depth measurements)</span></span><br><span class="line">    init_params.depth_minimum_distance = <span class="number">0.3</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Open the camera</span></span><br><span class="line">    status = zed.<span class="built_in">open</span>(init_params)</span><br><span class="line">    <span class="keyword">if</span> status != sl.ERROR_CODE.SUCCESS:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Camera Open : &quot;</span> + <span class="built_in">repr</span>(status) + <span class="string">&quot;. Exit program.&quot;</span>)</span><br><span class="line">        exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    image = sl.Mat()</span><br><span class="line">    runtime = sl.RuntimeParameters()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> zed.grab(runtime) == sl.ERROR_CODE.SUCCESS:</span><br><span class="line">            zed.retrieve_image(image, sl.VIEW.LEFT)</span><br><span class="line">            img = image.get_data()</span><br><span class="line">            img = cv2.resize(img, (<span class="number">1280</span>, <span class="number">720</span>))</span><br><span class="line"></span><br><span class="line">            options = apriltag.DetectorOptions(families=<span class="string">&quot;tag36h11&quot;</span>)</span><br><span class="line">            detector = apriltag.Detector(options, searchpath=apriltag._get_dll_path())</span><br><span class="line">            <span class="comment"># Calibrate ZED camera and note its intrinsic parameters (fx, fy, cx, cy)</span></span><br><span class="line">            results, overlay = apriltag.detect_tags(img, detector, (<span class="number">960.219</span>,<span class="number">960.121</span>,<span class="number">641.53</span>,<span class="number">361.763</span>),</span><br><span class="line">                                                    vizualization = <span class="number">3</span>, verbose = <span class="number">3</span>, annotation = <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># show the output image after AprilTag detection</span></span><br><span class="line">            cv2.imshow(<span class="string">&quot;Image&quot;</span>, overlay)</span><br><span class="line">            key = cv2.waitKey(<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> key &amp; <span class="number">0xFF</span> == <span class="built_in">ord</span>(<span class="string">&#x27;q&#x27;</span>):  <span class="comment"># Press &#x27;q&#x27; to exit</span></span><br><span class="line">                zed.close()  <span class="comment"># Close the camera</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;实际运行效果如下：</p>
-<video src="\images\ME4918-机械工程本科毕业设计\apriltag-demo.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"></video>
+<p>  实际运行效果如下：</p>
+<p><video src="\images\ME4918-机械工程本科毕业设计\apriltag-demo.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"></video></p>
+<h3 id="边缘检测">边缘检测</h3>
+<p>  使用Sobel算子计算深度图的梯度，计算梯度幅值并标准化，采用阈值提取冻存盒边缘。</p>
+<p>  目前主要难题：双目还原点云很不稳定，精度很差</p>
+<p><video src="\images\ME4918-机械工程本科毕业设计\tmp1.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"></video></p>
+<p><video src="\images\ME4918-机械工程本科毕业设计\tmp2.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"></video></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>课程代码示例</category>
