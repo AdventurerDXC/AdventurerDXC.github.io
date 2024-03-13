@@ -543,6 +543,8 @@ transform.txt文件里的数据分别是data1，data2，data3的相机坐标系�
 <p><video src="\images\ME4918-机械工程本科毕业设计\tmp1.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"></video></p>
 <p><video src="\images\ME4918-机械工程本科毕业设计\tmp2.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"></video></p>
 <h3 id="Halcon">Halcon</h3>
+<h4 id="基于形状的模板匹配">基于形状的模板匹配</h4>
+<p><video src="\images\ME4918-机械工程本科毕业设计\tmp3.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"></video></p>
 <h4 id="单相机标定">单相机标定</h4>
 <p>  标定前需要生成一个标定板的描述文件.descr，标定板的参数由<code>gen_caltab</code>指定，具体用法如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gen_caltab(7, 7, 0.2, 0.5, &#x27;caltab.descr &#x27;, &#x27;caltab.ps&#x27;)</span><br></pre></td></tr></table></figure>
