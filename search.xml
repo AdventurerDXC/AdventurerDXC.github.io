@@ -231,8 +231,7 @@
   <entry>
     <title>Markdown语法对照表</title>
     <url>//1.html</url>
-    <content><![CDATA[<h1>标题</h1>
-<table>
+    <content><![CDATA[<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><table>
   <thead>
     <tr>
       <th>源代码</th>
@@ -290,8 +289,8 @@
     </tr>
   </tbody>
 </table>
-<h1>字体&amp;行内格式</h1>
-<table>
+
+<h1 id="字体-amp-行内格式"><a href="#字体-amp-行内格式" class="headerlink" title="字体&amp;行内格式"></a>字体&amp;行内格式</h1><table>
   <thead>
     <tr>
       <th>源代码</th>
@@ -301,7 +300,7 @@
   <tbody>
     <tr>
       <td>**粗体**</td>
-      <td><strong>**粗体**</strong></td>
+      <td><strong>粗体</strong></td>
     </tr>
     <tr>
       <td>*斜体*</td>
@@ -314,6 +313,22 @@
     <tr>
       <td>~~删除线~~</td>
       <td><del>删除线</del></td>
+    <tr>
+      <td>&lt;u&gt;下划线&lt;/u&gt;</td>
+      <td><u>下划线</u></td>
+    <tr>
+    <tr>
+      <td></td>
+      <td></td>
+    <tr>
+    <tr>
+      <td></td>
+      <td></td>
+    <tr>
+    <tr>
+      <td></td>
+      <td></td>
+    <tr>
   </tbody>
 </table><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
