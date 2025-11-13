@@ -289,7 +289,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-13 11:22:19" itemprop="dateModified" datetime="2025-11-13T11:22:19+08:00">2025-11-13</time>
+                <time title="修改时间：2025-11-13 11:48:38" itemprop="dateModified" datetime="2025-11-13T11:48:38+08:00">2025-11-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -307,7 +307,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>376</span>
+              <span>505</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -326,7 +326,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><table>
+          <h1>标题</h1>
+<table>
   <thead>
     <tr>
       <th>源代码</th>
@@ -384,8 +385,8 @@
     </tr>
   </tbody>
 </table>
-
-<h1 id="字体-amp-行内格式"><a href="#字体-amp-行内格式" class="headerlink" title="字体&amp;行内格式"></a>字体&amp;行内格式</h1><table>
+<h1>字体&amp;行内格式</h1>
+<table>
   <thead>
     <tr>
       <th>源代码</th>
@@ -431,9 +432,73 @@
     </tr>
     <tr>
       <td>[文本](https://example.com)</td>
-      <td>[文本](https://example.com)</td>
+      <td><a target="_blank" rel="noopener" href="https://example.com">文本</a></td>
     </tr>
   </tbody>
+</table>
+<h1>无序列表&amp;有序列表</h1>
+<table>
+<tr><th>源代码</th><th>渲染效果</th></tr>
+<tr><td>
+<pre><code>- 项目 A
+- 项目 B
+	- 子项 B1
+	- 子项 B2
+- 项目 C
+	- 子项 C1
+   	- 子项 C11
+- 项目 D
+</code></pre>
+</td><td>
+<ul>
+  <li>项目 A</li>
+  <li>项目 B
+    <ul>
+      <li>子项 B1</li>
+      <li>子项 B2</li>
+    </ul>
+  </li>
+  <li>项目 C
+    <ul>
+      <li>子项 C1</li>
+      <ul>
+        <li>子项 C11</li>
+      </ul>
+    </ul>
+  </li>
+  <li>项目 D</li>
+</ul>
+</td></tr>
+<tr><td>
+<pre><code>1. 第一
+2. 第二
+   1. 第二-1
+   2. 第二-2
+3. 第三
+	1. 第三-1
+     1. 第三-11
+4. 第四
+</code></pre>
+</td><td>
+<ol>
+  <li>第一</li>
+  <li>第二
+    <ol>
+      <li>第二-1</li>
+      <li>第二-2</li>
+    </ol>
+  </li>
+  <li>第三
+    <ol>
+      <li>第三-1</li>
+      <ol>
+        <li>第三-11</li>
+      </ol>
+    </ol>
+  </li>
+  <li>第四</li>
+</ol>
+</td></tr>
 </table><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
           <!--noindex-->
             <div class="post-button">
@@ -681,7 +746,7 @@ date: 2022-11-01 10:00:00</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">40k</span>
+    <span title="站点总字数">41k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
