@@ -206,7 +206,7 @@
 </td></tr>
 </table>
 <h1>Latex数学公式</h1>
-<p>行内公式’$公式$‘，块级公式’$$公式$$’</p>
+<p>行内公式<code>$公式$</code>，块级公式<code>$$公式$$</code></p>
 <table>
   <thead>
     <tr>
@@ -229,11 +229,11 @@
     </tr>
     <tr>
       <td>=, \neq, \equiv, <, >,</br> \leq, \geq, \approx, \sim</td>
-      <td>$=, \neq, \equiv, <, >,</br> \leq, \geq, \approx, \sim$</td>
+      <td>$=, \neq, \equiv, <, >,$</br> $\leq, \geq, \approx, \sim$</td>
     </tr>
     <tr>
       <td>\alpha, \beta, \gamma, \delta,</br> \epsilon, \theta, \lambda, \mu</td>
-      <td>$\alpha, \beta, \gamma, \delta,</br> \epsilon, \theta, \lambda, \mu$</td>
+      <td>$\alpha, \beta, \gamma, \delta,$</br> $\epsilon, \theta, \lambda, \mu$</td>
     </tr>
     <tr>
       <td>\log(x), \ln(x), \sin(x), \cos(x), \tan(x)</td>
@@ -282,6 +282,62 @@
         \end{vmatrix}$</td>
   </tbody>
 </table>
+<h1>代码块</h1>
+<p>使用三个反引号<code>```</code>前后包裹代码，并指定一种语言（也可以不指定），支持语法高亮和多行代码展示。</p>
+<p><strong>常用语言标识符列表：</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>javascript / js - JavaScript</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> users = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;Alice&quot;</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;Bob&quot;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> adults = users.<span class="title function_">filter</span>(<span class="function"><span class="params">user</span> =&gt;</span> user.<span class="property">age</span> &gt;= <span class="number">18</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(adults);</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>python / py - Python</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">calculate_area</span>(<span class="params">radius</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;计算圆的面积&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">import</span> math</span><br><span class="line">    <span class="keyword">return</span> math.pi * radius ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用函数</span></span><br><span class="line">area = calculate_area(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;圆的面积是: <span class="subst">&#123;area:<span class="number">.2</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>sql - SQL</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> u.name, u.email, <span class="built_in">COUNT</span>(o.id) <span class="keyword">as</span> order_count</span><br><span class="line"><span class="keyword">FROM</span> users u</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> orders o <span class="keyword">ON</span> u.id <span class="operator">=</span> o.user_id</span><br><span class="line"><span class="keyword">WHERE</span> u.created_at <span class="operator">&gt;=</span> <span class="string">&#x27;2024-01-01&#x27;</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> u.id, u.name, u.email</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> order_count <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>cpp / c++ - C++</p>
+</li>
+<li class="lvl-2">
+<p>csharp / c# - C#</p>
+</li>
+<li class="lvl-2">
+<p>html - HTML</p>
+</li>
+<li class="lvl-2">
+<p>css - CSS</p>
+</li>
+<li class="lvl-2">
+<p>json - JSON</p>
+</li>
+<li class="lvl-2">
+<p>xml - XML</p>
+</li>
+<li class="lvl-2">
+<p>yaml / yml - YAML</p>
+</li>
+<li class="lvl-2">
+<p>bash / shell - Shell脚本</p>
+</li>
+<li class="lvl-2">
+<p>php - PHP</p>
+</li>
+<li class="lvl-2">
+<p>go - Go语言</p>
+</li>
+<li class="lvl-2">
+<p>rust - Rust</p>
+</li>
+</ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
       <categories>
         <category>工具查阅</category>
