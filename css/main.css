@@ -1204,7 +1204,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #994e71;
+  background: #ff04f0;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1578,12 +1578,12 @@ pre code {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 1200px;
+    width: 1100px;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 1400px;
+    width: 1200px;
   }
 }
 .use-motion .footer {
@@ -2535,12 +2535,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   header.header {
-    width: 1200px;
+    width: 1100px;
   }
 }
 @media (min-width: 1600px) {
   header.header {
-    width: 1400px;
+    width: 1200px;
   }
 }
 .main-inner {
@@ -2555,12 +2555,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .main-inner {
-    width: 1200px;
+    width: 1100px;
   }
 }
 @media (min-width: 1600px) {
   .main-inner {
-    width: 1400px;
+    width: 1200px;
   }
 }
 @media (max-width: 767px) {
