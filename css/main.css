@@ -2,11 +2,11 @@
   --body-bg-color: #fff;
   --content-bg-color: #f5f5f5;
   --card-bg-color: #f5f5f5;
-  --text-color: #555;
+  --text-color: #222;
   --selection-bg: #262a30;
   --selection-color: #eee;
   --blockquote-color: #666;
-  --link-color: #555;
+  --link-color: #222;
   --link-hover-color: #222;
   --brand-color: #222;
   --brand-hover-color: #222;
@@ -621,7 +621,7 @@ pre code {
   width: 100%;
 }
 .post-body .label {
-  color: #555;
+  color: #222;
   padding: 0 2px;
 }
 .post-body .label.default {
@@ -1204,7 +1204,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ffccc3;
+  background: #ec3d8a;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
