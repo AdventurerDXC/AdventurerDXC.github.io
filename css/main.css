@@ -1204,7 +1204,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #d4ffff;
+  background: #994e71;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1569,7 +1569,7 @@ pre code {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  width: 800px;
+  width: 1000px;
 }
 @media (max-width: 767px) {
   .footer-inner {
@@ -1578,12 +1578,12 @@ pre code {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 1000px;
+    width: 1200px;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 1200px;
+    width: 1400px;
   }
 }
 .use-motion .footer {
@@ -2526,7 +2526,7 @@ header.header {
 }
 header.header {
   margin: 0 auto;
-  width: 800px;
+  width: 1000px;
 }
 @media (max-width: 767px) {
   header.header {
@@ -2535,17 +2535,17 @@ header.header {
 }
 @media (min-width: 1200px) {
   header.header {
-    width: 1000px;
+    width: 1200px;
   }
 }
 @media (min-width: 1600px) {
   header.header {
-    width: 1200px;
+    width: 1400px;
   }
 }
 .main-inner {
   margin: 0 auto;
-  width: 800px;
+  width: 1000px;
   padding-bottom: 80px;
 }
 @media (max-width: 767px) {
@@ -2555,12 +2555,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .main-inner {
-    width: 1000px;
+    width: 1200px;
   }
 }
 @media (min-width: 1600px) {
   .main-inner {
-    width: 1200px;
+    width: 1400px;
   }
 }
 @media (max-width: 767px) {
