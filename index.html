@@ -243,7 +243,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>427</span>
+      <span>280</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -279,7 +279,6 @@ flowchart LR
   W -- add   --> S
   S -- commit--> L
   L -- push  --> R</pre>
-<script type="module"> import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs'; mermaid.initialize({startOnLoad: true, flowchart: {curve: 'linear'}}); </script>
 
       
     </div>
@@ -996,8 +995,8 @@ target="_blank" rel="noopener" href="https://xuanxuanblingbling.github.io/assets
 <p>脉冲宽度调制（PWM = Pulse Width
 Modulation）简称脉宽调制，是利用微处理器的数字输出，通过控制有效电平在一个周期内的占比，来近似模拟信号进行控制的一种技术，广泛应用在从测量、通信到功率控制与变换的许多领域中。</p>
 <p>PWM模拟连续信号：</p>
-<style>.hohecqnwrnwx{zoom:80%;}</style>
-<img src="/posts/2001/PWM%E6%A8%A1%E6%8B%9F%E8%BF%9E%E7%BB%AD%E4%BF%A1%E5%8F%B7.jpg" class="hohecqnwrnwx" alt="PWM模拟连续信号">
+<style>.wkyzuhtcmosb{zoom:80%;}</style>
+<img src="/posts/2001/PWM%E6%A8%A1%E6%8B%9F%E8%BF%9E%E7%BB%AD%E4%BF%A1%E5%8F%B7.jpg" class="wkyzuhtcmosb" alt="PWM模拟连续信号">
 <p>PWM基本概念：</p>
 <ul>
 <li><strong>PWM周期</strong>：PWM波形从低电平到高电平再到低电平所持续的时间</li>
@@ -1006,8 +1005,8 @@ class="math inline"><em>f</em> = 1/<em>T</em></span></li>
 <li><strong>PWM占空比</strong>：一个PWM周期内高电平时间和总时间的比值，<span
 class="math inline"><em>σ</em> = <em>T</em><sub><em>h</em><em>i</em><em>g</em><em>h</em></sub>/<em>T</em></span></li>
 </ul>
-<style>.hbkdpzxmydng{zoom:40%;}</style>
-<img src="/posts/2001/PWM%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.jpg" class="hbkdpzxmydng" alt="PWM基本概念">
+<style>.itguvzvjdmxt{zoom:40%;}</style>
+<img src="/posts/2001/PWM%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.jpg" class="itguvzvjdmxt" alt="PWM基本概念">
 <h1 id="定时器功能介绍">定时器功能介绍</h1>
 <p>STM32F411xC/E系列共有8个定时器：<br />
 高级定时器（TIM1）；通用定时器（TIM2、TIM3、TIM4、TIM5）；基本定时器（TIM9、TIM10、TIM11）。</p>
@@ -1023,7 +1022,7 @@ class="math inline"><em>σ</em> = <em>T</em><sub><em>h</em><em>i</em><em>g</
 - 输出比较 - 支持针对定位的增量（正交）编码器和霍尔传感器电路 -
 触发输入作为外部时钟或者按周期的电流管理</p>
 <p>通用定时器框图如下：
-<style>.kglakywpwnss{zoom:95%;}</style><img src="/posts/2001/%E9%80%9A%E7%94%A8%E5%AE%9A%E6%97%B6%E5%99%A8%E6%A1%86%E5%9B%BE.jpg" class="kglakywpwnss" alt="通用定时器框图"></p>
+<style>.vvlexkmhhxxh{zoom:95%;}</style><img src="/posts/2001/%E9%80%9A%E7%94%A8%E5%AE%9A%E6%97%B6%E5%99%A8%E6%A1%86%E5%9B%BE.jpg" class="vvlexkmhhxxh" alt="通用定时器框图"></p>
 <h1 id="输出比较pwm工作原理">输出比较/PWM工作原理</h1>
 <p>和输出比较/PWM相关的时基单元：</p>
 <ul>
@@ -1043,8 +1042,8 @@ class="math inline"><em>f</em><sub><em>C</em><em>N</em><em>T</em></sub> = <e
 然后从ARR值开始递减计数直到1生成计数器下溢事件。然后又从0开始计数，如此循环。每次发生计数器上溢和下溢事件都会生成更新事件。</li>
 </ul></li>
 </ul>
-<style>.ljmujbhpdjuq{zoom:95%;}</style>
-<img src="/posts/2001/%E5%AE%9A%E6%97%B6%E5%99%A8%E8%AE%A1%E6%95%B0%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%843%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F.jpg" class="ljmujbhpdjuq" alt="定时器计数器寄存器的3种工作模式">
+<style>.bgmuiqxxbmiw{zoom:95%;}</style>
+<img src="/posts/2001/%E5%AE%9A%E6%97%B6%E5%99%A8%E8%AE%A1%E6%95%B0%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%843%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F.jpg" class="bgmuiqxxbmiw" alt="定时器计数器寄存器的3种工作模式">
 <ul>
 <li><p>自动重载寄存器（TIMx_ARR）<br />
 自动重载寄存器ARR用来存放与计数器CNT比较的值，如果两个值相等CNT就复位并递减重复计数器。可以通过TIMx_CR1寄存器的ARPE位控制自动重载影子寄存器功能，
@@ -1053,7 +1052,7 @@ class="math inline"><em>f</em><sub><em>C</em><em>N</em><em>T</em></sub> = <e
 通过比较计数器CNT的值跟比较寄存器CCR的值，两者相等时输出参考信号OCxREF的信号的极性就会改变，其中OCxREF=1（高电平）称之为有效电平，
 OCxREF=0（低电平）称之为无效电平，并且会产生比较中断CCxI，相应的标志位CCxIF（SR寄存器中）会置位。
 然后OCxREF再经过一系列的控制之后就成为真正的输出信号OCx/OCxN.
-<style>.uhzvulkdvqjt{zoom:70%;}</style><img src="/posts/2001/%E6%8D%95%E8%8E%B7%E6%AF%94%E8%BE%83%E6%A8%A1%E5%9D%97%E7%9A%84%E8%BE%93%E5%87%BA%E9%83%A8%E5%88%86.jpg" class="uhzvulkdvqjt" alt="捕获比较通道的输出部分"></p></li>
+<style>.rojcgegybeuc{zoom:70%;}</style><img src="/posts/2001/%E6%8D%95%E8%8E%B7%E6%AF%94%E8%BE%83%E6%A8%A1%E5%9D%97%E7%9A%84%E8%BE%93%E5%87%BA%E9%83%A8%E5%88%86.jpg" class="rojcgegybeuc" alt="捕获比较通道的输出部分"></p></li>
 </ul>
 <p>输出比较的工作流程（如上）：</p>
 <ol type="1">
@@ -1089,16 +1088,16 @@ CC1E = 0 禁止输出，CC1E = 1 信号输出到对应的输出引脚</p></li>
 <tr>
 <td style="text-align: center;"><strong>向上计数</strong></td>
 <td
-style="text-align: center;"><style>.ubfwrrwcwpfa{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F1_%E5%90%91%E4%B8%8A%E8%AE%A1%E6%95%B0.jpg" class="ubfwrrwcwpfa" alt="PWM模式1_向上计数"></td>
+style="text-align: center;"><style>.wrjmvgynbvut{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F1_%E5%90%91%E4%B8%8A%E8%AE%A1%E6%95%B0.jpg" class="wrjmvgynbvut" alt="PWM模式1_向上计数"></td>
 <td
-style="text-align: center;"><style>.vtbbbfevobcf{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F2_%E5%90%91%E4%B8%8A%E8%AE%A1%E6%95%B0.jpg" class="vtbbbfevobcf" alt="PWM模式2_向上计数"></td>
+style="text-align: center;"><style>.dvutdijghxie{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F2_%E5%90%91%E4%B8%8A%E8%AE%A1%E6%95%B0.jpg" class="dvutdijghxie" alt="PWM模式2_向上计数"></td>
 </tr>
 <tr>
 <td style="text-align: center;"><strong>向下计数</strong></td>
 <td
-style="text-align: center;"><style>.bndxsneetjfp{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F1_%E5%90%91%E4%B8%8B%E8%AE%A1%E6%95%B0.jpg" class="bndxsneetjfp" alt="PWM模式1_向下计数"></td>
+style="text-align: center;"><style>.qnipkxobvmpn{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F1_%E5%90%91%E4%B8%8B%E8%AE%A1%E6%95%B0.jpg" class="qnipkxobvmpn" alt="PWM模式1_向下计数"></td>
 <td
-style="text-align: center;"><style>.ayzkhhoadhlf{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F2_%E5%90%91%E4%B8%8B%E8%AE%A1%E6%95%B0.jpg" class="ayzkhhoadhlf" alt="PWM模式2_向下计数"></td>
+style="text-align: center;"><style>.ddmpictglcow{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F2_%E5%90%91%E4%B8%8B%E8%AE%A1%E6%95%B0.jpg" class="ddmpictglcow" alt="PWM模式2_向下计数"></td>
 </tr>
 </tbody>
 </table>
@@ -1108,17 +1107,17 @@ style="text-align: center;"><style>.ayzkhhoadhlf{zoom:95%;}</style><img src="/po
 <ol type="1">
 <li><p><strong>设置外部时钟</strong><br />
 设置高速外部时钟HSE，选择RC振荡器<br />
-<style>.ijyvdzxrqtjr{zoom:30%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AERCC.jpg" class="ijyvdzxrqtjr" alt="设置RCC"></p></li>
+<style>.frycctsuxwtb{zoom:30%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AERCC.jpg" class="frycctsuxwtb" alt="设置RCC"></p></li>
 <li><p><strong>设置烧录和调试接口</strong><br />
 设置Debug选项为Serial Wire<br />
-<style>.yiigcgukfgpf{zoom:25%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AESYS.jpg" class="yiigcgukfgpf" alt="设置SYS"></p></li>
+<style>.lxepxbnpseer{zoom:25%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AESYS.jpg" class="lxepxbnpseer" alt="设置SYS"></p></li>
 <li><p><strong>设置时钟树</strong><br />
 点击锁相环PLLCLK，将系统时钟HCLK设置为最大值100MHz<br />
-<style>.uropsftffmnl{zoom:25%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91.jpg" class="uropsftffmnl" alt="设置时钟树"></p></li>
+<style>.brbwqnsvcjms{zoom:25%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91.jpg" class="brbwqnsvcjms" alt="设置时钟树"></p></li>
 <li><p><strong>设置定时器</strong><br />
 点击TIM2，设置定时器时钟源为内部时钟源，设置定时器CH1为PWM
 Generation模式<br />
-<style>.sqkqmdvgwusq{zoom:30%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E5%99%A8.jpg" class="sqkqmdvgwusq" alt="设置定时器"></p>
+<style>.glndsolhhayh{zoom:30%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E5%99%A8.jpg" class="glndsolhhayh" alt="设置定时器"></p>
 <ul>
 <li><strong>PWM频率</strong> <span
 class="math inline"><em>f</em><sub><em>p</em><em>w</em><em>m</em></sub> = <em>f</em><sub><em>c</em><em>l</em><em>k</em></sub>/(<em>P</em><em>S</em><em>C</em> + 1)/(<em>A</em><em>R</em><em>R</em> + 1) = 100<em>M</em>/100/500 = 2<em>k</em><em>H</em><em>z</em></span>，注意：PSC和ARR要在实际值基础减1</li>
@@ -1133,15 +1132,15 @@ PWM脉冲快速模式，和我们配置无关，不使能</li>
 </ul></li>
 <li><p><strong>项目文件配置</strong><br />
 设置项目名称，设置存储路径，选择所用IDE（KEIL 5)<br />
-<style>.aitbnhipifcu{zoom:25%;}</style><img src="/posts/2001/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE1.jpg" class="aitbnhipifcu" alt="项目文件设置1"><br />
+<style>.unzwtzxztrdn{zoom:25%;}</style><img src="/posts/2001/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE1.jpg" class="unzwtzxztrdn" alt="项目文件设置1"><br />
 选择仅复制所需的.c和.h库文件，选择每个功能生成独立的.c和.h文件<br />
-<style>.dydioyeesphu{zoom:25%;}</style><img src="/posts/2001/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE2.jpg" class="dydioyeesphu" alt="项目文件设置2"> 然后点击GENERATE
+<style>.gqqdblmleume{zoom:25%;}</style><img src="/posts/2001/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE2.jpg" class="gqqdblmleume" alt="项目文件设置2"> 然后点击GENERATE
 CODE，创建工程</p></li>
 </ol>
 <h2 id="keil代码编写">Keil代码编写</h2>
 <p><strong>配置下载工具</strong><br />
 新建的工程所有配置都是默认的，我们需要选择ST-Link下载调试接口，勾选上下载后复位运行
-<style>.ujbxirlndmuo{zoom:50%;}</style><img src="/posts/2001/keil%E9%85%8D%E7%BD%AE%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7.jpg" class="ujbxirlndmuo" alt="keil配置下载工具"></p>
+<style>.jbqvonswjqje{zoom:50%;}</style><img src="/posts/2001/keil%E9%85%8D%E7%BD%AE%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7.jpg" class="jbqvonswjqje" alt="keil配置下载工具"></p>
 <p>我们修改main.c文件创建一个呼吸灯的例程。<br />
 <strong>定义变量：</strong><br />
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* USER CODE BEGIN 1 */</span></span><br><span class="line">  <span class="type">uint16_t</span> pwmVal = <span class="number">0</span>;</span><br><span class="line"><span class="comment">/* USER CODE END 1 */</span></span><br></pre></td></tr></table></figure></p>
@@ -1206,6 +1205,8 @@ STM32CubeMX教程</a></p></li>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
+
+
 
     </div>
   </footer>
