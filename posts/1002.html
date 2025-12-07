@@ -19,13 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"adventurerdxc.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta property="og:type" content="article">
+    <meta name="description" content="123456789101112131415161718%%&#123;init: &#123;&#x27;flowchart&#x27;:&#123;&#x27;curve&#x27;:&#x27;basis&#x27;&#125;&#125;&#125;%%flowchart LR  %% &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Nodes &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  subgraph Remote[&quot;远程仓库&quot;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Git基本命令和操作流程">
 <meta property="og:url" content="https://adventurerdxc.github.io/posts/1002.html">
 <meta property="og:site_name" content="AdventurerDXC的技术博客">
+<meta property="og:description" content="123456789101112131415161718%%&#123;init: &#123;&#x27;flowchart&#x27;:&#123;&#x27;curve&#x27;:&#x27;basis&#x27;&#125;&#125;&#125;%%flowchart LR  %% &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Nodes &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  subgraph Remote[&quot;远程仓库&quot;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-25T13:46:20.000Z">
-<meta property="article:modified_time" content="2025-11-25T13:48:52.706Z">
+<meta property="article:modified_time" content="2025-12-07T08:05:12.841Z">
 <meta property="article:author" content="AdventurerDXC">
 <meta property="article:tag" content="技术分享类博客">
 <meta name="twitter:card" content="summary">
@@ -217,9 +219,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-11-25 21:46:20 / 修改时间：21:48:52" itemprop="dateCreated datePublished" datetime="2025-11-25T21:46:20+08:00">2025-11-25</time>
+      <time title="创建时间：2025-11-25 21:46:20" itemprop="dateCreated datePublished" datetime="2025-11-25T21:46:20+08:00">2025-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-07 16:05:12" itemprop="dateModified" datetime="2025-12-07T16:05:12+08:00">2025-12-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -238,7 +246,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
+      <span>483</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -255,7 +263,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">%%&#123;init: &#123;&#x27;flowchart&#x27;:&#123;&#x27;curve&#x27;:&#x27;basis&#x27;&#125;&#125;&#125;%%</span><br><span class="line">flowchart LR</span><br><span class="line">  %% ====== Nodes ======</span><br><span class="line">  subgraph Remote[&quot;远程仓库&quot;]</span><br><span class="line">    R[&quot;远程仓库&lt;br/&gt;(GitHub/Gitee等)&quot;]</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  subgraph Local[&quot;本地仓库&quot;]</span><br><span class="line">    L[&quot;本地库/版本库&lt;br/&gt;(.git)&quot;]</span><br><span class="line">    S[&quot;暂存区/缓存区&lt;br/&gt;(Index/Stage)&quot;]</span><br><span class="line">    W[&quot;工作区域&lt;br/&gt;(Working Directory)&quot;]</span><br><span class="line">  end</span><br><span class="line"></span><br><span class="line">  %% ====== Flows ======</span><br><span class="line">  R -- clone --&gt; L</span><br><span class="line">  W -- add   --&gt; S</span><br><span class="line">  S -- commit--&gt; L</span><br><span class="line">  L -- push  --&gt; R</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -304,7 +312,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">7k</span>
+    <span title="站点总字数">8k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
