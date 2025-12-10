@@ -261,7 +261,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.4k</span>
+      <span>3.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -605,7 +605,7 @@ target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-pan
 +, - , \times, \div
 </td>
 <td>
-<span class="math display">+, −, ×, ÷</span>
+<span class="math display">\[+, - , \times, \div\]</span>
 </td>
 </tr>
 <tr>
@@ -613,7 +613,7 @@ target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-pan
 \frac{分子}{分母}
 </td>
 <td>
-<span class="math inline">$\frac{分子}{分母}$</span>
+<span class="math inline">\(\frac{分子}{分母}\)</span>
 </td>
 </tr>
 <tr>
@@ -621,10 +621,9 @@ target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-pan
 下标x_i, 上标x^2, 上下标x_i^2
 </td>
 <td>
-下标<span class="math display"><em>x</em><sub><em>i</em></sub></span>,
-上标<span class="math display"><em>x</em><sup>2</sup></span>,
-上下标<span
-class="math display"><em>x</em><sub><em>i</em></sub><sup>2</sup></span>
+下标<span class="math display">\[x_i\]</span>, 上标<span
+class="math display">\[x^2\]</span>, 上下标<span
+class="math display">\[x_i^2\]</span>
 </td>
 </tr>
 <tr>
@@ -632,7 +631,8 @@ class="math display"><em>x</em><sub><em>i</em></sub><sup>2</sup></span>
 =, \neq, \equiv, &lt;, &gt;, \leq, \geq, \approx, \sim
 </td>
 <td>
-<span class="math display">=,≠,≡,&lt;,&gt;,≤,≥,≈,∼</span>
+<span class="math display">\[=, \neq, \equiv, &lt;, &gt;, \leq, \geq,
+\approx, \sim\]</span>
 </td>
 </tr>
 <tr>
@@ -640,8 +640,8 @@ class="math display"><em>x</em><sub><em>i</em></sub><sup>2</sup></span>
 \alpha, \beta, \gamma, \delta, \epsilon, \theta, \lambda, \mu
 </td>
 <td>
-<span
-class="math display"><em>α</em>, <em>β</em>, <em>γ</em>, <em>δ</em>, <em>ϵ</em>, <em>θ</em>, <em>λ</em>, <em>μ</em></span>
+<span class="math display">\[\alpha, \beta, \gamma, \delta, \epsilon,
+\theta, \lambda, \mu\]</span>
 </td>
 </tr>
 <tr>
@@ -649,8 +649,8 @@ class="math display"><em>α</em>, <em>β</em>, <em>γ</em>, <em>δ</em>,�
 \log(x), \ln(x), \sin(x), \cos(x), \tan(x)
 </td>
 <td>
-<span
-class="math display">log (<em>x</em>), ln (<em>x</em>), sin (<em>x</em>), cos (<em>x</em>), tan (<em>x</em>)</span>
+<span class="math display">\[\log(x), \ln(x), \sin(x), \cos(x),
+\tan(x)\]</span>
 </td>
 </tr>
 <tr>
@@ -658,8 +658,8 @@ class="math display">log (<em>x</em>), ln (<em>x</em>), sin (<em>x</em
 \sum_{i=1}^n, \prod_{i=1}^n, \int_{0}^{\infty}
 </td>
 <td>
-<span class="math inline">$\sum_{i=1}^n, \prod_{i=1}^n,
-\int_{0}^{\infty}$</span>
+<span class="math inline">\(\sum_{i=1}^n, \prod_{i=1}^n,
+\int_{0}^{\infty}\)</span>
 </td>
 </tr>
 <tr>
@@ -667,7 +667,7 @@ class="math display">log (<em>x</em>), ln (<em>x</em>), sin (<em>x</em
 \sqrt{平方根}, \sqrt[n]{n次根}
 </td>
 <td>
-<span class="math inline">$\sqrt{平方根}, \sqrt[n]{n次根}$</span>
+<span class="math inline">\(\sqrt{平方根}, \sqrt[n]{n次根}\)</span>
 </td>
 </tr>
 <tr>
@@ -675,7 +675,7 @@ class="math display">log (<em>x</em>), ln (<em>x</em>), sin (<em>x</em
 \in, \notin, \subset, \supset
 </td>
 <td>
-<span class="math display">∈,∉,⊂,⊃</span>
+<span class="math display">\[\in, \notin, \subset, \supset\]</span>
 </td>
 </tr>
 <tr>
@@ -683,7 +683,7 @@ class="math display">log (<em>x</em>), ln (<em>x</em>), sin (<em>x</em
 \cap, \cup, \emptyset
 </td>
 <td>
-<span class="math display">∩, ∪, ∅</span>
+<span class="math display">\[\cap, \cup, \emptyset\]</span>
 </td>
 </tr>
 <tr>
@@ -693,7 +693,7 @@ class="math display">log (<em>x</em>), ln (<em>x</em>), sin (<em>x</em
 \begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix}</code>
 </td>
 <td>
-<span class="math inline">$\begin{pmatrix}
+<span class="math inline">\(\begin{pmatrix}
         a &amp; b \\
         c &amp; d
         \end{pmatrix},
@@ -704,7 +704,7 @@ class="math display">log (<em>x</em>), ln (<em>x</em>), sin (<em>x</em
         \begin{vmatrix}
         a &amp; b \\
         c &amp; d
-        \end{vmatrix}$</span>
+        \end{vmatrix}\)</span>
 </td>
 </tbody>
 </table>
