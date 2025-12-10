@@ -218,9 +218,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-12-09 15:35:53 / 修改时间：22:27:40" itemprop="dateCreated datePublished" datetime="2025-12-09T15:35:53+08:00">2025-12-09</time>
+      <time title="创建时间：2025-12-09 15:35:53" itemprop="dateCreated datePublished" datetime="2025-12-09T15:35:53+08:00">2025-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-10 10:33:22" itemprop="dateModified" datetime="2025-12-10T10:33:22+08:00">2025-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -239,7 +245,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
+      <span>1.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -272,9 +278,9 @@ class="math inline">\(|Z|=\frac{1}{2\pi{f}C}\)</span>.</p>
 <p>在滤波电路的设计中，往往将多个类型的电容器进行并联，以达到”1+1&gt;2”的效果。</p>
 <h1 id="电感元件">电感元件</h1>
 <p>电感是能够把电能转化为磁能并存储的元件，具有<strong>”通直流，隔交流“</strong>的特性，在电路中所起的主要作用是<strong>滤波</strong>、<strong>扼流</strong>、<strong>谐振</strong>和<strong>储能</strong>。</p>
-<p>电感的伏安关系<span
-class="math inline">\(u=L\int{idt}\)</span>，电感的阻抗<span
-class="math display">\[|Z|=2\pi{fL}\]</span>.</p>
+<p>电感的伏安关系<span class="math inline">\(\begin{equation}
+u=L\int{idt} \end{equation}\)</span>，电感的阻抗<span
+class="math inline">\(|Z|=2{\pi}fL\)</span>.</p>
 <h1 id="二极管">二极管</h1>
 <h1 id="运算放大器">运算放大器</h1>
 <p>运算放大器是一种用集成电路技术制作的多端器件，常用来完成加法、减法、积分、微分等运算，简称运放。如今的运放有多种型号，其内部结构也各不相同，从电路分析的角度出发，我们主要研究该器件的外部特性。</p>
@@ -286,11 +292,13 @@ class="math inline">\(u_{-}\)</span>为输入电压，<span
 class="math inline">\(u_o\)</span>为输出电压。其中<span
 class="math inline">\(u_+\)</span>称为<strong>同相输入端</strong>，<span
 class="math inline">\(u_-\)</span>称为<strong>反相输入端</strong>，注意同向和反相的称呼仅用于区分两种性质的输入端，不代表电压的参考极性。</p>
-<style>.egoqsbvmyjwe{zoom:95%;}</style>
-<img src="/posts/3001/%E8%BF%90%E6%94%BE%E7%9A%84%E7%AC%A6%E5%8F%B7%E5%8F%8A%E5%85%B6%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA%E7%89%B9%E6%80%A7%E6%9B%B2%E7%BA%BF.png" class="egoqsbvmyjwe" alt="运放的符号及其输入-输出特性曲线">
+<style>.jxrbzgvebhcw{zoom:95%;}</style>
+<img src="/posts/3001/%E8%BF%90%E6%94%BE%E7%9A%84%E7%AC%A6%E5%8F%B7%E5%8F%8A%E5%85%B6%E8%BE%93%E5%85%A5-%E8%BE%93%E5%87%BA%E7%89%B9%E6%80%A7%E6%9B%B2%E7%BA%BF.png" class="jxrbzgvebhcw" alt="运放的符号及其输入-输出特性曲线">
 <p>运放的输入-输出特性如图(c)所示。如果运放工作于图中的<strong>线性区</strong>，其斜率<span
-class="math inline">\(A=E_s/\epsilon\)</span>，称为运放的<strong>开环增益</strong>，此时运放的输出</p>
-<p><span class="math display">\[u_o=Au_i=A(u_+-u_-)\]</span></p>
+class="math inline">\(\begin{equation} A=E_s/\epsilon
+\end{equation}\)</span>，称为运放的<strong>开环增益</strong>，此时运放的输出</p>
+<p><span class="math display">\[\begin{equation} u_o=Au_i=A(u_+-u_-)
+\end{equation}\]</span></p>
 <p>运放可以用下图的电压控制电压源来模拟，<span
 class="math inline">\(R_i\)</span>和<span
 class="math inline">\(R_o\)</span>分别为运放的输入电阻和输出电阻。实际的运放，一般输入电阻<span
@@ -301,12 +309,25 @@ class="math inline">\(10^5\sim10^8\)</span>，而输出电阻<span
 class="math inline">\(R_o\)</span>很小，一般为<span
 class="math inline">\(10\sim100\Omega\)</span>，可见线性区的范围是非常小的。当运放受到干扰时，<span
 class="math inline">\(u_i\)</span>很容易超出线性区范围而使运放进入<strong>饱和区</strong>，因此常采用<strong>负反馈</strong>的方式使运放稳定地工作在线性区。</p>
-<style>.rrjbxhixzrmr{zoom:80%;}</style>
-<img src="/posts/3001/%E7%94%A8%E5%8F%97%E6%8E%A7%E7%94%B5%E6%BA%90%E8%A1%A8%E7%A4%BA%E7%9A%84%E8%BF%90%E6%94%BE%E6%A8%A1%E5%9E%8B.png" class="rrjbxhixzrmr" alt="用受控电源表示的运放模型">
+<style>.jzjyckrcsxqt{zoom:80%;}</style>
+<img src="/posts/3001/%E7%94%A8%E5%8F%97%E6%8E%A7%E7%94%B5%E6%BA%90%E8%A1%A8%E7%A4%BA%E7%9A%84%E8%BF%90%E6%94%BE%E6%A8%A1%E5%9E%8B.png" class="jzjyckrcsxqt" alt="用受控电源表示的运放模型">
 <ul>
 <li>负反馈：将一部分输出引到运放的<strong>反相输入端</strong></li>
 <li>正反馈：将一部分输出引到运放的<strong>同相输入端</strong></li>
 </ul>
+<p>在电路分析中常用<strong>理想运放</strong>的模型，即具有下列参数的运放：<span
+class="math inline">\(R_i \rightarrow \infty, R_o = 0, A \rightarrow
+\infty\)</span></p>
+<p>根据上式可得出理想运放的两个重要特性，即</p>
+<ol type="1">
+<li><strong>虚短</strong>：由于<span class="math inline">\(A \rightarrow
+\infty\)</span>而输出电压<span
+class="math inline">\(u_o\)</span>为有限值，所以<span
+class="math inline">\(u_i=u_o/A=0\)</span>，这意味着<span
+class="math inline">\(u_+=u_-\)</span>，即反相输入端与同相输入端的对地电压相等，此时两个输入端之间可以看作短路。而在同相输入端接地的情况下，反相输入端与地同电位（简称为<strong>虚地</strong>）</li>
+<li><strong>虚断</strong>：由于<span
+class="math inline">\(R_i\rightarrow\infty\)</span>，所以输入电流等于零。此时输入端可看作断路，简称虚断。</li>
+</ol>
 
       
     </div>
@@ -523,7 +544,7 @@ flowchart LR
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-11-25 20:14:51" itemprop="dateModified" datetime="2025-11-25T20:14:51+08:00">2025-11-25</time>
+      <time title="修改时间：2025-12-10 10:22:53" itemprop="dateModified" datetime="2025-12-10T10:22:53+08:00">2025-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -887,7 +908,7 @@ target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-pan
 +, - , \times, \div
 </td>
 <td>
-<span class="math display">\[+, - , \times, \div\]</span>
+<span class="math inline">\(+, - , \times, \div\)</span>
 </td>
 </tr>
 <tr>
@@ -903,9 +924,9 @@ target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-renderer-pan
 下标x_i, 上标x^2, 上下标x_i^2
 </td>
 <td>
-下标<span class="math display">\[x_i\]</span>, 上标<span
-class="math display">\[x^2\]</span>, 上下标<span
-class="math display">\[x_i^2\]</span>
+下标<span class="math inline">\(x_i\)</span>, 上标<span
+class="math inline">\(x^2\)</span>, 上下标<span
+class="math inline">\(x_i^2\)</span>
 </td>
 </tr>
 <tr>
@@ -913,8 +934,8 @@ class="math display">\[x_i^2\]</span>
 =, \neq, \equiv, &lt;, &gt;, \leq, \geq, \approx, \sim
 </td>
 <td>
-<span class="math display">\[=, \neq, \equiv, &lt;, &gt;, \leq, \geq,
-\approx, \sim\]</span>
+<span class="math inline">\(=, \neq, \equiv, &lt;, &gt;, \leq, \geq,
+\approx, \sim\)</span>
 </td>
 </tr>
 <tr>
@@ -922,8 +943,8 @@ class="math display">\[x_i^2\]</span>
 \alpha, \beta, \gamma, \delta, \epsilon, \theta, \lambda, \mu
 </td>
 <td>
-<span class="math display">\[\alpha, \beta, \gamma, \delta, \epsilon,
-\theta, \lambda, \mu\]</span>
+<span class="math inline">\(\alpha, \beta, \gamma, \delta, \epsilon,
+\theta, \lambda, \mu\)</span>
 </td>
 </tr>
 <tr>
@@ -931,8 +952,8 @@ class="math display">\[x_i^2\]</span>
 \log(x), \ln(x), \sin(x), \cos(x), \tan(x)
 </td>
 <td>
-<span class="math display">\[\log(x), \ln(x), \sin(x), \cos(x),
-\tan(x)\]</span>
+<span class="math inline">\(\log(x), \ln(x), \sin(x), \cos(x),
+\tan(x)\)</span>
 </td>
 </tr>
 <tr>
@@ -957,7 +978,7 @@ class="math display">\[x_i^2\]</span>
 \in, \notin, \subset, \supset
 </td>
 <td>
-<span class="math display">\[\in, \notin, \subset, \supset\]</span>
+<span class="math inline">\(\in, \notin, \subset, \supset\)</span>
 </td>
 </tr>
 <tr>
@@ -965,7 +986,7 @@ class="math display">\[x_i^2\]</span>
 \cap, \cup, \emptyset
 </td>
 <td>
-<span class="math display">\[\cap, \cup, \emptyset\]</span>
+<span class="math inline">\(\cap, \cup, \emptyset\)</span>
 </td>
 </tr>
 <tr>
@@ -1376,13 +1397,13 @@ STM32CubeMX教程</a></p></li>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">9k</span>
+    <span title="站点总字数">10k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">8 分钟</span>
+    <span title="站点阅读时长">9 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
