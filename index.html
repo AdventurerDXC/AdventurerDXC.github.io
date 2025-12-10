@@ -333,7 +333,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-07 21:36:40" itemprop="dateModified" datetime="2025-12-07T21:36:40+08:00">2025-12-07</time>
+      <time title="修改时间：2025-12-10 15:17:42" itemprop="dateModified" datetime="2025-12-10T15:17:42+08:00">2025-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -370,62 +370,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <pre class="mermaid">%%{init: {'flowchart':{'curve':'basis'}}}%%
-flowchart LR
-  %% ====== Nodes ======
-  subgraph Local["本地仓库"]
-    W["工作目录<br/>(Working Directory)"]
-    S["暂存区/缓存区<br/>(Index/Stage)"]
-    L["本地库/版本库<br/>(.git)"]
-  end
-  
-  subgraph Remote["远程仓库"]
-    R["远程仓库<br/>(GitHub/Gitee等)"]
-  end
-
-  %% ====== Flows ======
-  R -- <b>clone/fetch</b>     --> L
-  W -- <b>add</b>             --> S
-  S -- <b>commit</b>          --> L
-  L -- <b>push</b>            --> R
-  L -- <b>checkout</b>        --> W
-  R -- <b>pull=fetch+merge</b>--> W</pre>
-<h1 id="克隆仓库">克隆仓库</h1>
-<p>将<strong>远程仓库</strong>复制到本地，得到<strong>本地仓库(.git)</strong>和一份对应的<strong>工作目录</strong>。<br/></p>
-<p><code>git clone https://github.com/git/git.git</code></p>
-<h1 id="分支管理">分支管理</h1>
-<ul>
-<li>查看分支
-<ul>
-<li><code>git branch</code>：查看本地分支</li>
-<li><code>git branch -r</code>：查看远程分支</li>
-<li><code>git branch -a</code>：查看所有分支</li>
-<li><code>git status</code>：查看当前分支是否有未提交修改</li>
-</ul></li>
-<li>创建/切换分支
-<ul>
-<li><code>git branch &lt;name&gt;</code>：创建新分支</li>
-<li><code>git checkout &lt;name&gt;</code>：切换分支</li>
-<li><code>git checkout -b &lt;name&gt;</code>：创建并切换分支</li>
-</ul></li>
-<li>重命名/删除分支
-<ul>
-<li><code>git branch -m &lt;old&gt; &lt;new&gt;</code>：重命名分支</li>
-<li><code>git branch -d &lt;name&gt;</code>：安全删除分支（已合并才删）</li>
-<li><code>git branch -D &lt;name&gt;</code>：强制删除分支</li>
-</ul></li>
-<li>合并分支
-<ul>
-<li><code>git merge &lt;name&gt;</code>：将某分支合并到主分支</li>
-<li><code>git revert &lt;commit&gt;</code>：在分支上安全回滚
-<ul>
-<li><code>git revert HEAD</code>：撤销前一次commit操作</li>
-<li><code>git revert HEAD^n</code></li>
-</ul></li>
-</ul></li>
-<li></li>
-</ul>
-
+          <p>本文章汇集了大部分git基本命令的介绍，便于使用时快速查阅。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/1002.html">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -594,7 +547,7 @@ flowchart LR
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-11-25 14:50:22" itemprop="dateModified" datetime="2025-11-25T14:50:22+08:00">2025-11-25</time>
+      <time title="修改时间：2025-12-10 15:17:55" itemprop="dateModified" datetime="2025-12-10T15:17:55+08:00">2025-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -631,181 +584,15 @@ flowchart LR
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="使用工具和依赖">使用工具和依赖</h1>
-<ul>
-<li>芯片：STM32F411CEU6（<a
-target="_blank" rel="noopener" href="https://www.st.com.cn/resource/zh/reference_manual/rm0383-stm32f411xce-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">芯片手册</a>）（<a
-target="_blank" rel="noopener" href="https://xuanxuanblingbling.github.io/assets/attachment/stm32/STM32%E4%B8%AD%E6%96%87%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8CV10.pdf">STM32中文参考手册</a>）</li>
-<li>代码初始化软件：STM32CUBEMX</li>
-<li>IDE: MDK-ARM Keil5</li>
-<li>依赖：stm32f4xx hal库</li>
-</ul>
-<h1 id="什么是pwm">什么是PWM</h1>
-<p>脉冲宽度调制（PWM = Pulse Width
-Modulation）简称脉宽调制，是利用微处理器的数字输出，通过控制有效电平在一个周期内的占比，来近似模拟信号进行控制的一种技术，广泛应用在从测量、通信到功率控制与变换的许多领域中。</p>
-<p>PWM模拟连续信号：</p>
-<style>.fggwnmcrpyri{zoom:80%;}</style>
-<img src="/posts/2001/PWM%E6%A8%A1%E6%8B%9F%E8%BF%9E%E7%BB%AD%E4%BF%A1%E5%8F%B7.jpg" class="fggwnmcrpyri" alt="PWM模拟连续信号">
-<p>PWM基本概念：</p>
-<ul>
-<li><strong>PWM周期</strong>：PWM波形从低电平到高电平再到低电平所持续的时间</li>
-<li><strong>PWM频率</strong>：单位时间内一个PWM周期的重复次数，<span
-class="math inline">\(f=1/T\)</span></li>
-<li><strong>PWM占空比</strong>：一个PWM周期内高电平时间和总时间的比值，<span
-class="math inline">\(\sigma=T_{high}/T\)</span></li>
-</ul>
-<style>.ensezqhjvist{zoom:40%;}</style>
-<img src="/posts/2001/PWM%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.jpg" class="ensezqhjvist" alt="PWM基本概念">
-<h1 id="定时器功能介绍">定时器功能介绍</h1>
-<p>STM32F411xC/E系列共有8个定时器：<br />
-高级定时器（TIM1）；通用定时器（TIM2、TIM3、TIM4、TIM5）；基本定时器（TIM9、TIM10、TIM11）。</p>
-<p>通用定时器TIMx的功能包括： - 16位（TIM3和TIM4）或 32位（TIM2和TIM5）
-<strong>向上、向下、向上/向下自动装载计数器</strong> - 16位可编程
-<strong>预分频器</strong>，计数器时钟频率的分频系数为1~65536之间的任意数值
-- 4个独立通道 - 输入捕获（Input capture） - 输出比较（Output compare） -
-<strong>PWM生成</strong>（边缘或中间对齐模式） - 单脉冲模式输出 -
-使用外部信号控制定时器和定时器互连的同步电路 -
-如下时间发生时产生<strong>中断/DMA</strong>： -
-更新：计数器向上溢出/向下溢出，计数器初始化（通过软件或者内部/外部触发）
-- 触发事件（计数器启动、停止、初始化或者由内部/外部触发计数） - 输入捕获
-- 输出比较 - 支持针对定位的增量（正交）编码器和霍尔传感器电路 -
-触发输入作为外部时钟或者按周期的电流管理</p>
-<p>通用定时器框图如下：
-<style>.rsqksnfsroni{zoom:95%;}</style><img src="/posts/2001/%E9%80%9A%E7%94%A8%E5%AE%9A%E6%97%B6%E5%99%A8%E6%A1%86%E5%9B%BE.jpg" class="rsqksnfsroni" alt="通用定时器框图"></p>
-<h1 id="输出比较pwm工作原理">输出比较/PWM工作原理</h1>
-<p>和输出比较/PWM相关的时基单元：</p>
-<ul>
-<li><p>预分频器寄存器（TIMx_PSC）<br />
-预分频器PSC，有一个输入时钟CK_PSC和一个输出时钟CK_CNT。输入时钟CK_PSC就是系统时钟源的输出，输出CK_CNT则用来驱动计数器CNT计数。通过设置预分频器PSC的值（0~65535）可以得到不同的CK_CNT，计算公式：<span
-class="math inline">\(f_{CNT}=f_{PSC}/(PSC[15:0]+1)\)</span></p></li>
-<li><p>计数器寄存器（TIMx_CNT）<br />
-高级/通用定时器的计数器有三种计数模式，分别为向上计数模式、向下计数模式和中心对齐计数模式。</p>
-<ul>
-<li>向上计数模式：计数器从0开始计数，每来一个CK_CNT脉冲计数器就增加1，直到计数器的值与自动重载寄存器ARR值相等，
-然后计数器又从0开始计数并生成计数器上溢事件，计数器总是如此循环计数。如果禁用重复计数器，在计数器生成上溢事件就马上生成更新事件(UEV)；
-如果使能重复计数器，每生成一次上溢事件重复计数器内容就减1，直到重复计数器内容为0时才会生成更新事件。</li>
-<li>向下计数模式：计数器从自动重载寄存器ARR值开始计数，每来一个CK_CNT脉冲计数器就减1，直到计数器值为0，
-然后计数器又从自动重载寄存器ARR值开始递减计数并生成计数器下溢事件，计数器总是如此循环计数。如果禁用重复计数器，
-在计数器生成下溢事件就马上生成更新事件；如果使能重复计数器，每生成一次下溢事件重复计数器内容就减1，直到重复计数器内容为0时才会生成更新事件。</li>
-<li>中心对齐模式：计数器从0开始递增计数，直到计数值等于(ARR-1)值生成计数器上溢事件，
-然后从ARR值开始递减计数直到1生成计数器下溢事件。然后又从0开始计数，如此循环。每次发生计数器上溢和下溢事件都会生成更新事件。</li>
-</ul></li>
-</ul>
-<style>.myxszgycldnr{zoom:95%;}</style>
-<img src="/posts/2001/%E5%AE%9A%E6%97%B6%E5%99%A8%E8%AE%A1%E6%95%B0%E5%AF%84%E5%AD%98%E5%99%A8%E7%9A%843%E7%A7%8D%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F.jpg" class="myxszgycldnr" alt="定时器计数器寄存器的3种工作模式">
-<ul>
-<li><p>自动重载寄存器（TIMx_ARR）<br />
-自动重载寄存器ARR用来存放与计数器CNT比较的值，如果两个值相等CNT就复位并递减重复计数器。可以通过TIMx_CR1寄存器的ARPE位控制自动重载影子寄存器功能，
-如果ARPE位置1，自动重载影子寄存器有效，只有在事件更新时才把TIMx_ARR值赋给影子寄存器。如果ARPE位为0，则修改TIMx_ARR值马上有效。</p></li>
-<li><p>捕获/比较寄存器（TIMx_CCR）<br />
-通过比较计数器CNT的值跟比较寄存器CCR的值，两者相等时输出参考信号OCxREF的信号的极性就会改变，其中OCxREF=1（高电平）称之为有效电平，
-OCxREF=0（低电平）称之为无效电平，并且会产生比较中断CCxI，相应的标志位CCxIF（SR寄存器中）会置位。
-然后OCxREF再经过一系列的控制之后就成为真正的输出信号OCx/OCxN.
-<style>.rjwurexujnjl{zoom:70%;}</style><img src="/posts/2001/%E6%8D%95%E8%8E%B7%E6%AF%94%E8%BE%83%E6%A8%A1%E5%9D%97%E7%9A%84%E8%BE%93%E5%87%BA%E9%83%A8%E5%88%86.jpg" class="rjwurexujnjl" alt="捕获比较通道的输出部分"></p></li>
-</ul>
-<p>输出比较的工作流程（如上）：</p>
-<ol type="1">
-<li><p>TIMx_CCMR1：OC1M[2:0]用于输出比较模式选择<br />
-000: 冻结，001: 匹配时有效，010: 匹配时无效，011: 翻转电平，100:
-强制无效，101: 强制有效，110: PWM模式1，111: PWM模式2<br />
-<strong>PWM模式1</strong>：TIMx_CNT &lt; TIMx_CCR1
-时通道1为有效电平，否则为无效电平<br />
-<strong>PWM模式2</strong>：TIMx_CNT &lt; TIMx_CCR1
-时通道1为无效电平，否则为有效电平</p></li>
-<li><p>oc1ref：根据CNT和CCR1的比较结果输出有效电平/无效电平<br />
-oc1ref = 0 无效电平，oc1ref = 1 有效电平</p></li>
-<li><p>TIMx_CC1P：CC1P表示输出极性<br />
-CC1P = 0 高电平为有效电平，CC1P = 1 低电平为有效电平</p></li>
-<li><p>TIMx_CCER：CC1E表示输出使能<br />
-CC1E = 0 禁止输出，CC1E = 1 信号输出到对应的输出引脚</p></li>
-</ol>
-<p>根据PWM模式1/2和向上/向下计数的不同选择，可排列组合出4种PWM输出波形：</p>
-<table>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 45%" />
-<col style="width: 45%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: center;"></th>
-<th style="text-align: center;"><strong>PWM模式1</strong></th>
-<th style="text-align: center;"><strong>PWM模式2</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;"><strong>向上计数</strong></td>
-<td
-style="text-align: center;"><style>.lombddzjbrqf{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F1_%E5%90%91%E4%B8%8A%E8%AE%A1%E6%95%B0.jpg" class="lombddzjbrqf" alt="PWM模式1_向上计数"></td>
-<td
-style="text-align: center;"><style>.vltjwrntclma{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F2_%E5%90%91%E4%B8%8A%E8%AE%A1%E6%95%B0.jpg" class="vltjwrntclma" alt="PWM模式2_向上计数"></td>
-</tr>
-<tr>
-<td style="text-align: center;"><strong>向下计数</strong></td>
-<td
-style="text-align: center;"><style>.wvkutikpsynt{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F1_%E5%90%91%E4%B8%8B%E8%AE%A1%E6%95%B0.jpg" class="wvkutikpsynt" alt="PWM模式1_向下计数"></td>
-<td
-style="text-align: center;"><style>.iitknuzuneln{zoom:95%;}</style><img src="/posts/2001/PWM%E6%A8%A1%E5%BC%8F2_%E5%90%91%E4%B8%8B%E8%AE%A1%E6%95%B0.jpg" class="iitknuzuneln" alt="PWM模式2_向下计数"></td>
-</tr>
-</tbody>
-</table>
-<h1 id="呼吸灯实验讲解">呼吸灯实验讲解</h1>
-<p>我们结合刚才学习的PWM和定时器基础知识，完成呼吸灯实验，实现板上LED亮度的渐变调节功能。</p>
-<h2 id="cubemx初始化配置">CUBEMX初始化配置</h2>
-<ol type="1">
-<li><p><strong>设置外部时钟</strong><br />
-设置高速外部时钟HSE，选择RC振荡器<br />
-<style>.ovbehhmwvmyr{zoom:30%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AERCC.jpg" class="ovbehhmwvmyr" alt="设置RCC"></p></li>
-<li><p><strong>设置烧录和调试接口</strong><br />
-设置Debug选项为Serial Wire<br />
-<style>.tiumwncroopi{zoom:25%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AESYS.jpg" class="tiumwncroopi" alt="设置SYS"></p></li>
-<li><p><strong>设置时钟树</strong><br />
-点击锁相环PLLCLK，将系统时钟HCLK设置为最大值100MHz<br />
-<style>.wlvxlttvafuz{zoom:25%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AE%E6%97%B6%E9%92%9F%E6%A0%91.jpg" class="wlvxlttvafuz" alt="设置时钟树"></p></li>
-<li><p><strong>设置定时器</strong><br />
-点击TIM2，设置定时器时钟源为内部时钟源，设置定时器CH1为PWM
-Generation模式<br />
-<style>.hjbljwsdxezt{zoom:30%;}</style><img src="/posts/2001/%E8%AE%BE%E7%BD%AE%E5%AE%9A%E6%97%B6%E5%99%A8.jpg" class="hjbljwsdxezt" alt="设置定时器"></p>
-<ul>
-<li><strong>PWM频率</strong> <span
-class="math inline">\(f_{pwm}=f_{clk}/(PSC+1)/(ARR+1)=100M/100/500=2kHz\)</span>，注意：PSC和ARR要在实际值基础减1</li>
-<li><strong>PWM占空比</strong> <span
-class="math inline">\(duty=(CCR+1)/(ARR+1)\)</span>，CCR可以在Pulse中设为固定值，也可以在程序中再修改</li>
-<li><strong>Mode</strong> 选择PWM模式1</li>
-<li><strong>Pulse(占空比值)</strong> 先按默认值0</li>
-<li><strong>Fast Mode</strong>
-PWM脉冲快速模式，和我们配置无关，不使能</li>
-<li><strong>PWM 极性</strong> 设置为低电平 PS:
-<strong>由于LED是低电平点亮，所以我们把极性设置为low</strong></li>
-</ul></li>
-<li><p><strong>项目文件配置</strong><br />
-设置项目名称，设置存储路径，选择所用IDE（KEIL 5)<br />
-<style>.ihrisgifvopw{zoom:25%;}</style><img src="/posts/2001/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE1.jpg" class="ihrisgifvopw" alt="项目文件设置1"><br />
-选择仅复制所需的.c和.h库文件，选择每个功能生成独立的.c和.h文件<br />
-<style>.xbcwztognqer{zoom:25%;}</style><img src="/posts/2001/%E9%A1%B9%E7%9B%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE2.jpg" class="xbcwztognqer" alt="项目文件设置2"> 然后点击GENERATE
-CODE，创建工程</p></li>
-</ol>
-<h2 id="keil代码编写">Keil代码编写</h2>
-<p><strong>配置下载工具</strong><br />
-新建的工程所有配置都是默认的，我们需要选择ST-Link下载调试接口，勾选上下载后复位运行
-<style>.lnctuwmelgdu{zoom:50%;}</style><img src="/posts/2001/keil%E9%85%8D%E7%BD%AE%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7.jpg" class="lnctuwmelgdu" alt="keil配置下载工具"></p>
-<p>我们修改main.c文件创建一个呼吸灯的例程。<br />
-<strong>定义变量：</strong><br />
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* USER CODE BEGIN 1 */</span></span><br><span class="line">  <span class="type">uint16_t</span> pwmVal = <span class="number">0</span>;</span><br><span class="line"><span class="comment">/* USER CODE END 1 */</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>使能 TIM2 的 PWM Channel1 输出：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* USER CODE BEGIN 2 */</span></span><br><span class="line">  HAL_TIM_PWM_Start(&amp;htim2, TIM_CHANNEL_1);</span><br><span class="line"><span class="comment">/* USER CODE END 2 */</span></span><br></pre></td></tr></table></figure>
-<p><strong>在while循环中添加核心逻辑：</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* USER CODE BEGIN WHILE */</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">while</span>(pwmVal &lt; <span class="number">500</span>)  &#123;</span><br><span class="line">          pwmVal++;</span><br><span class="line">          __HAL_TIM_SetCompare(&amp;htim2, TIM_CHANNEL_1, pwmVal);</span><br><span class="line">          HAL_Delay(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">while</span>(pwmVal)  &#123;</span><br><span class="line">          pwmVal--;</span><br><span class="line">          __HAL_TIM_SetCompare(&amp;htim2, TIM_CHANNEL_1, pwmVal);</span><br><span class="line">          HAL_Delay(<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="comment">/* USER CODE END WHILE */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* USER CODE BEGIN 3 */</span></span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">/* USER CODE END 3 */</span></span><br></pre></td></tr></table></figure>
-<h1 id="参考链接">参考链接</h1>
-<ol type="1">
-<li><p><a
-target="_blank" rel="noopener" href="https://doc.embedfire.com/mcu/stm32/f103mini/std/zh/latest/book/TIM_basic.html#">野火STM32库开发实战指南</a></p></li>
-<li><p><a
-target="_blank" rel="noopener" href="https://blog.csdn.net/as480133937/article/details/99231677">【STM32】HAL库
-STM32CubeMX教程</a></p></li>
-</ol>
-
+          <p>本文章介绍了PWM和STM32定时器的基础概念，并讲解了经典的呼吸灯实验的操作流程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2001.html">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
