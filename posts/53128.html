@@ -19,25 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"adventurerdxc.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="心有所向，无问西东">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AdventurerDXC的技术博客">
-<meta property="og:url" content="https://adventurerdxc.github.io/archives/2025/11/index.html">
+    <meta name="description" content="本文介绍了基于ARM Cortex-M处理器的嵌入式系统设计的数字信号处理库CMSIS-DSP，并给出常用的数学运算与信号分析等函数的调用方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【STM32】DSP数字信号处理函数库">
+<meta property="og:url" content="https://adventurerdxc.github.io/posts/53128.html">
 <meta property="og:site_name" content="AdventurerDXC的技术博客">
-<meta property="og:description" content="心有所向，无问西东">
+<meta property="og:description" content="本文介绍了基于ARM Cortex-M处理器的嵌入式系统设计的数字信号处理库CMSIS-DSP，并给出常用的数学运算与信号分析等函数的调用方法。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://adventurerdxc.github.io/posts/undefined/DSP%E5%BA%93%E5%AE%89%E8%A3%85.png">
+<meta property="og:image" content="https://adventurerdxc.github.io/posts/undefined/DSP%E5%BA%93%E4%BD%BF%E7%94%A8.png">
+<meta property="article:published_time" content="2025-12-25T09:02:34.000Z">
+<meta property="article:modified_time" content="2025-12-25T09:32:41.118Z">
 <meta property="article:author" content="AdventurerDXC">
 <meta property="article:tag" content="技术分享类博客">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://adventurerdxc.github.io/posts/undefined/DSP%E5%BA%93%E5%AE%89%E8%A3%85.png">
 
 
-<link rel="canonical" href="https://adventurerdxc.github.io/archives/2025/11/">
+<link rel="canonical" href="https://adventurerdxc.github.io/posts/53128.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2025/11/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://adventurerdxc.github.io/posts/53128.html","path":"posts/53128.html","title":"【STM32】DSP数字信号处理函数库"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | AdventurerDXC的技术博客</title>
+<title>【STM32】DSP数字信号处理函数库 | AdventurerDXC的技术博客</title>
   
 
 
@@ -95,7 +100,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">AdventurerDXC的技术博客</h1>
+      <p class="site-title">AdventurerDXC的技术博客</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -121,7 +126,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -134,6 +139,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dsp%E5%BA%93%E4%B8%8B%E8%BD%BD%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">DSP库下载与使用</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,89 +186,129 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 6 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://adventurerdxc.github.io/posts/53128.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="AdventurerDXC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AdventurerDXC的技术博客">
+      <meta itemprop="description" content="心有所向，无问西东">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【STM32】DSP数字信号处理函数库 | AdventurerDXC的技术博客">
+      <meta itemprop="description" content="本文介绍了基于ARM Cortex-M处理器的嵌入式系统设计的数字信号处理库CMSIS-DSP，并给出常用的数学运算与信号分析等函数的调用方法。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【STM32】DSP数字信号处理函数库
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2025<span class="collection-year-count">6</span></span>
+
+      <time title="创建时间：2025-12-25 17:02:34 / 修改时间：17:32:41" itemprop="dateCreated datePublished" datetime="2025-12-25T17:02:34+08:00">2025-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/STM32%E5%B5%8C%E5%85%A5%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">STM32嵌入式</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>457</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">本文介绍了基于ARM Cortex-M处理器的嵌入式系统设计的数字信号处理库CMSIS-DSP，并给出常用的数学运算与信号分析等函数的调用方法。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="前言">前言</h1>
+<p><strong>什么是CMSIS-DSP库？</strong></p>
+<p>在ARM的单片机开发中，常用到CMSIS提供的DSP数字信号处理函数库。它为低功耗、高效能嵌入式系统设计，包含了常用的数学和信号处理功能，旨在提高单片机执行DSP算法的效率。它常见的功能模块包括快速数学运算、矩阵运算、滤波器设计、傅里叶变换、插值函数等，涵盖了大多数工程应用中的算法。</p>
+<h1 id="dsp库下载与使用">DSP库下载与使用</h1>
+<ol type="1">
+<li><p>按照标准流程新建一个STM32CUBEMX工程，生成MDK-ARM版本的代码工程文件。</p></li>
+<li><p>在Keil 5中打开Pack
+Installer，在右侧Pack列表中找到ARM::CMSIS-DSP点击Install，等待安装完毕，出现Up
+to date即可。</p>
+<style>.sobsujbfegvh{zoom:80%;}</style>
+<img src="/posts/undefined/DSP%E5%BA%93%E5%AE%89%E8%A3%85.png" class="sobsujbfegvh" alt="DSP库安装"></li>
+<li><p>关闭Pack Installer，打开Manage Run-Time
+Environment，勾选CMSIS目录下的DSP栏，点击OK即可。</p>
+<style>.nyhwmveflorq{zoom:75%;}</style>
+<img src="/posts/undefined/DSP%E5%BA%93%E4%BD%BF%E7%94%A8.png" class="nyhwmveflorq" alt="DSP库使用"></li>
+<li><p>最后在需要使用DSP的头文件中加一行<code>#include "arm_math.h"</code>，即可调用DSP库中的函数了。</p></li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-11-25T21:46:20+08:00"
-              content="2025-11-25">
-          11-25
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/1002.html" itemprop="url">
-            <span itemprop="name">Git基本命令和操作流程</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/2002.html" rel="prev" title="【STM32】HAL库教程-SPI通信">
+                  <i class="fa fa-angle-left"></i> 【STM32】HAL库教程-SPI通信
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-11-20T12:00:00+08:00"
-              content="2025-11-20">
-          11-20
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/1001.html" itemprop="url">
-            <span itemprop="name">Markdown语法对照表</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2025-11-19T11:31:00+08:00"
-              content="2025-11-19">
-          11-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/2001.html" itemprop="url">
-            <span itemprop="name">【STM32】HAL库教程-PWM输出</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 </div>
   </main>
