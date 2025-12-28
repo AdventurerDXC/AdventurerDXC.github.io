@@ -27,7 +27,7 @@
 <meta property="og:description" content="本文介绍了一种普遍应用于自动控制系统的反馈控制器——PID控制，包含其基本定义、工作原理、调参流程，以及电机角度为控制对象的例码。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-27T14:11:24.000Z">
-<meta property="article:modified_time" content="2025-12-27T15:11:24.171Z">
+<meta property="article:modified_time" content="2025-12-28T07:34:37.656Z">
 <meta property="article:author" content="AdventurerDXC">
 <meta property="article:tag" content="技术分享类博客">
 <meta name="twitter:card" content="summary">
@@ -222,9 +222,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-12-27 22:11:24 / 修改时间：23:11:24" itemprop="dateCreated datePublished" datetime="2025-12-27T22:11:24+08:00">2025-12-27</time>
+      <time title="创建时间：2025-12-27 22:11:24" itemprop="dateCreated datePublished" datetime="2025-12-27T22:11:24+08:00">2025-12-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-28 15:34:37" itemprop="dateModified" datetime="2025-12-28T15:34:37+08:00">2025-12-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -243,7 +249,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>1.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -274,18 +280,27 @@
 <ul>
 <li><p><strong>连续PID</strong>：适用于理论计算和连续控制系统中。它基于时间连续的误差值进行反馈控制。</p>
 <p><span class="math display">\[u(t)=K_p \cdot e(t) + K_i \int_0^t
-e(\tau)d\tau + K_d\frac{de(t)}{dt}\]</span></p>
+e(\tau)d\tau + K_d\frac{de(t)}{dt} = K_p[e(t)+\frac{1}{T_i}\int_0^t
+e(\tau)d\tau + T_d\frac{de(t)}{dt}]\]</span></p>
 <p>其中：<span
 class="math inline">\(e(t)\)</span>是当前时刻的误差，<span
 class="math inline">\(K_p\)</span>是比例增益，<span
 class="math inline">\(K_i\)</span>是积分增益，<span
 class="math inline">\(K_d\)</span>是微分增益</p></li>
-<li><p><strong>离散PID</strong>：由于计算机和嵌入式系统通常是离散的，对连续PID公式进行修改，通过离散时间步长对误差进行处理。控制信号是通过差分方程来近似连续PID公式：</p>
-<p><span class="math display">\[u(k)=K_p \cdot e(k) + K_i \sum_{i=0}^k
-e(i) \cdot \Delta t + K_d \cdot \frac{e(k)-e(k-1)}{\Delta
-t}\]</span></p>
-<p>其中：<span class="math inline">\(k\)</span>是离散时间点，<span
-class="math inline">\(\Delta t\)</span>是时间步长。</p></li>
+<li><p><strong>离散PID</strong>：由于计算机和嵌入式系统通常是离散的，对连续PID公式进行修改，通过离散时间步长对误差进行处理。假设采样时间间隔为<span
+class="math inline">\(T\)</span>，则在<span
+class="math inline">\(k\)</span>时刻偏差为<span
+class="math inline">\(e(k)\)</span>，积分为<span
+class="math inline">\(T\cdot(e(k)+e(k-1)+...+e(0))\)</span>，微分为<span
+class="math inline">\((e(k)-e(k-1))/T\)</span>. 得到离散化的PID公式</p>
+<p><span class="math display">\[u(k)=K_p[e(k)+\frac{T}{T_i}\sum_{n=0}^k
+e(n) + \frac{T_d}{T}(e(k)-e(k-1))]=K_p \cdot e(k) +
+\frac{K_pT}{T_i}\sum_{n=0}^k e(n) +
+\frac{K_pT_d}{T}(e(k)-e(k-1))\]</span></p>
+<p>由以上公式可知，比例系数为<span
+class="math inline">\(K_p\)</span>，积分系数为<span
+class="math inline">\(K_p\cdot T/T_i\)</span>，微分系数为<span
+class="math inline">\(K_p \cdot T_d/T\)</span>。</p></li>
 </ul>
 <h1 id="电机角度控制">电机角度控制</h1>
 <ul>
@@ -347,7 +362,7 @@ class="math inline">\(\Delta t\)</span>是时间步长。</p></li>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">12 分钟</span>
+    <span title="站点阅读时长">13 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
