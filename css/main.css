@@ -1239,7 +1239,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #65ff5b;
+  background: #ffc6ff;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2086,14 +2086,14 @@ pre code {
 .post-nav-item a {
   border-bottom: 0;
   display: block;
-  font-size: 1em;
+  font-size: 1.125em;
   line-height: 1.6;
 }
 .post-nav-item a:active {
   top: 2px;
 }
 .post-nav-item .fa {
-  font-size: 0.875em;
+  font-size: 1em;
 }
 .post-nav-item:first-child .fa {
   margin-right: 5px;
