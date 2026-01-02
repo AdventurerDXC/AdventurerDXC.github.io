@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://adventurerdxc.github.io/posts/2002.html</loc>
+    
+    <lastmod>2026-01-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://adventurerdxc.github.io/posts/4001.html</loc>
     
     <lastmod>2026-01-02</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://adventurerdxc.github.io/posts/2003.html</loc>
-    
-    <lastmod>2025-12-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://adventurerdxc.github.io/posts/2002.html</loc>
     
     <lastmod>2025-12-26</lastmod>
     
