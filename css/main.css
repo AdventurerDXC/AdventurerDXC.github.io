@@ -1239,7 +1239,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #ffc6ff;
+  background: #86ff73;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1332,7 +1332,7 @@ pre code {
   transform: rotate(-45deg);
 }
 .sidebar-nav {
-  font-size: 0.875em;
+  font-size: 1.125em;
   height: 0;
   margin: 0;
   overflow: hidden;
@@ -1437,7 +1437,7 @@ pre code {
   }
 }
 .post-toc {
-  font-size: 0.875em;
+  font-size: 1.125em;
 }
 .post-toc ol {
   list-style: none;
@@ -2086,14 +2086,14 @@ pre code {
 .post-nav-item a {
   border-bottom: 0;
   display: block;
-  font-size: 1.125em;
+  font-size: 1em;
   line-height: 1.6;
 }
 .post-nav-item a:active {
   top: 2px;
 }
 .post-nav-item .fa {
-  font-size: 1em;
+  font-size: 0.875em;
 }
 .post-nav-item:first-child .fa {
   margin-right: 5px;
