@@ -4,7 +4,16 @@
   <url>
     <loc>https://adventurerdxc.github.io/posts/16812.html</loc>
     
-    <lastmod>2026-01-08</lastmod>
+    <lastmod>2026-01-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://adventurerdxc.github.io/posts/1002.html</loc>
+    
+    <lastmod>2026-01-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -23,15 +32,6 @@
     <loc>https://adventurerdxc.github.io/posts/2002.html</loc>
     
     <lastmod>2026-01-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://adventurerdxc.github.io/posts/1002.html</loc>
-    
-    <lastmod>2026-01-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -94,7 +94,7 @@
 
   <url>
     <loc>https://adventurerdxc.github.io/</loc>
-    <lastmod>2026-01-08</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -104,28 +104,28 @@
   
   <url>
     <loc>https://adventurerdxc.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7%E6%9F%A5%E9%98%85/</loc>
-    <lastmod>2026-01-08</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adventurerdxc.github.io/categories/STM32%E5%B5%8C%E5%85%A5%E5%BC%8F/</loc>
-    <lastmod>2026-01-08</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adventurerdxc.github.io/categories/PCB%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/</loc>
-    <lastmod>2026-01-08</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://adventurerdxc.github.io/categories/%E7%94%B5%E6%9C%BA%E6%8E%A7%E5%88%B6%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2026-01-08</lastmod>
+    <lastmod>2026-01-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
