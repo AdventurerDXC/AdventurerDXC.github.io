@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://adventurerdxc.github.io/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E5%8F%AF%E9%80%89%E5%86%85%E5%A4%96%E5%B1%82%E9%93%9C%E5%8E%9A.png">
 <meta property="og:image" content="https://adventurerdxc.github.io/posts/16812/%E8%BF%87%E5%AD%94%E5%AD%94%E7%8E%AF%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png">
 <meta property="article:published_time" content="2026-01-08T02:36:49.000Z">
-<meta property="article:modified_time" content="2026-01-11T14:19:57.002Z">
+<meta property="article:modified_time" content="2026-01-11T14:55:27.215Z">
 <meta property="article:author" content="AdventurerDXC">
 <meta property="article:tag" content="技术分享类博客">
 <meta name="twitter:card" content="summary">
@@ -236,7 +236,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-01-11 22:19:57" itemprop="dateModified" datetime="2026-01-11T22:19:57+08:00">2026-01-11</time>
+      <time title="修改时间：2026-01-11 22:55:27" itemprop="dateModified" datetime="2026-01-11T22:55:27+08:00">2026-01-11</time>
     </span>
 
   
@@ -246,7 +246,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
+      <span>1.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -271,8 +271,8 @@
 下图展示了嘉立创EDA中调整线宽和铜厚的方法：<br />
 PCB的线宽设计规则，在顶部菜单的设计 -&gt; 设计规则 -&gt;
 规则管理菜单中，单位默认为mm，我们修改默认线宽即可。</p>
-<style>.cylccnjjmjlb{zoom:67%;}</style>
-<img src="/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E7%BA%BF%E5%AE%BD%E8%AE%BE%E8%AE%A1%E8%A7%84%E5%88%99.png" class="cylccnjjmjlb" alt="嘉立创PCB线宽设计规则">
+<style>.ckuegjjcfjmi{zoom:67%;}</style>
+<img src="/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E7%BA%BF%E5%AE%BD%E8%AE%BE%E8%AE%A1%E8%A7%84%E5%88%99.png" class="ckuegjjcfjmi" alt="嘉立创PCB线宽设计规则">
 <p>在下单平台中，我们可以在PCB工艺中为多层板指定铜厚，双层板只能配置外层铜厚，4层及以上的多层板可以配置外层和内层的铜厚。铜箔厚度的单位为<span
 class="math inline">\(Oz\)</span>，<span class="math inline">\(1Oz=35\mu
 m\)</span>，同理可算出<span class="math inline">\(0.5Oz=17.5\mu
@@ -280,8 +280,8 @@ m\)</span>，<span class="math inline">\(2Oz=70\mu m\)</span>.<br />
 需注意板厚的选择会影响到内外层铜厚的选择空间，不过大多数情况下，<span
 class="math inline">\(1Oz \sim 2Oz\)</span>的外层铜厚，<span
 class="math inline">\(0.5Oz\)</span>的内层铜厚足够满足需求。</p>
-<style>.zzhfyypdpjfw{zoom:67%;}</style>
-<img src="/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E5%8F%AF%E9%80%89%E5%86%85%E5%A4%96%E5%B1%82%E9%93%9C%E5%8E%9A.png" class="zzhfyypdpjfw" alt="嘉立创PCB可选内外层铜厚">
+<style>.fpdtlwycjwlm{zoom:67%;}</style>
+<img src="/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E5%8F%AF%E9%80%89%E5%86%85%E5%A4%96%E5%B1%82%E9%93%9C%E5%8E%9A.png" class="fpdtlwycjwlm" alt="嘉立创PCB可选内外层铜厚">
 <p>下面我们将介绍如何根据公式或经验确定合适的线宽和铜厚。</p>
 <p>方法一、根据<strong>国际通用PCB制作标准IPC-2221</strong>的公式，允许通过PCB导体的最大电流和<strong>温升<span
 class="math inline">\(\Delta T\)</span></strong>、<strong>截面积<span
@@ -343,180 +343,146 @@ class="math inline">\(A\)</span>和定义的铜厚<span
 class="math inline">\(\frac{D-d}{2}\)</span>，求得<span
 class="math inline">\(D\)</span>和<span
 class="math inline">\(d\)</span>.</p>
-<style>.acvgglrnubvr{zoom:50%;}</style>
-<img src="/posts/16812/%E8%BF%87%E5%AD%94%E5%AD%94%E7%8E%AF%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png" class="acvgglrnubvr" alt="过孔孔环面积计算公式">
+<style>.vmlqputfwsxp{zoom:50%;}</style>
+<img src="/posts/16812/%E8%BF%87%E5%AD%94%E5%AD%94%E7%8E%AF%E9%9D%A2%E7%A7%AF%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F.png" class="vmlqputfwsxp" alt="过孔孔环面积计算公式">
+<p>还有一种计算方法，将圆环沿中轴线剪开，铺成一张平面，因此内径周长可等效成线宽，即过孔横截面积<span
+class="math inline">\(A=等效线宽 \times 等效铜厚=过孔内径周长 \times
+孔壁铜厚=\pi d \times \frac{D-d}{2}\)</span></p>
 <p>方法二、软件工具计算 - <a
 href="%5BSaturn%20PCB%20Toolkit%20-%20Saturn%20PCB%5D(https://saturnpcb.com/saturn-pcb-toolkit/#)">Saturn
 PCB Toolkit</a><br />
 方法三、根据经验估算</p>
-<style>
-  .pretty-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #ffffff;
-    text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
-                 "PingFang SC", "Microsoft YaHei", sans-serif;
-    font-size: 14px;
-  }
-
-  .pretty-table th,
-  .pretty-table td {
-    border: 1px solid #cfd8e3;
-    padding: 10px 12px;
-    vertical-align: middle;
-  }
-
-  .pretty-table thead th {
-    background: #dbeeff;
-    font-weight: 600;
-  }
-
-  .pretty-table thead .table-title {
-    font-size: 15px;
-    letter-spacing: 0.2px;
-  }
-
-  .pretty-table tbody tr:hover {
-    background: #f6fbff;
-  }
-
-  .table-wrap {
-    border: 1px solid #cfd8e3;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-</style>
-<div class="table-wrap">
-<table class="pretty-table">
+<p>PCB的过孔通流多数情况下统一使用一种孔径，以避免更换不同规格的机械钻头。</p>
+<table style="width:100%; border-collapse:collapse; background:#ffffff; text-align:center; font-family:-apple-system,BlinkMacSystemFont,&#39;Segoe UI&#39;,Roboto,Arial,&#39;PingFang SC&#39;,&#39;Microsoft YaHei&#39;,sans-serif; font-size:16px;">
 <thead>
 <tr>
-<th class="table-title" colspan="4">
+<th colspan="4" style="background:#dbeeff; font-weight:600; font-size:18px; letter-spacing:0.2px; border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 不同孔径的过孔载流能力
 </th>
 </tr>
 <tr>
-<th rowspan="2">
+<th rowspan="2" style="background:#dbeeff; font-weight:600; border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 过孔直径
 </th>
-<th colspan="2">
+<th colspan="2" style="background:#dbeeff; font-weight:600; border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 温升 10℃
 </th>
-<th rowspan="2">
+<th rowspan="2" style="background:#dbeeff; font-weight:600; border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 温升 20℃（不推荐使用）
 </th>
 </tr>
 <tr>
-<th>
-计算值
+<th style="background:#dbeeff; font-weight:600; border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
+计算值（A）
 </th>
-<th>
-推荐值
+<th style="background:#dbeeff; font-weight:600; border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
+推荐值（A）
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 10mil
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.1848
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.6072
 </td>
 </tr>
 <tr>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 12mil
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.3415
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.2
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.8199
 </td>
 </tr>
 <tr>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 16mil
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.5521
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.4
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 2.1056
 </td>
 </tr>
 <tr>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 20mil
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.7646
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.5
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 2.3938
 </td>
 </tr>
 <tr>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 24mil
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.8720
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 1.6
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 2.5396
 </td>
 </tr>
 <tr>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 40mil
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 2.5287
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 2.3
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 3.4305
 </td>
 </tr>
 <tr>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 80mil
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 3.9433
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 3.6
 </td>
-<td>
+<td style="border:1px solid #cfd8e3; padding:10px 12px; vertical-align:middle;">
 5.3496
 </td>
 </tr>
 </tbody>
 </table>
-</div>
+<p>实际情况下，由于电流分布的不均匀性，放置多个过孔时，电流的分布不是均等的，跟过孔的分布、数量、位置都有关系。为了保险起见，最好放置计算值2倍数量的过孔。</p>
+<p>若板上空间有限，通流能力不够，可通过开窗加锡，或者加铜条增加散热和通流能力。</p>
 
     </div>
 
