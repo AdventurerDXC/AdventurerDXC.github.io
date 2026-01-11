@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://adventurerdxc.github.io/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E7%BA%BF%E5%AE%BD%E8%AE%BE%E8%AE%A1%E8%A7%84%E5%88%99.png">
 <meta property="og:image" content="https://adventurerdxc.github.io/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E5%8F%AF%E9%80%89%E5%86%85%E5%A4%96%E5%B1%82%E9%93%9C%E5%8E%9A.png">
 <meta property="article:published_time" content="2026-01-08T02:36:49.000Z">
-<meta property="article:modified_time" content="2026-01-09T15:13:18.367Z">
+<meta property="article:modified_time" content="2026-01-11T12:28:52.025Z">
 <meta property="article:author" content="AdventurerDXC">
 <meta property="article:tag" content="技术分享类博客">
 <meta name="twitter:card" content="summary">
@@ -139,7 +139,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pcb%E8%BD%BD%E6%B5%81%E8%83%BD%E5%8A%9B%E8%AE%A1%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text">PCB载流能力计算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%BD%E6%B5%81%E8%83%BD%E5%8A%9B%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">载流能力计算公式</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#pcb%E8%BD%BD%E6%B5%81%E8%83%BD%E5%8A%9B"><span class="nav-number">1.</span> <span class="nav-text">PCB载流能力</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pcb%E9%93%9C%E7%AE%94%E8%BD%BD%E6%B5%81%E8%83%BD%E5%8A%9B%E8%AE%A1%E7%AE%97"><span class="nav-number">1.1.</span> <span class="nav-text">PCB铜箔载流能力计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%B0%E7%BA%BF%E8%BD%BD%E6%B5%81%E8%83%BD%E5%8A%9B%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">走线载流能力计算公式</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -234,7 +234,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-01-09 23:13:18" itemprop="dateModified" datetime="2026-01-09T23:13:18+08:00">2026-01-09</time>
+      <time title="修改时间：2026-01-11 20:28:52" itemprop="dateModified" datetime="2026-01-11T20:28:52+08:00">2026-01-11</time>
     </span>
 
   
@@ -244,7 +244,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>746</span>
+      <span>1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -262,39 +262,56 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="pcb载流能力计算">PCB载流能力计算</h1>
-<p>影响PCB载流能力的因素包括——铜箔厚度（单位：盎司Oz）、布线宽度（单位：mm/mil）、开窗焊锡、加焊导流铜线铜条等。在不做大电流设计时，需重点了解前两个因素该如何配置，以及如何根据电流需求计算铜厚和线宽。<br />
-以嘉立创EDA为例，PCB的线宽设计规则在顶部菜单的设计 -&gt; 设计规则 -&gt;
-规则管理菜单中，单位默认为mm，修改默认线宽即可。</p>
-<style>.sehfgzrmdpgc{zoom:67%;}</style>
-<img src="/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E7%BA%BF%E5%AE%BD%E8%AE%BE%E8%AE%A1%E8%A7%84%E5%88%99.png" class="sehfgzrmdpgc" alt="嘉立创PCB线宽设计规则">
-<p>在嘉立创下单平台中，我们可以在PCB工艺中为多层板指定铜厚，双层板只能配置外层铜厚，4层及以上的多层板可以配置外层和内层的铜厚。铜箔厚度的单位为<span
+    <div class="post-body" itemprop="articleBody"><h1 id="pcb载流能力">PCB载流能力</h1>
+<h2 id="pcb铜箔载流能力计算">PCB铜箔载流能力计算</h2>
+<p>影响PCB铜箔载流能力的因素包括——<strong>铜箔厚度</strong>（单位：盎司Oz）、<strong>布线宽度</strong>（单位：mm/mil）、开窗焊锡、加焊导流铜线铜条等。在PCB走线设计时，需重点了解前两个因素该如何配置，以确保传输所需的电流量不会过热和损坏电路板。<br />
+下图展示了嘉立创EDA中调整线宽和铜厚的方法：<br />
+PCB的线宽设计规则，在顶部菜单的设计 -&gt; 设计规则 -&gt;
+规则管理菜单中，单位默认为mm，我们修改默认线宽即可。</p>
+<style>.plbysawywvfo{zoom:67%;}</style>
+<img src="/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E7%BA%BF%E5%AE%BD%E8%AE%BE%E8%AE%A1%E8%A7%84%E5%88%99.png" class="plbysawywvfo" alt="嘉立创PCB线宽设计规则">
+<p>在下单平台中，我们可以在PCB工艺中为多层板指定铜厚，双层板只能配置外层铜厚，4层及以上的多层板可以配置外层和内层的铜厚。铜箔厚度的单位为<span
 class="math inline">\(Oz\)</span>，<span class="math inline">\(1Oz=35\mu
 m\)</span>，同理可算出<span class="math inline">\(0.5Oz=17.5\mu
 m\)</span>，<span class="math inline">\(2Oz=70\mu m\)</span>.<br />
 需注意板厚的选择会影响到内外层铜厚的选择空间，不过大多数情况下，<span
 class="math inline">\(1Oz \sim 2Oz\)</span>的外层铜厚，<span
 class="math inline">\(0.5Oz\)</span>的内层铜厚足够满足需求。</p>
-<style>.yjvggdqqgbwo{zoom:67%;}</style>
-<img src="/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E5%8F%AF%E9%80%89%E5%86%85%E5%A4%96%E5%B1%82%E9%93%9C%E5%8E%9A.png" class="yjvggdqqgbwo" alt="嘉立创PCB可选内外层铜厚">
-<h2 id="载流能力计算公式">载流能力计算公式</h2>
-<p>我们一般利用IPC-2221的公式（如下）计算载流能力和<strong>温升<span
+<style>.yjufxlyozerl{zoom:67%;}</style>
+<img src="/posts/16812/%E5%98%89%E7%AB%8B%E5%88%9BPCB%E5%8F%AF%E9%80%89%E5%86%85%E5%A4%96%E5%B1%82%E9%93%9C%E5%8E%9A.png" class="yjufxlyozerl" alt="嘉立创PCB可选内外层铜厚">
+<p>下面我们将介绍如何根据公式或经验确定合适的线宽和铜厚。</p>
+<h3 id="走线载流能力计算公式">走线载流能力计算公式</h3>
+<p>根据<strong>国际通用PCB制作标准IPC-2221</strong>的公式，允许通过PCB导体的最大电流和<strong>温升<span
 class="math inline">\(\Delta T\)</span></strong>、<strong>截面积<span
-class="math inline">\(A\)</span></strong>的关系。<br />
+class="math inline">\(A\)</span></strong>有关：<br />
 外层布线最大电流：<span class="math inline">\(I = 0.048 \cdot {\Delta
 T}^{0.44} \cdot A^{0.725}\)</span><br />
 内层布线最大电流：<span class="math inline">\(I = 0.024 \cdot {\Delta
 T}^{0.44} \cdot A^{0.725}\)</span><br />
-其中，<strong><span class="math inline">\(截面积A = 线宽 \times
-铜厚\)</span></strong>，计算时先由<span
-class="math inline">\(I\)</span>、<span
-class="math inline">\(T\)</span>导出<span
-class="math inline">\(A\)</span>，再由截面积、铜厚导出线宽。需注意截面积单位是<strong><span
+其中的参数含义为：</p>
+<ol type="1">
+<li><span
+class="math inline">\(I\)</span>为容许通过的最大电流，单位为安培A；</li>
+<li>0.024和0.048为修正系数，一般用<span
+class="math inline">\(K\)</span>表示。内层走线的<span
+class="math inline">\(K=0.024\)</span>，表层走线的<span
+class="math inline">\(K=0.048\)</span>；</li>
+<li><span class="math inline">\(\Delta
+T\)</span>为最大温升，单位为摄氏度<span
+class="math inline">\(\textcelsius\)</span>，常见值是10和20；</li>
+<li><span class="math inline">\(A\)</span>为走线截面积，<strong><span
+class="math inline">\(截面积A = 线宽 \times
+铜厚\)</span></strong>，注意单位为<strong><span
 class="math inline">\({mil}^2\)</span></strong>，记得<span
-class="math inline">\(mil\)</span>到<span
-class="math inline">\(mm\)</span>的单位转换。（<span
+class="math inline">\(mil\)</span>和<span
+class="math inline">\(mm\)</span>、<span
+class="math inline">\(Oz\)</span>的单位转换。（<span
 class="math inline">\(1mil=0.0254mm\)</span>，<span
-class="math inline">\(1mm=39.37mil\)</span>）</p>
+class="math inline">\(1mm=39.37mil\)</span>）（<span
+class="math inline">\(1Oz=1.378mil\)</span>）</li>
+</ol>
+<p>从上述公式我们可知，当铜厚一定时，<strong>最大电流并非与线宽近似正比</strong>，这是一个常见的误区。当走线宽度变为原来的10倍时，最大允许电流仅增大5.3倍。<br />
+常用软件计算工具：</p>
 
     </div>
 
