@@ -19,30 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"adventurerdxc.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="本文介绍了基于ARM Cortex-M处理器的嵌入式系统设计的数字信号处理库CMSIS-DSP，并给出常用的数学运算与信号分析等函数的调用方法。">
+    <meta name="description" content="C语言基础语法复习巩固">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【STM32】DSP数字信号处理函数库">
-<meta property="og:url" content="https://adventurerdxc.github.io/posts/2003.html">
+<meta property="og:title" content="C语言基础之查漏补缺">
+<meta property="og:url" content="https://adventurerdxc.github.io/posts/28713.html">
 <meta property="og:site_name" content="AdventurerDXC的技术博客">
-<meta property="og:description" content="本文介绍了基于ARM Cortex-M处理器的嵌入式系统设计的数字信号处理库CMSIS-DSP，并给出常用的数学运算与信号分析等函数的调用方法。">
+<meta property="og:description" content="C语言基础语法复习巩固">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://adventurerdxc.github.io/posts/2003/DSP%E5%BA%93%E5%AE%89%E8%A3%85.png">
-<meta property="og:image" content="https://adventurerdxc.github.io/posts/2003/DSP%E5%BA%93%E4%BD%BF%E7%94%A8.png">
-<meta property="article:published_time" content="2025-12-25T09:02:34.000Z">
-<meta property="article:modified_time" content="2025-12-26T08:12:25.564Z">
+<meta property="article:published_time" content="2026-01-13T08:28:21.000Z">
+<meta property="article:modified_time" content="2026-01-13T08:32:20.416Z">
 <meta property="article:author" content="AdventurerDXC">
 <meta property="article:tag" content="技术分享类博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://adventurerdxc.github.io/posts/2003/DSP%E5%BA%93%E5%AE%89%E8%A3%85.png">
 
 
-<link rel="canonical" href="https://adventurerdxc.github.io/posts/2003.html">
+<link rel="canonical" href="https://adventurerdxc.github.io/posts/28713.html">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://adventurerdxc.github.io/posts/2003.html","path":"posts/2003.html","title":"【STM32】DSP数字信号处理函数库"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://adventurerdxc.github.io/posts/28713.html","path":"posts/28713.html","title":"C语言基础之查漏补缺"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>【STM32】DSP数字信号处理函数库 | AdventurerDXC的技术博客</title>
+<title>C语言基础之查漏补缺 | AdventurerDXC的技术博客</title>
   
 
 
@@ -126,7 +123,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -139,7 +136,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dsp%E5%BA%93%E4%B8%8B%E8%BD%BD%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">DSP库下载与使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E5%AD%A6%E8%BF%90%E7%AE%97"><span class="nav-number">3.</span> <span class="nav-text">基本数学运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">浮点数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">定点数</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -198,7 +194,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://adventurerdxc.github.io/posts/2003.html">
+    <link itemprop="mainEntityOfPage" href="https://adventurerdxc.github.io/posts/28713.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -211,12 +207,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="【STM32】DSP数字信号处理函数库 | AdventurerDXC的技术博客">
-      <meta itemprop="description" content="本文介绍了基于ARM Cortex-M处理器的嵌入式系统设计的数字信号处理库CMSIS-DSP，并给出常用的数学运算与信号分析等函数的调用方法。">
+      <meta itemprop="name" content="C语言基础之查漏补缺 | AdventurerDXC的技术博客">
+      <meta itemprop="description" content="C语言基础语法复习巩固">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【STM32】DSP数字信号处理函数库
+          C语言基础之查漏补缺
         </h1>
 
         <div class="post-meta-container">
@@ -226,15 +222,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2025-12-25 17:02:34" itemprop="dateCreated datePublished" datetime="2025-12-25T17:02:34+08:00">2025-12-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-26 16:12:25" itemprop="dateModified" datetime="2025-12-26T16:12:25+08:00">2025-12-26</time>
+      <time title="创建时间：2026-01-13 16:28:21 / 修改时间：16:32:20" itemprop="dateCreated datePublished" datetime="2026-01-13T16:28:21+08:00">2026-01-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -242,7 +232,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/STM32%E5%B5%8C%E5%85%A5%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">STM32嵌入式</span></a>
+          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
         </span>
     </span>
 
@@ -253,7 +243,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>0</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -264,81 +254,14 @@
     </span>
 </div>
 
-            <div class="post-description">本文介绍了基于ARM Cortex-M处理器的嵌入式系统设计的数字信号处理库CMSIS-DSP，并给出常用的数学运算与信号分析等函数的调用方法。</div>
+            <div class="post-description">C语言基础语法复习巩固</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="前言">前言</h1>
-<p><strong>什么是CMSIS-DSP库？</strong></p>
-<p>在ARM的单片机开发中，常用到CMSIS提供的DSP数字信号处理函数库。它为低功耗、高效能嵌入式系统设计，包含了常用的数学和信号处理功能，旨在提高单片机执行DSP算法的效率。它常见的功能模块包括快速数学运算、矩阵运算、滤波器设计、傅里叶变换、插值函数等，涵盖了大多数工程应用中的算法。</p>
-<h1 id="dsp库下载与使用">DSP库下载与使用</h1>
-<ol type="1">
-<li><p>按照标准流程新建一个STM32CUBEMX工程，生成MDK-ARM版本的代码工程文件。</p></li>
-<li><p>在Keil 5中打开Pack
-Installer，在右侧Pack列表中找到ARM::CMSIS-DSP点击Install，等待安装完毕，出现Up
-to date即可。</p>
-<style>.prswplfiycmt{zoom:60%;}</style>
-<img src="/posts/2003/DSP%E5%BA%93%E5%AE%89%E8%A3%85.png" class="prswplfiycmt" alt="DSP库安装"></li>
-<li><p>关闭Pack Installer，打开Manage Run-Time
-Environment，勾选CMSIS目录下的DSP栏，点击OK即可。</p>
-<style>.xssyeigvmdez{zoom:60%;}</style>
-<img src="/posts/2003/DSP%E5%BA%93%E4%BD%BF%E7%94%A8.png" class="xssyeigvmdez" alt="DSP库使用"></li>
-<li><p>最后在需要使用DSP的头文件中加一行<code>#include "arm_math.h"</code>，即可调用DSP库中的函数了。</p></li>
-</ol>
-<h1 id="基本数学运算">基本数学运算</h1>
-<p>首先解释一下<strong>浮点数</strong>和<strong>定点数</strong>的概念</p>
-<p>计算机中有两种常见方式存储和处理小数，分别是浮点数和定点数，两种表示方式各有优缺点。（注：“点”即小数点，可从字面意思理解）</p>
-<h2 id="浮点数">浮点数</h2>
-<p>浮点数表示小数类似<strong>科学记数法</strong>，它由三个部分组成：符号位、指数部分和尾数部分。</p>
-<ul>
-<li><strong>符号位</strong>：1位，表示数值的符号。0表示正数，1表示负数。</li>
-<li><strong>指数</strong>：用于表示数值的大小范围，指数越大，则小数的绝对值越大。</li>
-<li><strong>尾数</strong>：有效数字部分，尾数越长则数值越精确。</li>
-</ul>
-<p>根据IEEE
-754标准，<strong>单精度浮点数（32位）</strong>的结构为<strong>1位符号位+8位指数位+23位尾数位</strong>，</p>
-<p><strong>双精度浮点数（64位）</strong>的结构为<strong>1位符号位+11位指数位+52位尾数位</strong></p>
-<p>例子：数值<span
-class="math inline">\(6.25_{(10)}=110.01_{(2)}=1.1001_{(2)}\times2^{10_{(2)}}\)</span>，因此6.25在计算机中使用单精度浮点数表示为<span
-class="math inline">\(0 | 00000010 | 000...0011001\)</span></p>
-<p>总结：浮点数能表示<strong>非常大范围</strong>的数，支持科学记数法，且能提供<strong>较高精度</strong>，但缺点是<strong>对硬件支持要求高</strong>，<strong>计算耗时较长</strong>，且对于某些十进制小数只能近似表示。</p>
-<h2 id="定点数">定点数</h2>
-<p>定点数是一种相对简单的数值表示方式，它将小数固定在特定位置，计算时<strong>没有浮动的指数部分</strong>。定点数通常由两部分组成：<strong>整数部分</strong>和<strong>小数部分</strong>，两者的长度是固定的。</p>
-<p>定点数通过指定<strong>小数位数（Q格式）</strong>来决定小数部分的精度，常见的格式有</p>
-<ul>
-<li><strong>Q15格式</strong>：包含1个符号位和15个小数位，剩余位为整数位。其精度为<span
-class="math inline">\(1/2^{15}\approx0.00003\)</span>，因此能表示的数值范围为<span
-class="math inline">\(-1\)</span>到<span
-class="math inline">\(0.99997\)</span>，例如Q15格式中<span
-class="math inline">\(32768\)</span>表示<span
-class="math inline">\(-1\)</span>，<span
-class="math inline">\(32767\)</span>表示<span
-class="math inline">\(0.99997\)</span>，<span
-class="math inline">\(16384\)</span>表示<span
-class="math inline">\(0.5\)</span>.<br />
-</li>
-<li><strong>Q31格式</strong>：包含1个符号位和31个小数位。其精度为<span
-class="math inline">\(1/2^{31}\)</span>，因此能表示的数值范围为<span
-class="math inline">\(-1\)</span>到<span
-class="math inline">\(1-2^{-31}\)</span>.</li>
-</ul>
-<p>CMSIS-DSP库中Q15格式对应变量类型<code>q15_t</code>，Q31格式对应变量类型<code>q31_t</code>.</p>
-<p>【注意事项】</p>
-<ol type="1">
-<li>使用Q15进行定点数运算时，需要确保该数在合法范围<span
-class="math inline">\(-32768\)</span>到<span
-class="math inline">\(32767\)</span>之间，若超出范围会被截断成<span
-class="math inline">\(0x7FFF\)</span>或<span
-class="math inline">\(0x8000\)</span>. 同理使用Q31类型需确保该数在<span
-class="math inline">\(-2147483648\)</span>到<span
-class="math inline">\(2147483647\)</span>之间。<br />
-</li>
-<li>只有同类型的定点数可以运算。两个Q15类型的定点数相乘时，乘积会超出Q15的表示范围，因此需将结果右移15位。同理两个Q31类型的定点数相乘时，结果需右移31位。</li>
-</ol>
-<p>总结：定点数能表示的数的范围远小于浮点数，而且由于<strong>把小数当作整数</strong>进行运算，会<strong>损失一定的精度</strong>，但是定点数运算能<strong>节省大量的时间和空间开销</strong>，非常适用于<strong>嵌入式系统</strong>追求<strong>高实时性</strong>和<strong>低功耗</strong>的应用场景。</p>
+    <div class="post-body" itemprop="articleBody">
 
     </div>
 
@@ -352,14 +275,11 @@ class="math inline">\(2147483647\)</span>之间。<br />
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/2002.html" rel="prev" title="【STM32】HAL库教程-SPI通信">
-                  <i class="fa fa-angle-left"></i> 【STM32】HAL库教程-SPI通信
+                <a href="/posts/16812.html" rel="prev" title="PCB基本布线规范与设计原则">
+                  <i class="fa fa-angle-left"></i> PCB基本布线规范与设计原则
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/4001.html" rel="next" title="【电机控制基础】PID控制器">
-                  【电机控制基础】PID控制器 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
